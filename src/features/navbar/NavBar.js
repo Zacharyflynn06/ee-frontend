@@ -66,6 +66,17 @@ const NavBar = (props) => {
             >
                 Music
             </NavLink>
+
+            <NavLink
+                to="/contact"
+                exact
+                style={link}
+                activeStyle={{
+                    color: "blue"
+                }}
+            >
+                Contact
+            </NavLink>
         </>
     )
 }
