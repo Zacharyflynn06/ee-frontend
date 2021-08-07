@@ -4,7 +4,8 @@ import {
   Switch,
   Route,
  } from 'react-router-dom';
-import NavBar from './NavBar';
+import NavBar from './features/NavBar/NavBar';
+import Home from './features/home/Home';
 
 import './App.css';
 
@@ -13,8 +14,8 @@ function App() {
     <div className="App">
       <Router>
         <NavBar/>
-        <Route path="/">
-          {/* some component here */}
+        <Route exact path="/">
+          <Home />
         </Route>
         <Route>
           {/* some component here */}
