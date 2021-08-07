@@ -1,14 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+import { 
+  BrowserRouter as Router,
+  Switch,
+  Route,
+ } from 'react-router-dom';
+import NavBar from './NavBar';
+
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        
-      </header>
+      <Router>
+        <NavBar/>
+        <Route path="/">
+          {/* some component here */}
+        </Route>
+        <Route>
+          {/* some component here */}
+        </Route>
+
+      </Router>
     </div>
   );
 }
