@@ -11,7 +11,7 @@ import Contact from './features/contact/Contact';
 import Music from './features/music/Music';
 import StoreContainer from './features/shop/shopContainer';
 import EventContainer from './features/event/eventsContainer';
-
+import Signup from './features/Users/signup';
 import './App.css';
 
 function App() {
@@ -28,7 +28,7 @@ function App() {
           <Route exact path="/music" component={Music}/>
           <Route exact path="/store" component={StoreContainer}/>
           <Route exact path="/events" component={EventContainer}/>
-
+          <Route exact path="/signup" component={Signup} />
 
           
 
