@@ -9,7 +9,7 @@ import Home from './features/home/Home';
 import About from './features/about/About';
 import Contact from './features/contact/Contact';
 import Music from './features/music/Music';
-import StoreContainer from './features/store/StoreContainer';
+import StoreContainer from './features/shop/shopContainer';
 import EventContainer from './features/event/eventsContainer';
 
 import './App.css';
