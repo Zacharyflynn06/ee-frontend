@@ -1,14 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-// import counterReducer from '../features/counter/counterSlice';
-import { combineReducers } from 'redux';
+import eventsReducer from '../features/event/eventsSlice'
 
-const rootReducer = combineReducers({
-  
+export default configureStore({
+  reducer: {
+    events: eventsReducer
+  }
 })
-
-
-const store = configureStore({
-  rootReducer
-})
-
-export default store

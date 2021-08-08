@@ -10,7 +10,7 @@ import About from './features/about/About';
 import Contact from './features/contact/Contact';
 import Music from './features/music/Music';
 import StoreContainer from './features/store/StoreContainer';
-import EventContainer from './features/event/EventContainer';
+import EventContainer from './features/event/eventsContainer';
 
 import './App.css';
 
