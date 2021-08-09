@@ -11,8 +11,8 @@ import Contact from './features/contact/Contact';
 import Music from './features/music/Music';
 import ShopContainer from './features/shop/ShopContainer';
 import EventContainer from './features/event/eventsContainer';
-import Signup from './features/Users/Signup';
-import Login from './features/Users/Login';
+import Signup from './features/User/Signup';
+import Login from './features/User/Login';
 import './App.css';
 
 function App() {

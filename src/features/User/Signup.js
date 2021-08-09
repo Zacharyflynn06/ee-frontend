@@ -1,16 +1,16 @@
 import React, {useState, useEffect} from "react"
 import { useSelector, useDispatch } from "react-redux"
-import { usersSelector, signupUser, clearState } from "./usersSlice"
+import { userSelector, signupUser, clearState } from "./userSlice"
 import { useHistory } from 'react-router-dom';
 import toast from 'react-hot-toast';
-import style from "./Users.module.css"
+import style from "./User.module.css"
 
 const Signup = (props) => {
 
     const dispatch = useDispatch()
     const history = useHistory();
 
-    const { isFetching, isSuccess, isError, errorMessage } = useSelector(usersSelector);
+    const { isFetching, isSuccess, isError, errorMessage } = useSelector(userSelector);
 
     const [userData, setUserData] = useState({
         first_name: '',
@@ -23,7 +23,7 @@ const Signup = (props) => {
         return () => {
           dispatch(clearState());
         };
-      }, []);
+      },);
 
     useEffect(() => {
     if (isSuccess) {
@@ -36,7 +36,7 @@ const Signup = (props) => {
         toast.error(errorMessage);
         dispatch(clearState());
     }
-    }, [isSuccess, isError]);
+    });
 
 
     const handleSubmit = (event) => {

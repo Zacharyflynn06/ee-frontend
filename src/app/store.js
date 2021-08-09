@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import eventsReducer from '../features/event/eventsSlice'
 import shopReducer from '../features/shop/ShopSlice'
-import userReducer from '../features/Users/usersSlice'
+import userReducer from '../features/User/userSlice'
 
 export default configureStore({
   reducer: {

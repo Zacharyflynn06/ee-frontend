@@ -60,14 +60,17 @@ export const loginUser = createAsyncThunk(
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            email,
-            password,
+            user: {
+              email,
+              password,
+            }
           }),
         }
       );
       let data = await response.json();
       console.log('response', data);
       if (response.ok) {
+        console.log(response.headers.get("Authorization"))
         setToken(response.headers.get("Authorization"));
         return data;
       } else {
@@ -80,6 +83,10 @@ export const loginUser = createAsyncThunk(
   }
 );
 
+export const logoutUSer = createAsyncThunk(
+  'user/logout'
+)
+
 
 const initialState = {
     isFetching: false,
@@ -90,7 +97,7 @@ const initialState = {
     
 }
 
-export const usersSlice = createSlice({
+export const userSlice = createSlice({
     name: 'users',
     initialState,
     reducers: {
@@ -137,17 +144,18 @@ export const usersSlice = createSlice({
       },
 
       [loginUser.rejected]: (state, { payload }) => {
+        debugger
         console.log('payload', payload);
         state.isFetching = false;
         state.isError = true;
-        state.errorMessage = payload.status.message;
+        state.errorMessage = payload.error
       },
 
     }
 })
 
-export const {clearState} = usersSlice.actions
+export const {clearState} = userSlice.actions
 
-export const usersSelector = (state) => state.user
+export const userSelector = (state) => state.user
 
-export default usersSlice.reducer
+export default userSlice.reducer
