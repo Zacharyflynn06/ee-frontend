@@ -18,12 +18,12 @@ const NavBar = (props) => {
             </NavLink>
             
             <NavLink
-                to="/store"
+                to="/shop"
                 exact
                 className={style.navLink}
                 activeClassName={style.active}
             >
-                Store
+                Shop
             </NavLink>
 
             <NavLink

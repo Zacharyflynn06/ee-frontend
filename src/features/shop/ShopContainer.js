@@ -1,9 +1,10 @@
 import React from 'react';
 
+import style from './Shop.module.css'
 const StoreContainer = (props) => {
     return (
-        <div>
-            <h1>Store</h1>
+        <div className={style.shopContainer}>
+            <h1>Shop</h1>
         </div>     
     );
 }
