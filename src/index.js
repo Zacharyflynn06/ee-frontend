@@ -5,11 +5,13 @@ import './index.css';
 import App from './App';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
+import toast, { Toaster } from 'react-hot-toast'
 
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
+      <Toaster />
       <App />
     </Provider>
   </React.StrictMode>,

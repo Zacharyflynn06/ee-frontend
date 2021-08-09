@@ -16,7 +16,7 @@ function getToken() {
 
 export const signupUser = createAsyncThunk(
   'users/signupUser',
-  async ({email, password}, thunkAPI) => {
+  async (userData, thunkAPI) => {
     try {
       const response = await fetch(
         "http://localhost:3001/signup",
@@ -27,10 +27,7 @@ export const signupUser = createAsyncThunk(
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            user: {
-              email,
-              password
-            }
+            user: userData
           }),
         }
       );
@@ -101,15 +98,34 @@ export const usersSlice = createSlice({
         state.isError = false;
         state.isSuccess = false;
         state.isFetching = false;
-  
+        
         return state
       },
+    },
+
+    extraReducers: {
+
+      [signupUser.fulfilled]: (state, { payload }) => {
+        console.log('payload', payload);
+        state.isFetching = false;
+        state.isSuccess = true;
+        state.currentUser = payload.user
+      },
+
+      [signupUser.pending]: (state) => {
+        state.isFetching = true;
+      },
+      
+      [signupUser.rejected]: (state, { payload }) => {
+        state.isFetching = false;
+        state.isError = true;
+        state.errorMessage = payload.message;
+      }
     }
 })
 
 export const {clearState} = usersSlice.actions
 
 export const usersSelector = (state) => state.user
-
 
 export default usersSlice.reducer
