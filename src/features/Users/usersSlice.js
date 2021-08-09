@@ -5,14 +5,14 @@ function setToken(token) {
     localStorage.setItem("lastLoginTime", new Date(Date.now()).getTime());
 }
 
-// function getToken() {
-//     let now = new Date(Date.now()).getTime();
-//     let thirtyMinutes = 1000 * 60 * 30;
-//     let timeSinceLastLogin = now - localStorage.getItem("lastLoginTime");
-//     if (timeSinceLastLogin < thirtyMinutes) {
-//       return localStorage.getItem("token");
-//     }
-//   }
+function getToken() {
+    let now = new Date(Date.now()).getTime();
+    let thirtyMinutes = 1000 * 60 * 30;
+    let timeSinceLastLogin = now - localStorage.getItem("lastLoginTime");
+    if (timeSinceLastLogin < thirtyMinutes) {
+      return localStorage.getItem("token");
+    }
+}
 
 export const signupUser = createAsyncThunk(
   'users/signupUser',
@@ -29,7 +29,7 @@ export const signupUser = createAsyncThunk(
           body: JSON.stringify({
             user: {
               email,
-              password,
+              password
             }
           }),
         }
@@ -39,52 +39,78 @@ export const signupUser = createAsyncThunk(
 
       if (response.ok) {
         setToken(response.headers.get("Authorization"));
-        return { ...data, email: email };
+        return { ...data };
       } else {
         return thunkAPI.rejectWithValue(data);
       }
-    } catch (e) {
-      console.log('Error', e.response.data);
-      return thunkAPI.rejectWithValue(e.response.data);
+    } catch (event) {
+      console.log('Error', event.response.data);
+      return thunkAPI.rejectWithValue(event.response.data);
+    }
+  }
+);
+
+export const loginUser = createAsyncThunk(
+  'users/login',
+  async ({ email, password }, thunkAPI) => {
+    try {
+      const response = await fetch(
+        "http://localhost:3001/login",
+        {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email,
+            password,
+          }),
+        }
+      );
+      let data = await response.json();
+      console.log('response', data);
+      if (response.ok) {
+        setToken(response.headers.get("Authorization"));
+        return data;
+      } else {
+        return thunkAPI.rejectWithValue(data);
+      }
+    } catch (event) {
+      console.log('Error', event.response.data);
+      thunkAPI.rejectWithValue(event.response.data);
     }
   }
 );
 
 
-
-
 const initialState = {
-    authChecked: false,
-    loggedIn: false,
-    currentUser: {},
-    cart:[]
+    firstName: '',
+    lastName: '',
+    userName: '',
+    email: '',
+    isFetching: false,
+    isSuccess: false,
+    isError: false,
+    errorMessage: '',
+    
 }
 
 export const usersSlice = createSlice({
     name: 'users',
     initialState,
     reducers: {
-        authenticated: (state, action) => {
-            state = {
-                authChecked: true,
-                loggedIn: true,
-                currentUser: action.payload
-            }
-        },
-
-        not_authenticated: (state) => {
-            state = {
-                authChecked: true,
-                loggedIn: false,
-                currentUser: {}
-            }
-        }
-
-
+      clearState: (state) => {
+        state.isError = false;
+        state.isSuccess = false;
+        state.isFetching = false;
+  
+        return state
+      },
     }
 })
 
-export const {authenticated, not_authenticated} = usersSlice.actions
+export const {clearState} = usersSlice.actions
 
 export const usersSelector = (state) => state.user
 

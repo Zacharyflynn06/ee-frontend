@@ -5,12 +5,25 @@ import { usersSelector, signupUser } from "./usersSlice"
 const Signup = (props) => {
 
     const dispatch = useDispatch()
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
+    const [userData, setUserData] = useState({
+        first_name: '',
+        last_name: '',
+        username: '',
+        email: '',
+        password: '',
+
+    })
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        dispatch(signupUser({email, password}))
+        dispatch(signupUser(userData))
+    }
+
+    const handleChange = (event) => {
+        setUserData((prevState) => ({
+            ...prevState,
+            [event.target.name]: event.target.value
+        }))
     }
 
 
@@ -18,19 +31,40 @@ const Signup = (props) => {
         <div>
             <h3>Signup</h3>
             <form onSubmit={handleSubmit}>
+                <h4>First Name:</h4>
+                <input 
+                    type="text" 
+                    name="first_name" 
+                    value={userData.first_name} 
+                    onChange={handleChange} 
+                />
+                <h4>Last Name:</h4>
+                <input 
+                    type="text" 
+                    name="last_name" 
+                    value={userData.last_name} 
+                    onChange={handleChange} 
+                />
+                <h4>Username:</h4>
+                <input 
+                    type="text" 
+                    name="username" 
+                    value={userData.username} 
+                    onChange={handleChange} 
+                />
                 <h4>Email:</h4>
                 <input 
                     type="text" 
                     name="email" 
-                    value={email} 
-                    onChange={e => setEmail(e.target.value)} 
+                    value={userData.email} 
+                    onChange={handleChange} 
                 />
                 <h4>Password:</h4>
                 <input 
                     type="text" 
                     name="password" 
-                    value={password} 
-                    onChange={e => setPassword(e.target.value)} 
+                    value={userData.password} 
+                    onChange={handleChange} 
                 />
                 <br />
                 <input type="submit" value="Submit" />
