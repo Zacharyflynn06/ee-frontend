@@ -13,6 +13,7 @@ import ShopContainer from './features/shop/ShopContainer';
 import EventContainer from './features/event/eventsContainer';
 import Signup from './features/User/Signup';
 import Login from './features/User/Login';
+import Dashboard from './features/User/Dashboard';
 import './App.css';
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route exact path="/events" component={EventContainer}/>
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/dashboard" component={Dashboard} />
 
         </Switch>
       </Router>

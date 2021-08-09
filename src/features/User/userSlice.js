@@ -83,8 +83,33 @@ export const loginUser = createAsyncThunk(
   }
 );
 
-export const logoutUSer = createAsyncThunk(
-  'user/logout'
+export const logoutUser = createAsyncThunk(
+  'user/logout',
+  async (thunkAPI) => {
+    try {
+      const response = fetch(
+        "http://localhost:3001/logout", {
+          method: "DELETE",
+          headers: {
+            Accept: "application/json",
+            Authorization: getToken()
+          }
+          
+        }
+      )
+      let data = await response.json()
+      console.log('response', data)
+      if (response.ok) {
+        console.log(response)
+        return response
+      } else {
+        return thunkAPI.rejectWithValue(data);
+      }
+    } catch (event) {
+      console.log('Error', event.response.data);
+      thunkAPI.rejectWithValue(event.response.data);
+    }
+  }
 )
 
 
@@ -110,7 +135,7 @@ export const userSlice = createSlice({
     },
 
     extraReducers: {
-
+      // Sign Up
       [signupUser.fulfilled]: (state, { payload }) => {
         
         console.log('payload', payload);
@@ -130,6 +155,7 @@ export const userSlice = createSlice({
         state.errorMessage = payload.status.message;
       },
 
+      // Login
       [loginUser.fulfilled]: (state, { payload }) => {
 
         console.log('payload', payload);
@@ -149,6 +175,27 @@ export const userSlice = createSlice({
         state.isFetching = false;
         state.isError = true;
         state.errorMessage = payload.error
+      },
+
+      // Logout
+      [logoutUser.fulfilled]: (state, { payload }) => {
+
+        console.log('payload', payload);
+        state.isFetching = false;
+        state.isSuccess = true;
+        state.currentUser = {}
+        return state;
+      },
+      
+      [logoutUser.pending]: (state) => {
+        state.isFetching = true;
+      },
+
+      [logoutUser.rejected]: (state, { payload }) => {
+ 
+        state.isFetching = false;
+        state.isError = true;
+        // state.errorMessage = payload.error
       },
 
     }

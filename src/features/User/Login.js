@@ -1,7 +1,7 @@
 import React, {useState, useEffect}from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import style from './User.module.css'
-import { loginUser, userSelector, clearState } from './userSlice';
+import { loginUser, logoutUser, userSelector, clearState } from './userSlice';
 import { useHistory } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
@@ -28,6 +28,8 @@ const Login = (props) => {
             [event.target.name]: event.target.value
         }))
     }
+
+
 
     useEffect(() => {
         if (isError) {
@@ -64,7 +66,11 @@ const Login = (props) => {
 
                 <br />
                 <input type="submit" value="Log In" />
+
             </form>
+
+
+
         </div>
     )
 }
