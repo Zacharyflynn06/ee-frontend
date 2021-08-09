@@ -36,7 +36,7 @@ export const signupUser = createAsyncThunk(
 
       if (response.ok) {
         setToken(response.headers.get("Authorization"));
-        return { ...data };
+        return data;
       } else {
         return thunkAPI.rejectWithValue(data);
       }
@@ -141,7 +141,8 @@ export const userSlice = createSlice({
         console.log('payload', payload);
         state.isFetching = false;
         state.isSuccess = true;
-        state.currentUser = payload.data
+        debugger
+        state.currentUser = payload.data.data
       },
 
       [signupUser.pending]: (state) => {
@@ -161,7 +162,8 @@ export const userSlice = createSlice({
         console.log('payload', payload);
         state.isFetching = false;
         state.isSuccess = true;
-        state.currentUser = payload.data
+        debugger
+        state.currentUser = payload.data.data
         return state;
       },
       

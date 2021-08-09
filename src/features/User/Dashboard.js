@@ -26,13 +26,12 @@ const Dashboard = () => {
         }
       }, [isError]);
 
-
+      
     return(
-        
         <div className={style.formContainer}>
             <NavBar></NavBar>
             <h1>Dashboard</h1>
-            <h2>Welcome Back {currentUser.first_name} {currentUser.last_name}</h2>
+            <h2>Welcome Back {currentUser.attributes.first_name} {currentUser.attributes.last_name}</h2>
             
             <form onSubmit={handleLogout}>
                 <input type="submit" value="Logout" />
