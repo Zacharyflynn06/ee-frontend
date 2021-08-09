@@ -39,7 +39,7 @@ const Login = (props) => {
 
         if (isSuccess) {
             dispatch(clearState())
-            history.push('/')
+            history.push('/dashboard')
         }
     }, [isError, isSuccess])
 

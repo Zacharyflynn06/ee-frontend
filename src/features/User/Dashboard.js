@@ -2,30 +2,46 @@ import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { logoutUser, userSelector, fetchUserByToken, clearState } from './userSlice'
 import { useHistory } from 'react-router'
-
+import NavBar from '../navbar/NavBar'
 import style from './User.module.css'
 
 const Dashboard = () => {
     const history = useHistory()
     const dispatch = useDispatch()
 
-const handleLogout = (event) => {
-    event.preventDefault()
-    dispatch(logoutUser())
+    const { isFetching, isError } = useSelector(userSelector);
+
+
+    const {currentUser} = useSelector(userSelector)
+    
+    const handleLogout = (event) => {
+        event.preventDefault()
+        dispatch(logoutUser())
+    }
+
+    useEffect(() => {
+        if (isError) {
+          dispatch(clearState());
+          history.push('/login');
+        }
+      }, [isError]);
+
+
+    return(
+        
+        <div className={style.formContainer}>
+            <NavBar></NavBar>
+            <h1>Dashboard</h1>
+            <h2>Welcome Back {currentUser.first_name} {currentUser.last_name}</h2>
+            
+            <form onSubmit={handleLogout}>
+                <input type="submit" value="Logout" />
+            </form>
+
+        </div>
+
+    )
 }
-
-
-return(
-
-    <div className={style.formContainer}>
-        <form onSubmit={handleLogout}>
-            <input type="submit" value="Logout" />
-        </form>
-
-    </div>
-
-)
-}
-
 
 export default Dashboard
+

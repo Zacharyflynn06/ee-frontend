@@ -28,7 +28,7 @@ const Signup = (props) => {
     useEffect(() => {
     if (isSuccess) {
         dispatch(clearState());
-        history.push('/');
+        history.push('/dashboard');
     }
 
     if (isError) {
