@@ -2,6 +2,8 @@ import React, {useState, useEffect} from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { usersSelector, signupUser } from "./usersSlice"
 
+import style from "./Users.module.css"
+
 const Signup = (props) => {
 
     const dispatch = useDispatch()
@@ -28,7 +30,7 @@ const Signup = (props) => {
 
 
     return (
-        <div>
+        <div className={style.formContainer}>
             <h3>Signup</h3>
             <form onSubmit={handleSubmit}>
                 <h4>First Name:</h4>

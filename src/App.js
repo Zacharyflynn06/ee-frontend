@@ -12,6 +12,7 @@ import Music from './features/music/Music';
 import ShopContainer from './features/shop/ShopContainer';
 import EventContainer from './features/event/eventsContainer';
 import Signup from './features/Users/signup';
+import Login from './features/Users/Login';
 import './App.css';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           <Route exact path="/shop" component={ShopContainer}/>
           <Route exact path="/events" component={EventContainer}/>
           <Route exact path="/signup" component={Signup} />
+          <Route exact path="/login" component={Login} />
 
         
         </Switch>
