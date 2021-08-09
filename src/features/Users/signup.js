@@ -1,14 +1,16 @@
 import React, {useState, useEffect} from "react"
-import { signupUser } from "./usersSlice"
+import { useSelector, useDispatch } from "react-redux"
+import { usersSelector, signupUser } from "./usersSlice"
 
 const Signup = (props) => {
 
+    const dispatch = useDispatch()
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        
+        dispatch(signupUser({email, password}))
     }
 
 
