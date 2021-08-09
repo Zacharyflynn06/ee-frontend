@@ -98,7 +98,6 @@ export const usersSlice = createSlice({
         state.isError = false;
         state.isSuccess = false;
         state.isFetching = false;
-        
         return state
       },
     },
@@ -106,21 +105,44 @@ export const usersSlice = createSlice({
     extraReducers: {
 
       [signupUser.fulfilled]: (state, { payload }) => {
+        
         console.log('payload', payload);
         state.isFetching = false;
         state.isSuccess = true;
-        state.currentUser = payload.user
+        state.currentUser = payload.data
       },
 
       [signupUser.pending]: (state) => {
         state.isFetching = true;
       },
-      
+
       [signupUser.rejected]: (state, { payload }) => {
+        
         state.isFetching = false;
         state.isError = true;
-        state.errorMessage = payload.message;
-      }
+        state.errorMessage = payload.status.message;
+      },
+
+      [loginUser.fulfilled]: (state, { payload }) => {
+
+        console.log('payload', payload);
+        state.isFetching = false;
+        state.isSuccess = true;
+        state.currentUser = payload.data
+        return state;
+      },
+      
+      [loginUser.pending]: (state) => {
+        state.isFetching = true;
+      },
+
+      [loginUser.rejected]: (state, { payload }) => {
+        console.log('payload', payload);
+        state.isFetching = false;
+        state.isError = true;
+        state.errorMessage = payload.status.message;
+      },
+
     }
 })
 

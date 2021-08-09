@@ -36,4 +36,5 @@ Music
 Style
 
     Add style (lol)
+    fonts awesome icons
 

@@ -32,6 +32,7 @@ const Signup = (props) => {
     }
 
     if (isError) {
+        debugger
         toast.error(errorMessage);
         dispatch(clearState());
     }
