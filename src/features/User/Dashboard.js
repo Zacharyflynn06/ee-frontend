@@ -9,7 +9,7 @@ const Dashboard = () => {
     const history = useHistory()
     const dispatch = useDispatch()
 
-    const { isFetching, isError } = useSelector(userSelector);
+    const { isFetching, isError, isSuccess } = useSelector(userSelector);
 
 
     const {currentUser} = useSelector(userSelector)
@@ -17,12 +17,22 @@ const Dashboard = () => {
     const handleLogout = (event) => {
         event.preventDefault()
         dispatch(logoutUser())
+
     }
+
+    // useEffect(() => {
+    //     dispatch(fetchUserBytoken({ token: localStorage.getItem('token') }));
+    // }, []);
 
     useEffect(() => {
         if (isError) {
           dispatch(clearState());
           history.push('/login');
+        }
+
+        if (isSuccess) {
+            localStorage.removeItem('token');
+            history.push('/login');
         }
       }, [isError]);
 

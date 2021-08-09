@@ -89,6 +89,7 @@ export const logoutUser = createAsyncThunk(
     try {
       const response = fetch(
         "http://localhost:3001/logout", {
+          
           method: "DELETE",
           headers: {
             Accept: "application/json",
@@ -97,13 +98,15 @@ export const logoutUser = createAsyncThunk(
           
         }
       )
-      let data = await response.json()
-      console.log('response', data)
-      if (response.ok) {
         console.log(response)
-        return response
+      debugger
+      // let data = await response.json()
+      // console.log('response', data)
+      if (response.status === 200) {
+        debugger
+
       } else {
-        return thunkAPI.rejectWithValue(data);
+        return thunkAPI.rejectWithValue();
       }
     } catch (event) {
       console.log('Error', event.response.data);
@@ -141,7 +144,6 @@ export const userSlice = createSlice({
         console.log('payload', payload);
         state.isFetching = false;
         state.isSuccess = true;
-        debugger
         state.currentUser = payload.data.data
       },
 
@@ -194,7 +196,7 @@ export const userSlice = createSlice({
       },
 
       [logoutUser.rejected]: (state, { payload }) => {
- 
+        
         state.isFetching = false;
         state.isError = true;
         // state.errorMessage = payload.error
