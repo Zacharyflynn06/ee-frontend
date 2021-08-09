@@ -1,8 +1,10 @@
 import React from 'react';
 
+import style from './Contact.module.css'
+
 const Contact = (props) => {
     return (
-        <div>
+        <div className={style.contactContainer}>
             <h1>Contact Page</h1>
             <h2>Booking</h2>
             <h3>Jordan Carriere</h3>
