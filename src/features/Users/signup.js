@@ -10,14 +10,13 @@ const Signup = (props) => {
     const [userData, setUserData] = useState({
         first_name: '',
         last_name: '',
-        username: '',
         email: '',
         password: '',
-
     })
 
     const handleSubmit = (event) => {
         event.preventDefault()
+        debugger
         dispatch(signupUser(userData))
     }
 
@@ -47,13 +46,6 @@ const Signup = (props) => {
                     value={userData.last_name} 
                     onChange={handleChange} 
                 />
-                <h4>Username:</h4>
-                <input 
-                    type="text" 
-                    name="username" 
-                    value={userData.username} 
-                    onChange={handleChange} 
-                />
                 <h4>Email:</h4>
                 <input 
                     type="text" 
@@ -69,7 +61,7 @@ const Signup = (props) => {
                     onChange={handleChange} 
                 />
                 <br />
-                <input type="submit" value="Submit" />
+                <input type="submit" value="Sign Up" />
 
             </form>
 

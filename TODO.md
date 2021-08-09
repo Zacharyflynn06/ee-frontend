@@ -9,9 +9,9 @@ Home Page
 
 User
 
-    login page []
+    login page [x]
     logout page []
-    create user page []
+    signup page [x]
 
 Store
 

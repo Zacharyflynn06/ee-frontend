@@ -4,7 +4,7 @@ import {
   Switch,
   Route
  } from 'react-router-dom';
-import NavBar from './features/navbar/NavBar';
+// import NavBar from './features/navbar/NavBar';
 import Home from './features/home/Home';
 import About from './features/about/About';
 import Contact from './features/contact/Contact';
@@ -30,7 +30,6 @@ function App() {
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/login" component={Login} />
 
-        
         </Switch>
       </Router>
     </div>

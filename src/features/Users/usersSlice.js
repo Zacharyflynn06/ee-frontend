@@ -85,14 +85,11 @@ export const loginUser = createAsyncThunk(
 
 
 const initialState = {
-    firstName: '',
-    lastName: '',
-    userName: '',
-    email: '',
     isFetching: false,
     isSuccess: false,
     isError: false,
     errorMessage: '',
+    currentUser: {}
     
 }
 
