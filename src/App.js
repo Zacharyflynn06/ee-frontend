@@ -16,10 +16,10 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <Router>
 
-        <NavBar/>
+        {/* <NavBar/> */}
 
         <Switch>
           <Route exact path="/" component={Home}/>
