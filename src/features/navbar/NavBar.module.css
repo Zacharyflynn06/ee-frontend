@@ -1,0 +1,14 @@
+.navContainer {
+    display: flex;
+    justify-content: space-evenly;
+    width: 50vw;    
+}
+
+.navLink {
+    font-size: 2vw;
+    text-decoration: none;
+}
+
+.active {
+    color: gray
+}

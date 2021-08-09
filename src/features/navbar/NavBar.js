@@ -1,24 +1,18 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom'
 
-const link = {
-    width: "5em",
-    padding: "2em",
-    margin: "1em",
-    color: "black",
-    textDecoration: "none"
-}
+import style from './NavBar.module.css'
+
+
 
 const NavBar = (props) => {
     return (
-        <>
+        <div className={style.navContainer}>
             <NavLink
                 to="/"
                 exact
-                style={link}
-                activeStyle={{
-                    color: "blue"
-                }}
+                className={style.navLink}
+                activeClassName={style.active}
             >
                 Home
             </NavLink>
@@ -26,10 +20,8 @@ const NavBar = (props) => {
             <NavLink
                 to="/store"
                 exact
-                style={link}
-                activeStyle={{
-                    color: "blue"
-                }}
+                className={style.navLink}
+                activeClassName={style.active}
             >
                 Store
             </NavLink>
@@ -37,10 +29,8 @@ const NavBar = (props) => {
             <NavLink
                 to="/events"
                 exact
-                style={link}
-                activeStyle={{
-                    color: "blue"
-                }}
+                className={style.navLink}
+                activeClassName={style.active}
             >
                 Events
             </NavLink>
@@ -48,10 +38,8 @@ const NavBar = (props) => {
             <NavLink
                 to="/about"
                 exact
-                style={link}
-                activeStyle={{
-                    color: "blue"
-                }}
+                className={style.navLink}
+                activeClassName={style.active}
             >
                 About
             </NavLink>
@@ -59,10 +47,8 @@ const NavBar = (props) => {
             <NavLink
                 to="/music"
                 exact
-                style={link}
-                activeStyle={{
-                    color: "blue"
-                }}
+                className={style.navLink}
+                activeClassName={style.active}
             >
                 Music
             </NavLink>
@@ -70,14 +56,12 @@ const NavBar = (props) => {
             <NavLink
                 to="/contact"
                 exact
-                style={link}
-                activeStyle={{
-                    color: "blue"
-                }}
+                className={style.navLink}
+                activeClassName={style.active}
             >
                 Contact
             </NavLink>
-        </>
+        </div>
     )
 }
 
