@@ -16,6 +16,8 @@
 .logo{
     width: 40vw;
     padding: 1em;
+    -webkit-filter: drop-shadow(5px 5px 5px #222222);
+    filter: drop-shadow(5px 5px 5px #222222);
 }
 
 .title{
