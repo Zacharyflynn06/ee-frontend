@@ -13,6 +13,11 @@
     flex-direction: column;
 }
 
+.logo{
+    width: 40vw;
+    padding: 1em;
+}
+
 .title{
     font-size: 7vw;
     text-align: center;
