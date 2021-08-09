@@ -19,7 +19,7 @@ function App() {
     <div className="app">
       <Router>
 
-        {/* <NavBar/> */}
+        
 
         <Switch>
           <Route exact path="/" component={Home}/>
