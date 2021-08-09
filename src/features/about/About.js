@@ -1,8 +1,10 @@
 import React from 'react';
 
+import style from './About.module.css'
+
 const About = (props) => {
     return (
-        <div>
+        <div className={style.aboutContainer}>
             <h1>Bio:</h1>
             <p>Since 2009, Eminence Ensemble has been building their fan-base through explosive live shows and unique genre-blending. The Colorado-based group infuses elements of Jazz, Rock, Electronic, Metal, Soul/Funk, and Hip-Hop to create intricate compositions, decorated with psychadelic improvisations</p>
             <hr />
