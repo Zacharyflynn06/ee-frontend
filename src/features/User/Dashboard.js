@@ -24,17 +24,17 @@ const Dashboard = () => {
     //     dispatch(fetchUserBytoken({ token: localStorage.getItem('token') }));
     // }, []);
 
-    useEffect(() => {
-        if (isError) {
-          dispatch(clearState());
-          history.push('/login');
-        }
+    // useEffect(() => {
+    //     if (isError) {
+    //       dispatch(clearState());
+    //       history.push('/dashboard');
+    //     }
 
-        if (isSuccess) {
-            localStorage.removeItem('token');
-            history.push('/login');
-        }
-      }, [isError]);
+    //     if (isSuccess) {
+    //         localStorage.removeItem('token');
+    //         history.push('/login');
+    //     }
+    //   }, [isError]);
 
       
     return(

@@ -5,3 +5,48 @@
     flex-direction: column;
     align-items: center;
 }
+
+.imageContainer{
+    display: flex;
+}
+
+.image{
+    width: 50vw;
+}
+
+.contentContainer{
+    display: flex;
+    flex-direction: row;
+}
+
+.bioContainer{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+/* 
+.galleryContainer{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 20px;
+    align-items: center;
+    justify-items: center;
+}
+.galleryContainer img {
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+    width: 25vw;
+} */
+.galleryContainer { 
+    width: 50%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 20px;
+    padding-top: 5%;
+    }
+.galleryContainer img {
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+    max-width: 100%;
+    max-height: 100%;
+  }

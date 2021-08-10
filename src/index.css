@@ -5,6 +5,8 @@
 body {
   font-family: 'Montserrat', sans-serif;
   background-image: linear-gradient(to bottom right, #E8FFFF, #41AEA9);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 h1 {

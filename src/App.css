@@ -1,12 +1,4 @@
 .app {
   height: 100vh;
-}
-
-.staticContainer{
-
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
+  width: 100vw;
 }
