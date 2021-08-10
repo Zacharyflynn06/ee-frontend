@@ -1,7 +1,7 @@
 import React, {useState, useEffect}from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import style from './User.module.css'
-import { loginUser, logoutUser, userSelector, clearState } from './userSlice';
+import { loginUser, userSelector, clearState } from './userSlice';
 import { useHistory } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
