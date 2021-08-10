@@ -1,10 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
-const initialState = {
-    loading: false,
-    hasErrors: false,
-    products: []
-}
 
 export const getProducts = createAsyncThunk(
     'shop/getProducts',
@@ -13,28 +8,32 @@ export const getProducts = createAsyncThunk(
         .then(res => res.json())
     }
 )
+
+const initialState = {
+    status: null,
+    products: []
+}
+
 export const shopSlice = createSlice({
     name: 'Shop',
     initialState,
     reducers: {
   
 
-          
+        
     },
-
-
     extraReducers: {
         [getProducts.pending]: (state) => {
-            state.loading = "true"
+            state.status = "loading"
         },
 
         [getProducts.fulfilled]: (state, { payload} ) => {
-            debugger
-         
-           console.log('payload', payload)
-       },
-
-       [getProducts.rejected]: (state, { payload} ) => {
+            state.status = "successs"
+            state.products = payload.data
+            console.log('payload', payload)
+        },
+        
+        [getProducts.rejected]: (state, { payload} ) => {
         debugger
      
        console.log('payload', payload)
@@ -44,6 +43,7 @@ export const shopSlice = createSlice({
 
 })
 
-
+debugger
+export const selectProducts = (state) => state.shop.products
 
 export default shopSlice.reducer
