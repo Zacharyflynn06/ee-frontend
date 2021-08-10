@@ -43,7 +43,7 @@ export const shopSlice = createSlice({
 
 })
 
-debugger
+
 export const selectProducts = (state) => state.shop.products
 
 export default shopSlice.reducer
