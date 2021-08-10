@@ -20,9 +20,11 @@ const ShopContainer = (props) => {
         
         <div className={style.shopContainer}>
             <NavBar></NavBar>
-            <h1>Shop</h1>
-            <h2>products</h2>
-            {products.map((product, i) => <ProductCard product={product.attributes} key={i}></ProductCard>)}
+            <h1>Store</h1>
+            <h2>Products</h2>
+            <div className={style.productsContainer}>
+                {products.map((product, i) => <ProductCard product={product.attributes} key={i}></ProductCard>)}
+            </div>
 
         </div>     
     );
