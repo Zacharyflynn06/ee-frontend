@@ -39,9 +39,9 @@ export const shopSlice = createSlice({
        console.log('payload', payload)
    }
     }
-
-
 })
+
+
 
 
 export const selectProducts = (state) => state.shop.products

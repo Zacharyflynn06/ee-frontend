@@ -1,4 +1,5 @@
 import React from 'react';
+import NavBar from '../navbar/NavBar';
 import image from './image.jpg'
 import style from './About.module.css'
 import zac1 from './Gallery/zac1.jpg'
@@ -14,7 +15,8 @@ import zacAndWil from './Gallery/zacAndWil.jpg'
 const About = (props) => {
     return (
         <div className={style.aboutContainer}>
-
+            <NavBar />
+            <h1>About</h1>
             <div className={style.imageContainer}>
                 <img className={style.image} src={image} alt="press-shot" />
             </div>

@@ -4,7 +4,7 @@ import style from './Music.module.css'
 const Music = (props) => {
     return ( 
         <div className={style.musicContainer}>
-            <h1>Music Links</h1>
+            <h1>Music</h1>
             <h3>Icons for social links here</h3>
         </div>
     );
