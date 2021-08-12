@@ -15,7 +15,7 @@ import Contact from './features/contact/Contact';
 import Music from './features/music/Music';
 
 // Event
-import EventContainer from './features/event/eventsContainer';
+import EventContainer from './features/event/EventsContainer';
 
 // User
 
