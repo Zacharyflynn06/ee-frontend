@@ -2,6 +2,8 @@ import React from 'react'
 import style from './Events.module.css'
 
 const EventCard = (props) => {
+
+
     return ( 
         <div className={style.eventCard}>
             <div className={style.eventDescription}>
@@ -18,7 +20,7 @@ const EventCard = (props) => {
                 </div>
             </div>
             <div className={style.eventLink}>
-                <input type="button" value="Ticket Link" />
+                <a target="_blank" rel="noreferrer" href={props.event.attributes.ticket_link}>Tickets</a>
             </div>
         </div>
     );
