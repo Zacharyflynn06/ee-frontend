@@ -25,3 +25,10 @@
     padding: 1rem;
 
 }
+
+.newProductForm {
+    display: flex;
+   
+    justify-content: space-between;
+    flex-direction: column;
+}

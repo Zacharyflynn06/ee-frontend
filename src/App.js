@@ -28,9 +28,10 @@ import Dashboard from './features/User/Dashboard';
 // Shop
 import ShopContainer from './features/shop/ShopContainer';
 import { getProducts } from "./features/shop/ShopSlice"
-import ProductShow from './features/shop/ProductShow';
+import ShowProduct from './features/shop/ShowProduct';
 import { selectProducts } from './features/shop/ShopSlice';
 import { useSelector } from 'react-redux';
+import AddProduct from './features/shop/AddProduct';
 
 function App() {  
   
@@ -57,6 +58,8 @@ function App() {
 
         <Switch>
           <Route exact path="/" component={Home}/>
+          {/* Protected Routes */}
+          <Route exact path="/shop/products/new" component={AddProduct}/>
 
           {/* Static */}
           <Route exact path="/about" component={About}/>
@@ -72,12 +75,13 @@ function App() {
           <Route exact path="/dashboard" component={Dashboard} />
 
           {/* Shop */}
+          {/* <Route exact path="/shop/products/:id" render={(routeProps) => {
+            return <ShowProduct {...routeProps}/>
+          }} /> */}
           <Route exact path="/shop" component={ShopContainer} />
-          {/* <Route exact path="/shop/products/:id" component= {ProductShow} /> */}
-          <Route exact path="/shop/products/:id" render={(routeProps) => {
-            return <ProductShow {...routeProps}/>
-          }} />
+          <Route exact path="/shop/products/:id" component={ShowProduct} />
           <Route component={ErrorPage} />
+
         </Switch>
       </Router>
     </div>

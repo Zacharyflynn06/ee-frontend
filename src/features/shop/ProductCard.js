@@ -5,12 +5,18 @@ import { NavLink, Route } from 'react-router-dom'
 
 export default function ProductCard(props) {
 
-
+const formatImageUrl = () => {
+    return props.product.attributes.image_format ? props.product.attributes.image_format.url : process.env.PUBLIC_URL + "logo192.png"
+}
 
         return (
             <div className={style.productCard}>
+            <div>
+                
+                <img src={formatImageUrl()} alt="" />
+            </div>
             <NavLink
-                to={`shop/products/${props.product.id}`}
+                to={`/shop/products/${props.product.id}`}
                 exact
                 key={props.product.id}    
             >

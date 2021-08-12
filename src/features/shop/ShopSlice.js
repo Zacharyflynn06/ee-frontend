@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { useHistory } from 'react-router-dom'
 
 
 export const getProducts = createAsyncThunk(
@@ -9,12 +10,31 @@ export const getProducts = createAsyncThunk(
     }
 )
 
+
+
+export const addProduct = createAsyncThunk(
+    'shop/addProduct',
+    async (product) => {
+        return fetch(
+            'http://localhost:3001/products', {
+                method: "POST",
+                headers: {
+                    Accept: "application/json",
+                },
+                body: product
+            }
+        )
+        .then(res => res.json())
+    }
+)
+
 const initialState = {
     status: null,
     products: []
 }
 
 export const shopSlice = createSlice({
+    
     name: 'Shop',
     initialState,
     reducers: {
@@ -23,6 +43,7 @@ export const shopSlice = createSlice({
         
     },
     extraReducers: {
+        
         [getProducts.pending]: (state) => {
             state.status = "loading"
         },
@@ -34,6 +55,22 @@ export const shopSlice = createSlice({
         },
         
         [getProducts.rejected]: (state, { payload} ) => {
+            state.status = "rejected"
+     
+            console.log('payload', payload)
+        },
+        [addProduct.pending]: (state) => {
+            state.status = "loading"
+        },
+
+        [addProduct.fulfilled]: (state, { payload} ) => {
+            state.status = "success"
+            state.products = state.products.concat([payload.data])
+            
+            console.log('payload', payload)
+        },
+        
+        [addProduct.rejected]: (state, { payload} ) => {
             state.status = "rejected"
      
             console.log('payload', payload)
