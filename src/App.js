@@ -41,6 +41,8 @@ function App() {
     
     dispatch(getProducts())
   }, [dispatch])
+
+  
   useEffect(() => {
     
     dispatch(getEvents())
