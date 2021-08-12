@@ -13,6 +13,7 @@ import Home from './features/home/Home';
 import About from './features/about/About';
 import Contact from './features/contact/Contact';
 import Music from './features/music/Music';
+import ErrorPage from './features/error/Error';
 
 // Event
 import EventContainer from './features/event/EventsContainer';
@@ -76,7 +77,7 @@ function App() {
           <Route exact path="/shop/products/:id" render={(routeProps) => {
             return <ProductShow {...routeProps}/>
           }} />
-
+          <Route component={ErrorPage} />
         </Switch>
       </Router>
     </div>

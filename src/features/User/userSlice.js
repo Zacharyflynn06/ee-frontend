@@ -99,7 +99,7 @@ export const logoutUser = createAsyncThunk(
         }
       )
         console.log(response)
-      debugger
+      
       // let data = await response.json()
       // console.log('response', data)
       if (response.status === 200) {
@@ -188,6 +188,7 @@ export const userSlice = createSlice({
         state.isFetching = false;
         state.isSuccess = true;
         state.currentUser = {}
+        localStorage.removeItem('token')
         return state;
       },
       

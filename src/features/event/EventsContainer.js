@@ -14,9 +14,9 @@ const EventContainer = () => {
             <NavBar></NavBar>
             
             <h1>Events</h1>
-            <div>
+            <div className={style.eventsTable}>
                 {events.map(event => 
-                
+
                     <EventCard
                         event={event}
                         key={event.id}
