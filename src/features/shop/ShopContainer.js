@@ -15,8 +15,7 @@ const ShopContainer = (props) => {
 
             <div className={style.shopContainer}>
                 <NavBar></NavBar>
-                <h1>Store</h1>
-                <h2>Products</h2>
+                <h1>Shop</h1>
                 <div className={style.productsContainer}>
                     {products.map(product => 
                         <ProductCard 

@@ -11,19 +11,18 @@ const formatImageUrl = () => {
 
         return (
             <div className={style.productCard}>
-            <div>
-                
-                <img src={formatImageUrl()} alt="" />
-            </div>
-            <NavLink
-                to={`/shop/products/${props.product.id}`}
-                exact
-                key={props.product.id}    
-            >
-            <h3>{props.product.attributes.name}</h3>
-            </NavLink>
-               <h6>{props.product.attributes.description}</h6>
-               <h6>${props.product.attributes.price}</h6>
+           
+                    
+                <img className={style.productImage} src={formatImageUrl()} alt="" />
+                <NavLink
+                    to={`/shop/products/${props.product.id}`}
+                    exact
+                    key={props.product.id}    
+                >
+                <h3>{props.product.attributes.name}</h3>
+                </NavLink>
+                <h6>{props.product.attributes.description}</h6>
+                <h6>${props.product.attributes.price}</h6>
             </div>
         )
 

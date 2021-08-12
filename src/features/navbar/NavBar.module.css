@@ -1,7 +1,8 @@
 .navContainer {
     display: flex;
     justify-content: space-evenly;
-    width: 50vw;    
+    width: 50vw; 
+    padding-top: 2em;   
 }
 
 .navLink {

@@ -31,6 +31,7 @@ const NavBar = (props) => {
                 exact
                 className={style.navLink}
                 activeClassName={style.active}
+                
             >
                 Events
             </NavLink>
