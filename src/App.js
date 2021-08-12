@@ -4,7 +4,7 @@ import {
   Switch,
   Route
  } from 'react-router-dom';
-
+import { useDispatch } from 'react-redux';
 import './App.css';
 // import NavBar from './features/navbar/NavBar';
 
@@ -16,7 +16,8 @@ import Music from './features/music/Music';
 
 // Event
 import EventContainer from './features/event/EventsContainer';
-
+import { selectEvents } from './features/event/EventSlice';
+import { getEvents } from './features/event/EventSlice';
 // User
 
 import Signup from './features/User/Signup';
@@ -26,18 +27,23 @@ import Dashboard from './features/User/Dashboard';
 // Shop
 import ShopContainer from './features/shop/ShopContainer';
 import { getProducts } from "./features/shop/ShopSlice"
-import { useDispatch } from 'react-redux';
 import ProductShow from './features/shop/ProductShow';
 import { selectProducts } from './features/shop/ShopSlice';
 import { useSelector } from 'react-redux';
 
-function App() {  const dispatch = useDispatch()
-
+function App() {  
+  
+  const dispatch = useDispatch()
   const products = useSelector(selectProducts)
+  const events = useSelector(selectEvents)
 
   useEffect(() => {
-
+    
     dispatch(getProducts())
+  }, [dispatch])
+  useEffect(() => {
+    
+    dispatch(getEvents())
   }, [dispatch])
 
 

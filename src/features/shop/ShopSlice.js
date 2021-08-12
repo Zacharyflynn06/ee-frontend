@@ -34,10 +34,10 @@ export const shopSlice = createSlice({
         },
         
         [getProducts.rejected]: (state, { payload} ) => {
-        debugger
+            state.status = "rejected"
      
-       console.log('payload', payload)
-   }
+            console.log('payload', payload)
+        }
     }
 })
 
