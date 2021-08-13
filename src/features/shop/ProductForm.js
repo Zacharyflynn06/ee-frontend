@@ -1,32 +1,49 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { useDispatch } from 'react-redux'
 import style from './Shop.module.css'
 import NavBar from '../navbar/NavBar'
-import {addProduct} from './ShopSlice'
+import {addProduct, updateProduct} from './ShopSlice'
 import { useHistory } from 'react-router'
 
-const AddProduct = (props) => {
+const ProductForm = (props) => {
 
     const history = useHistory()
     const dispatch = useDispatch()
-
-
-
+    
     const [productData, setProductData] = useState({
         name: "",
         price: "",
         description: ""
     })
+
+    const product = props.location.product 
+    
+    useEffect(() => {
+        if (product) {
+            setProductData({
+                name: product.attributes.name || "",
+                description: product.attributes.description || "",
+                price: product.attributes.price || ""
+    
+            })
+        }
+    }, [product])
     
     const imageFile = React.createRef()
 
     const handleSubmit = (event) => {
-        
         event.preventDefault()
         const formData = new FormData(event.target)
         
-        dispatch(addProduct(formData))
-        history.push("/shop")
+        if(product) {
+            dispatch(updateProduct({data: formData, id: product.id}))
+            // history.push("/shop")
+
+        } else {
+            dispatch(addProduct(formData))
+            history.push("/shop")
+        }
+            
     }
 
     const handleChange = (event) => {
@@ -36,6 +53,7 @@ const AddProduct = (props) => {
         }))
     }
     return ( 
+        
         <div className={style.shopContainer}>
             <NavBar></NavBar>
             <form className={style.newProductForm} onSubmit={handleSubmit}>
@@ -49,4 +67,4 @@ const AddProduct = (props) => {
     );
 }
  
-export default AddProduct;
+export default ProductForm;

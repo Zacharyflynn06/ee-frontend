@@ -1,8 +1,8 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
-const findProductById = (id) => {
+// const findProductById = (id) => {
 
-}
+// }
 
 export const getProducts = createAsyncThunk(
     'shop/getProducts',
@@ -15,6 +15,7 @@ export const getProducts = createAsyncThunk(
 export const addProduct = createAsyncThunk(
     'shop/addProduct',
     async (product) => {
+        
         return fetch(
             'http://localhost:3001/products', {
                 method: "POST",
@@ -29,18 +30,19 @@ export const addProduct = createAsyncThunk(
 )
 
 export const updateProduct = createAsyncThunk(
-    'shop/addProduct',
-    async (product) => {
+    'shop/updateProduct',
+    async (product) => {        
+        const parsedId = parseInt(product.id)
         return fetch(
-            'http://localhost:3001/products', {
+            `http://localhost:3001/products/${parsedId}`, {
                 method: "PATCH",
                 headers: {
                     Accept: "application/json",
                 },
-                body: product
+                body: product.data
             }
         )
-        .then(res => res.json())
+        .then(res => {debugger})
     }
 )
 
@@ -61,7 +63,8 @@ export const deleteProduct = createAsyncThunk(
 )
 
 const initialState = {
-    status: null,
+    status: 'idle', 
+    error: null,
     products: []
 }
 
@@ -81,13 +84,13 @@ export const shopSlice = createSlice({
         },
 
         [getProducts.fulfilled]: (state, { payload} ) => {
-            state.status = "successs"
+            state.status = "complete"
             state.products = payload.data
             console.log('payload', payload)
         },
         
         [getProducts.rejected]: (state, { payload} ) => {
-            state.status = "rejected"
+            state.status = "failed"
      
             console.log('payload', payload)
         },
@@ -97,7 +100,8 @@ export const shopSlice = createSlice({
             state.status = "loading"
         },
 
-        [addProduct.fulfilled]: (state, { payload} ) => {
+        [addProduct.fulfilled]: (state, {payload} ) => {
+            
             state.status = "success"
             state.products = state.products.concat([payload.data])
             
@@ -117,10 +121,12 @@ export const shopSlice = createSlice({
         },
 
         [updateProduct.fulfilled]: (state, { payload} ) => {
-            state.status = "success"
             debugger
-            // let product = state.products.findProductById(payload.id)
-            // product = payload.product
+            state.status = "success"
+            
+            let product = state.products.find(product => product.id === payload.id)
+
+            product.update(payload)
             console.log('payload', payload)
         },
         
@@ -136,5 +142,6 @@ export const shopSlice = createSlice({
 
 
 export const selectProducts = (state) => state.shop.products
+export const selectStatus = (state) => state.shop.status
 
 export default shopSlice.reducer

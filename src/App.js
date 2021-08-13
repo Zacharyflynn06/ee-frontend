@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useMemo} from 'react';
 import { 
   BrowserRouter as Router,
   Switch,
@@ -17,8 +17,6 @@ import ErrorPage from './features/error/Error';
 
 // Event
 import EventContainer from './features/event/EventsContainer';
-import { selectEvents } from './features/event/EventSlice';
-import { getEvents } from './features/event/EventSlice';
 // User
 
 import Signup from './features/User/Signup';
@@ -27,28 +25,13 @@ import Dashboard from './features/User/Dashboard';
 
 // Shop
 import ShopContainer from './features/shop/ShopContainer';
-import { getProducts } from "./features/shop/ShopSlice"
 import ShowProduct from './features/shop/ShowProduct';
-import { selectProducts } from './features/shop/ShopSlice';
-import { useSelector } from 'react-redux';
-import AddProduct from './features/shop/AddProduct';
+import ProductForm from './features/shop/ProductForm';
 
 function App() {  
   
-  const dispatch = useDispatch()
-  const products = useSelector(selectProducts)
-  const events = useSelector(selectEvents)
 
-  useEffect(() => {
-    
-    dispatch(getProducts())
-  }, [dispatch])
 
-  
-  useEffect(() => {
-    
-    dispatch(getEvents())
-  }, [dispatch])
 
 
   return (
@@ -59,7 +42,8 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home}/>
           {/* Protected Routes */}
-          <Route exact path="/shop/products/new" component={AddProduct}/>
+          <Route exact path="/shop/products/new" component={ProductForm}/>
+          <Route exact path="/shop/products/:id/edit" component={ProductForm}/>
 
           {/* Static */}
           <Route exact path="/about" component={About}/>
