@@ -1,6 +1,8 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { useHistory } from 'react-router-dom'
 
+const findProductById = (id) => {
+
+}
 
 export const getProducts = createAsyncThunk(
     'shop/getProducts',
@@ -9,8 +11,6 @@ export const getProducts = createAsyncThunk(
         .then(res => res.json())
     }
 )
-
-
 
 export const addProduct = createAsyncThunk(
     'shop/addProduct',
@@ -25,6 +25,38 @@ export const addProduct = createAsyncThunk(
             }
         )
         .then(res => res.json())
+    }
+)
+
+export const updateProduct = createAsyncThunk(
+    'shop/addProduct',
+    async (product) => {
+        return fetch(
+            'http://localhost:3001/products', {
+                method: "PATCH",
+                headers: {
+                    Accept: "application/json",
+                },
+                body: product
+            }
+        )
+        .then(res => res.json())
+    }
+)
+
+export const deleteProduct = createAsyncThunk(
+    'shop/addProduct',
+    async (product) => {
+        return fetch(
+            'http://localhost:3001/products', {
+                method: "POST",
+                headers: {
+                    Accept: "application/json",
+                },
+                body: product
+            }
+        )
+        .then(res =>{debugger})
     }
 )
 
@@ -43,7 +75,7 @@ export const shopSlice = createSlice({
         
     },
     extraReducers: {
-        
+        // Get 
         [getProducts.pending]: (state) => {
             state.status = "loading"
         },
@@ -59,6 +91,8 @@ export const shopSlice = createSlice({
      
             console.log('payload', payload)
         },
+
+        // Add
         [addProduct.pending]: (state) => {
             state.status = "loading"
         },
@@ -72,9 +106,29 @@ export const shopSlice = createSlice({
         
         [addProduct.rejected]: (state, { payload} ) => {
             state.status = "rejected"
+           
      
             console.log('payload', payload)
-        }
+        },
+
+        // Update
+        [updateProduct.pending]: (state) => {
+            state.status = "loading"
+        },
+
+        [updateProduct.fulfilled]: (state, { payload} ) => {
+            state.status = "success"
+            debugger
+            // let product = state.products.findProductById(payload.id)
+            // product = payload.product
+            console.log('payload', payload)
+        },
+        
+        [updateProduct.rejected]: (state, { payload} ) => {
+            state.status = "rejected"
+     
+            console.log('payload', payload)
+        },
     }
 })
 
