@@ -5,28 +5,40 @@
 }
 
 .productsContainer {
+
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-gap: 1rem;
-    width: 85%;
-    /* background-color: white; */
+    gap: 1em;
+
+    
 }
 .productCard {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border: black solid 1px;
+    border-radius: 1em;
     background-color: white;
+    -webkit-filter: drop-shadow(5px 5px 5px #222222);
+    filter: drop-shadow(5px 5px 5px #222222);
+}
 
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 1rem;
-
+.productLink{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
 }
 
 .productImage {
     display: flex;
-    width: 80%;
+    width: 80%
 
+}
+
+.productName {
+    font-weight: bold;
 }
 
 .newProductForm {

@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { userSelector, signupUser, clearState } from "./userSlice"
 import { useHistory } from 'react-router-dom';
-import toast from 'react-hot-toast';
+// import toast from 'react-hot-toast';
 import style from "./User.module.css"
 
 const Signup = (props) => {
@@ -33,7 +33,7 @@ const Signup = (props) => {
 
     if (isError) {
         debugger
-        toast.error(errorMessage);
+        // toast.error(errorMessage);
         dispatch(clearState());
     }
     });

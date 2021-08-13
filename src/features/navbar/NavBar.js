@@ -6,6 +6,18 @@ import style from './NavBar.module.css'
 
 
 const NavBar = (props) => {
+
+
+    // const toggleNavBar = () =>
+    //     if(navBar().className === "closed"){
+    //         navBar().className = "open"
+    //     } else if(navBar().className === "open") {
+    //         navBar().className = "closed"
+    //     }
+    // }
+
+
+
     return (
         <div className={style.navContainer}>
             <NavLink

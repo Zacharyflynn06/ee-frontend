@@ -1,6 +1,6 @@
 import React from 'react'
 import style from './Shop.module.css'
-import { NavLink, Route } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 
 export default function ProductCard(props) {
@@ -10,19 +10,24 @@ const formatImageUrl = () => {
 }
 
         return (
-            <div className={style.productCard}>
-           
-                    
-                <img className={style.productImage} src={formatImageUrl()} alt="" />
-                <NavLink
-                    to={`/shop/products/${props.product.id}`}
-                    exact
-                    key={props.product.id}    
-                >
-                <h3>{props.product.attributes.name}</h3>
-                </NavLink>
-                <h6>{props.product.attributes.description}</h6>
-                <h6>${props.product.attributes.price}</h6>
+            <div className={style.productCard}> 
+                <div >
+                    <NavLink
+                        to={`/shop/products/${props.product.id}`}
+                        exact
+                        key={props.product.id}    
+                    >
+                    <div className={style.productLink}>
+                        <img className={style.productImage} src={formatImageUrl()} alt="" />
+                        <span className={style.productName}>
+                            {props.product.attributes.name}
+                        </span>
+                        <div className={style.productPrice}>
+                            ${props.product.attributes.price}
+                        </div>
+                    </div>
+                    </NavLink>
+                </div>
             </div>
         )
 
