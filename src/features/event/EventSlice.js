@@ -32,7 +32,7 @@ export const initialState = {
 }
 
 export const EventSlice = createSlice({
-    name: 'events',
+    name: 'event',
     initialState,
     reducers: {
 
@@ -73,6 +73,13 @@ export const EventSlice = createSlice({
     
 })
 
-export const selectEvents = (state) => state.events.events
+export const selectEvents = (state) => state.event.events
+export const selectStatus = (state) => state.event.status
+
+export const selectEventById = (state, eventId) => {
+    debugger
+    state.event.events.find(event => event.id === eventId)
+    
+}
 
 export default EventSlice.reducer;
