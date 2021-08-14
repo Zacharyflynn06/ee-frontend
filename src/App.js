@@ -17,6 +17,7 @@ import ErrorPage from './features/error/Error';
 // Event
 import EventContainer from './features/event/EventsContainer';
 import EventForm from './features/event/EventForm';
+import ShowEvent from './features/event/ShowEvent';
 // User
 
 import Signup from './features/User/Signup';
@@ -27,7 +28,6 @@ import Dashboard from './features/User/Dashboard';
 import ShopContainer from './features/shop/ShopContainer';
 import ProductForm from './features/shop/ProductForm';
 import ShowProduct from './features/shop/ShowProduct';
-
 function App() {  
 
 
@@ -43,6 +43,7 @@ function App() {
           <Route exact path="/shop/products/new" component={ProductForm}/>
           <Route exact path="/shop/products/:id/edit" component={ProductForm}/>
           <Route exact path="/events/new" component={EventForm}/>
+
           <Route exact path="/events/:id/edit" component={EventForm}/>
 
           {/* Static */}
@@ -52,6 +53,7 @@ function App() {
 
           {/* Event */}
           <Route exact path="/events" component={EventContainer}/>
+          <Route exact path="/events/:id" component={ShowEvent}/>
 
           {/* User */}
           <Route exact path="/signup" component={Signup} />

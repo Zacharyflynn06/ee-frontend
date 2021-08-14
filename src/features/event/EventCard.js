@@ -1,14 +1,19 @@
 import React from 'react'
 import style from './Events.module.css'
-
+import { NavLink } from 'react-router-dom';
 const EventCard = (props) => {
 
 
     return ( 
         <div className={style.eventCard}>
+            
             <div className={style.eventDescription}>
                 <div className={style.eventDateCell}>
-                    {props.event.attributes.date}
+                    <NavLink
+                        to={`/events/${props.event.id}`}
+                        exact
+                    >{props.event.attributes.date}
+                    </NavLink>
                 </div>
                 <div className={style.eventVenueCell}>
                     <div className={style.eventVenueName}>
