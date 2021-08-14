@@ -1,8 +1,8 @@
 import React from 'react'
 import NavBar from '../navbar/NavBar';
+import { NavLink, useParams } from 'react-router-dom';
 import { selectProducts, selectStatus } from './ShopSlice';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
 
 import style from './Shop.module.css'
 
@@ -26,6 +26,14 @@ const ShowProduct = () => {
                 <NavBar />
                 <h1>show product</h1>
                 <h2>Name: {product.attributes.name}</h2>
+                <NavLink
+                    to={{
+                        pathname: `/shop/products/${product.id}/edit`,
+                    }}
+                    exact
+                >
+                    <button>edit</button>
+                </NavLink>
             </div>
         )
 

@@ -1,22 +1,25 @@
 import React, {useState, useEffect} from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector  } from 'react-redux'
 import style from './Shop.module.css'
 import NavBar from '../navbar/NavBar'
-import {addProduct, updateProduct} from './ShopSlice'
+import {addProduct, updateProduct, selectProducts} from './ShopSlice'
 import { useHistory } from 'react-router'
+import { useParams } from 'react-router-dom'
 
 const ProductForm = (props) => {
 
     const history = useHistory()
     const dispatch = useDispatch()
+    const params = useParams()
+
+    const products = useSelector(selectProducts)
+    const product = products.find(product => product.id === params.id)
     
     const [productData, setProductData] = useState({
         name: "",
         price: "",
         description: ""
     })
-
-    const product = props.location.product 
     
     useEffect(() => {
         if (product) {
