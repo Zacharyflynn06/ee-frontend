@@ -40,7 +40,7 @@ const ProductForm = (props) => {
         
         if(product) {
             dispatch(updateProduct({data: formData, id: product.id}))
-            // history.push("/shop")
+            history.push(`/shop/products/${product.id}`)
 
         } else {
             dispatch(addProduct(formData))

@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice, current } from '@reduxjs/toolkit'
 
 
 export const getProducts = createAsyncThunk(
@@ -39,7 +39,7 @@ export const updateProduct = createAsyncThunk(
                 body: product.data
             }
         )
-        .then(res => {debugger})
+        .then(res => res.json())
     }
 )
 
@@ -87,7 +87,7 @@ export const shopSlice = createSlice({
         },
         
         [getProducts.rejected]: (state, { payload} ) => {
-            state.status = "failed"
+            state.status = "rejected"
      
             console.log('payload', payload)
         },
@@ -98,8 +98,8 @@ export const shopSlice = createSlice({
         },
 
         [addProduct.fulfilled]: (state, {payload} ) => {
-            
-            state.status = "success"
+            debugger
+            state.status = "complete"
             state.products = state.products.concat([payload.data])
             
             console.log('payload', payload)
@@ -118,13 +118,10 @@ export const shopSlice = createSlice({
         },
 
         [updateProduct.fulfilled]: (state, { payload} ) => {
-            debugger
-            state.status = "success"
-            
-            let product = state.products.find(product => product.id === payload.id)
+            state.status = "complete"
+            const product = state.products.find(product => product.id === payload.data.id)
+            product.attributes = payload.data.attributes
 
-            product.update(payload)
-            console.log('payload', payload)
         },
         
         [updateProduct.rejected]: (state, { payload} ) => {
