@@ -44,18 +44,18 @@ export const updateProduct = createAsyncThunk(
 )
 
 export const deleteProduct = createAsyncThunk(
-    'shop/addProduct',
+    'shop/deleteProduct',
     async (product) => {
+        const parsedId = parseInt(product.id)
         return fetch(
-            'http://localhost:3001/products', {
-                method: "POST",
+            `http://localhost:3001/products/${parsedId}`, {
+                method: "DELETE",
                 headers: {
                     Accept: "application/json",
-                },
-                body: product
+                }
             }
         )
-        .then(res =>{debugger})
+        .then(res => res.json())
     }
 )
 
@@ -88,7 +88,7 @@ export const shopSlice = createSlice({
         
         [getProducts.rejected]: (state, { payload} ) => {
             state.status = "rejected"
-     
+            
             console.log('payload', payload)
         },
 
@@ -98,7 +98,6 @@ export const shopSlice = createSlice({
         },
 
         [addProduct.fulfilled]: (state, {payload} ) => {
-            debugger
             state.status = "complete"
             state.products = state.products.concat([payload.data])
             
@@ -119,12 +118,31 @@ export const shopSlice = createSlice({
 
         [updateProduct.fulfilled]: (state, { payload} ) => {
             state.status = "complete"
+            console.log(payload)
             const product = state.products.find(product => product.id === payload.data.id)
             product.attributes = payload.data.attributes
 
         },
         
         [updateProduct.rejected]: (state, { payload} ) => {
+            state.status = "rejected"
+     
+            console.log('payload', payload)
+        },
+
+        [deleteProduct.pending]: (state) => {
+            state.status = "loading"
+        },
+
+        [deleteProduct.fulfilled]: (state, { payload} ) => {
+            state.status = "complete"
+            console.log("before", current(state))
+            const product = state.products.find(product => product.id === payload.data.id)
+            state.products -= product
+
+        },
+        
+        [deleteProduct.rejected]: (state, { payload} ) => {
             state.status = "rejected"
      
             console.log('payload', payload)

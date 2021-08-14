@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { useDispatch, useSelector  } from 'react-redux'
 import style from './Shop.module.css'
 import NavBar from '../navbar/NavBar'
-import {addProduct, updateProduct, selectProducts} from './ShopSlice'
+import {addProduct, updateProduct, deleteProduct, selectProducts} from './ShopSlice'
 import { useHistory } from 'react-router'
 import { useParams } from 'react-router-dom'
 
@@ -55,6 +55,15 @@ const ProductForm = (props) => {
             [event.target.name]: event.target.value
         }))
     }
+
+    const handleDelete = (event) => {
+        if(product) {
+            dispatch(deleteProduct(product))
+            history.push('/shop')
+        }
+    }
+
+
     return ( 
         
         <div className={style.shopContainer}>
@@ -66,6 +75,7 @@ const ProductForm = (props) => {
                 <input type="file" name="image" id="" ref={imageFile} />
                 <input type="submit" value="Submit" onSubmit={handleSubmit} />
             </form>
+                <input type="button" value="Delete" onClick={handleDelete} />
         </div>
     );
 }
