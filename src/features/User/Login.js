@@ -10,7 +10,7 @@ const Login = (props) => {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const { isFetching, isSuccess, isError, errorMessage } = useSelector(userSelector)
+    const { isSuccess, isError } = useSelector(userSelector)
 
     const [userData, setUserData] = useState({
         email: '',
@@ -41,7 +41,7 @@ const Login = (props) => {
             dispatch(clearState())
             history.push('/dashboard')
         }
-    }, [isError, isSuccess])
+    }, [dispatch, history, isError, isSuccess])
 
     return (
         <div className={style.formContainer}>

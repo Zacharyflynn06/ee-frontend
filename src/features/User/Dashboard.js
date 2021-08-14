@@ -1,12 +1,12 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { logoutUser, userSelector, fetchUserByToken, clearState } from './userSlice'
-import { useHistory } from 'react-router'
+import { logoutUser, userSelector } from './userSlice'
+// import { useHistory } from 'react-router'
 import NavBar from '../navbar/NavBar'
 import style from './User.module.css'
 
 const Dashboard = () => {
-    const history = useHistory()
+    // const history = useHistory()
     const dispatch = useDispatch()
 
     // const { isFetching, isError, isSuccess } = useSelector(userSelector);

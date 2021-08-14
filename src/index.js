@@ -5,7 +5,7 @@ import './index.css';
 import App from './App';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
-import toast, { Toaster } from 'react-hot-toast'
+import { Toaster } from 'react-hot-toast'
 import { getProducts } from './features/shop/ShopSlice';
 import { getEvents } from './features/event/EventSlice';
 
@@ -13,10 +13,12 @@ import { getEvents } from './features/event/EventSlice';
 store.dispatch(getProducts())
 store.dispatch(getEvents())
 
+
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Toaster />
+      {/* <Toaster /> */}
       <App />
     </Provider>
   </React.StrictMode>,

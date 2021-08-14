@@ -1,8 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
-// const findProductById = (id) => {
-
-// }
 
 export const getProducts = createAsyncThunk(
     'shop/getProducts',
@@ -140,8 +137,13 @@ export const shopSlice = createSlice({
 
 
 
+export const selectStatus = (state) => state.shop.status
 
 export const selectProducts = (state) => state.shop.products
-export const selectStatus = (state) => state.shop.status
+
+export const selectProductById = (state, productId) => {
+    debugger
+    state.shop.products.find(product => product.id === productId)
+}
 
 export default shopSlice.reducer

@@ -1,10 +1,9 @@
-import React, {useEffect, useMemo} from 'react';
+import React from 'react';
 import { 
   BrowserRouter as Router,
   Switch,
   Route
  } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 import './App.css';
 // import NavBar from './features/navbar/NavBar';
 
@@ -25,15 +24,14 @@ import Dashboard from './features/User/Dashboard';
 
 // Shop
 import ShopContainer from './features/shop/ShopContainer';
-import ShowProduct from './features/shop/ShowProduct';
 import ProductForm from './features/shop/ProductForm';
+import { selectProductById } from './features/shop/ShopSlice';
+import ShowProduct from './features/shop/ShowProduct';
 
 function App() {  
+
+
   
-
-
-
-
   return (
     <div className="app">
       {console.log("re-render")}

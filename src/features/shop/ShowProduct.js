@@ -1,45 +1,38 @@
 import React from 'react'
 import NavBar from '../navbar/NavBar';
+import { selectProducts, selectStatus } from './ShopSlice';
 import { useSelector } from 'react-redux';
-import { selectProducts } from './ShopSlice';
-import { NavLink } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import style from './Shop.module.css'
 
-const ProductShow = (props) => {
-    
+const ShowProduct = () => {
+
+    const params = useParams()
+    const status = useSelector(selectStatus)
     const products = useSelector(selectProducts)
-    // console.log(products)
-    
-    const findProductById = (id) => {
-        return products.find(product => product.id === id)
+    const product = products.find(product => product.id === params.id)
+
+    if (status === "loading") {
+
+        return (
+            <div className={style.shopContainer}>
+                <h1>Loading!</h1>
+            </div>)
+    } else {
+        return (
+
+            <div className={style.shopContainer}>
+                <NavBar />
+                <h1>show product</h1>
+                <h2>Name: {product.attributes.name}</h2>
+            </div>
+        )
+
     }
 
-    const product = findProductById(props.match.params.id)
-    
-    
-    return ( 
-        <div className={style.shopContainer}>
-            <NavBar></NavBar>
-            <h1>Show Product</h1>
-            {/* <img src={product.attributes.image_format.url} alt="" /> */}
-            <h2>{product.attributes.name}</h2>
-            <p>{product.attributes.description}</p>
-            <h3>{product.attributes.price}</h3>
 
-            <div>
-                <NavLink
-                    to={{
-                        pathname: `/shop/products/${product.id}/edit`,
-                        product: product
-                    }}
-                    exact
-                    key={product.id}
-                >Edit</NavLink>
-            </div>
-        </div>
-     );
 }
  
-export default ProductShow;
+export default ShowProduct;
 

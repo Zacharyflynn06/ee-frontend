@@ -10,7 +10,7 @@ const Signup = (props) => {
     const dispatch = useDispatch()
     const history = useHistory();
 
-    const { isFetching, isSuccess, isError, errorMessage } = useSelector(userSelector);
+    const { isSuccess, isError } = useSelector(userSelector);
 
     const [userData, setUserData] = useState({
         first_name: '',
@@ -23,7 +23,7 @@ const Signup = (props) => {
         return () => {
           dispatch(clearState());
         };
-      },);
+      }, [dispatch]);
 
     useEffect(() => {
     if (isSuccess) {
