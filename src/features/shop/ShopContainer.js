@@ -4,6 +4,7 @@ import NavBar from '../navbar/NavBar';
 import { selectProducts, selectStatus } from './ShopSlice';
 import { useSelector } from 'react-redux';
 import ProductCard from './ProductCard';
+import Loading from '../loading/Loading';
 
 import style from './Shop.module.css'
 
@@ -15,9 +16,9 @@ const ShopContainer = (props) => {
     if (status === "loading") {
 
         return (
-            <div className={style.shopContainer}>
-                <h1>Loading!</h1>
-            </div>)
+            <Loading />
+        )
+
     } else {
         return(
     

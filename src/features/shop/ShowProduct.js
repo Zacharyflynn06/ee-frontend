@@ -3,7 +3,7 @@ import NavBar from '../navbar/NavBar';
 import { NavLink, useParams } from 'react-router-dom';
 import { selectProducts, selectStatus } from './ShopSlice';
 import { useSelector } from 'react-redux';
-
+import Loading from '../loading/Loading';
 import style from './Shop.module.css'
 
 const ShowProduct = () => {
@@ -19,36 +19,34 @@ const ShowProduct = () => {
 
     if (status === "loading") {
 
+  
         return (
-            <div className={style.shopContainer}>
-                <h1>Loading!</h1>
-            </div>)
+            <Loading />
+        )
     } else {
         return (
 
             <div className={style.shopContainer}>
                 <NavBar />
 
-                <div className={style.showProductContainer}>
-                <h2>Name: {product.attributes.name}</h2>
 
+                < div className={style.showProductCard}>
                     <div className={style.showProductImageContainer}>
                         <img className={style.showProductImage} src={formatImageUrl()} alt="" />
                     </div>
-
                     <div className={style.showProductDetails}>
                         <div>
-
+                            <h1> {product.attributes.name}</h1>
                             <span>
                                 ${product.attributes.price}
                             </span>
-
                             <div>
                                 {product.attributes.description}
                             </div>
                             
                         </div>
                     </div>
+                
                 </div>
                 
                 <NavLink
