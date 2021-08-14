@@ -1,13 +1,20 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import NavBar from '../navbar/NavBar';
 import style from './Events.module.css'
-import { useDispatch } from 'react-redux';
-import { addEvent } from './EventSlice'
+import { useDispatch, useSelector } from 'react-redux';
+import { addEvent, selectEvents } from './EventSlice'
+import { useHistory, useParams } from 'react-router-dom';
 
 const EventForm = () => {
     
-
+    const history = useHistory()
+    const params = useParams
     const dispatch = useDispatch()
+
+    const eventId = params.id
+    const events = useSelector(selectEvents)
+    const event = events.find(event => event.id === eventId)
+
     const [eventData, setEventData] = useState({
         date: "",
         venue_name: "",
@@ -15,18 +22,36 @@ const EventForm = () => {
         state: "",
         ticket_link: ""
     })
+
+    useEffect(() => {
+        if (event) {
+            setEventData({
+                name: event.attributes.date || "",
+                description: event.attributes.venue_name || "",
+                city: event.attributes.city || "",
+                state: event.attributes.city || "",
+                ticket_link: event.attributes.ticket_link || "",
+            })
+        }
+    }, [event])
     
-    const handleSubmit = (event) => {
-        debugger
-        event.preventDefault()
-        const formData = new FormData(event.target)
-        dispatch(addEvent(formData))
+    const handleSubmit = (e) => {
+        
+        e.preventDefault()
+        const formData = new FormData(e.target)
+        if(event) {
+            dispatch(updateEvent(formData))
+            history.push(`/events/${event.id}`)
+        } else {
+            dispatch(addEvent(formData))
+            history.push("/events")
+        }
     } 
 
-    const handleChange = (event) => {
+    const handleChange = (e) => {
         setEventData((prevState) => ({
             ...prevState,
-            [event.target.name]: event.target.value
+            [e.target.name]: e.target.value
         }))
     }
 
