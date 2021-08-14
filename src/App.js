@@ -16,6 +16,7 @@ import ErrorPage from './features/error/Error';
 
 // Event
 import EventContainer from './features/event/EventsContainer';
+import EventForm from './features/event/EventForm';
 // User
 
 import Signup from './features/User/Signup';
@@ -25,7 +26,6 @@ import Dashboard from './features/User/Dashboard';
 // Shop
 import ShopContainer from './features/shop/ShopContainer';
 import ProductForm from './features/shop/ProductForm';
-import { selectProductById } from './features/shop/ShopSlice';
 import ShowProduct from './features/shop/ShowProduct';
 
 function App() {  
@@ -42,6 +42,8 @@ function App() {
           {/* Protected Routes */}
           <Route exact path="/shop/products/new" component={ProductForm}/>
           <Route exact path="/shop/products/:id/edit" component={ProductForm}/>
+          <Route exact path="/events/new" component={EventForm}/>
+          <Route exact path="/events/:id/edit" component={EventForm}/>
 
           {/* Static */}
           <Route exact path="/about" component={About}/>
