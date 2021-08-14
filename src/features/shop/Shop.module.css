@@ -47,3 +47,23 @@
     justify-content: space-between;
     flex-direction: column;
 }
+
+.showProductContainer {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+
+}
+.showProductImageContainer {
+    width: 50%;
+    
+}
+.showProductImage {
+    width: 100px;
+}
+
+.showProductDetails {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
