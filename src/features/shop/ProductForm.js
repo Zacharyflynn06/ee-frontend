@@ -73,7 +73,7 @@ const ProductForm = (props) => {
                 <input type="number" name="price" id="" placeholder="price" value={ productData.price} onChange={handleChange}/>
                 <textarea type="text" name="description" id="" placeholder="description" value={ productData.description} onChange={handleChange}/>
                 <input type="file" name="image" id="" ref={imageFile} />
-                <input type="submit" value="Submit" onSubmit={handleSubmit} />
+                <input type="submit" value="Submit"/>
             </form>
                 <input type="button" value="Delete" onClick={handleDelete} />
         </div>
