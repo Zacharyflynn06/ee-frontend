@@ -11,9 +11,9 @@ export const getEvents = createAsyncThunk(
 
 export const addEvent = createAsyncThunk(
     'event/addEvent',
-    async (eventData) => {
-        debugger
-        return fetch(
+    async (eventData, thunkAPI) => {
+        // debugger
+        const response = await fetch(
             'http://localhost:3001/events', {
                 method: "POST",
                 headers: {
@@ -22,7 +22,13 @@ export const addEvent = createAsyncThunk(
                 body: eventData
             }
         )
-        .then(res => res.json())
+        let data = await response.json()
+        console.log('response', data)
+        if(response.ok) {
+            return data
+        } else {
+            return thunkAPI.rejectWithValue(data)
+        }
     }
 )
 
@@ -65,12 +71,12 @@ export const EventSlice = createSlice({
     },
     extraReducers: {
         [getEvents.pending]: (state) => {
-            // state.isFetching = true
+            state.isFetching = true
         },
 
         [getEvents.fulfilled]: (state, { payload} ) => {
-            // state.isFetching = false
-            // state.isSuccess = true
+            state.isFetching = false
+            state.isSuccess = true
             state.events = payload.data
         },
         
@@ -92,11 +98,12 @@ export const EventSlice = createSlice({
         },
         
         [addEvent.rejected]: (state, { payload} ) => {
+            
             state.status = "rejected"
      
             state.isFetching = false;
             state.isError = true;
-            state.errorMessage = payload.status.message;
+            state.errorMessage = payload
         },
 
         [updateEvent.pending]: (state) => {

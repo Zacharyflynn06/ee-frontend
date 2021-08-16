@@ -66,16 +66,16 @@ const EventForm = () => {
 
     useEffect(() => {
         if (isError) {
-            toast.isError(errorMessage)
+            debugger
+            
+            toast.error('there was a problem! try again')
             dispatch(clearState)
-
         }
 
-        if (isSuccess) {
-            toast.success('Successfully updated')
+        if (isSuccess && eventObj) {
+            toast.success('Success')
             dispatch(clearState())
             history.push('/events')
-            
         }
     })
 
