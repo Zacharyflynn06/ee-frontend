@@ -2,8 +2,9 @@ import React, {useState, useEffect} from 'react'
 import NavBar from '../navbar/NavBar';
 import style from './Events.module.css'
 import { useDispatch, useSelector } from 'react-redux';
-import { addEvent, updateEvent, selectEvents } from './EventSlice'
+import { addEvent, updateEvent, selectEvents, eventSelector, clearState } from './EventSlice'
 import { useHistory, useParams } from 'react-router-dom';
+import toast from 'react-hot-toast'
 
 const EventForm = () => {
     
@@ -15,6 +16,8 @@ const EventForm = () => {
     const events = useSelector(selectEvents)
     const eventObj = events.find(event => event.id === eventId)
 
+    const { isSuccess, isError, errorMessage } = useSelector(eventSelector)
+
     const [eventData, setEventData] = useState({
         date: "",
         venue_name: "",
@@ -22,6 +25,7 @@ const EventForm = () => {
         state: "",
         ticket_link: ""
     })
+
     useEffect(() => {
         if (eventObj) {
             
@@ -41,10 +45,8 @@ const EventForm = () => {
         const formData = new FormData(event.target)
         if(eventObj) {
             dispatch(updateEvent({data: formData, id: eventObj.id}))
-            history.push(`/events/${eventObj.id}`)
         } else {
             dispatch(addEvent(formData))
-            history.push("/events")
         }
     } 
 
@@ -54,6 +56,28 @@ const EventForm = () => {
             [event.target.name]: event.target.value
         }))
     }
+
+    // clear state on initial render
+    useEffect(() => {
+        return () => {
+          dispatch(clearState());
+        };
+      }, []);
+
+    useEffect(() => {
+        if (isError) {
+            toast.isError(errorMessage)
+            dispatch(clearState)
+
+        }
+
+        if (isSuccess) {
+            toast.success('Successfully updated')
+            dispatch(clearState())
+            history.push('/events')
+            
+        }
+    })
 
     return ( 
         <div className={style.eventsContainer}>

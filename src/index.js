@@ -18,7 +18,7 @@ store.dispatch(getEvents())
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      {/* <Toaster /> */}
+      <Toaster />
       <App />
     </Provider>
   </React.StrictMode>,

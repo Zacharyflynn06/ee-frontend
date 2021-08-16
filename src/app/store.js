@@ -5,7 +5,7 @@ import userReducer from '../features/User/userSlice'
 
 export default configureStore({
   reducer: {
-    event: eventsReducer,
+    eventReducer: eventsReducer,
     shop: shopReducer,
     user: userReducer
   }

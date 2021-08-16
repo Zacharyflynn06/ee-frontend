@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import style from './User.module.css'
 import { loginUser, userSelector, clearState } from './userSlice';
 import { useHistory } from 'react-router-dom';
-// import toast from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 const Login = (props) => {
 

@@ -1,27 +1,29 @@
 import React from 'react'
 import NavBar from '../navbar/NavBar';
-import { selectEvents , selectStatus } from './EventSlice';
+import { clearState, eventSelector, selectEvents } from './EventSlice';
 import { useParams } from 'react-router';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Loading from '../loading/Loading';
 import { NavLink } from 'react-router-dom';
 import style from './Events.module.css'
 
 
+
 const ShowEvent = () => {
 
-    const status = useSelector(selectStatus)
-    
+    const {isSuccess, isError, isFetching} = useSelector(eventSelector)
+    const dispatch = useDispatch()
 
     const params = useParams()
     const eventId = params.id
     const events = useSelector(selectEvents)
     const event = events.find(event => event.id === eventId)
 
-    if (status === "loading") {
+    if (isFetching) {
+        // dispatch(clearState())
         return (
             <Loading />
-        )
+            )
     } else {
         
         return ( 
