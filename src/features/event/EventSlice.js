@@ -26,6 +26,24 @@ export const addEvent = createAsyncThunk(
     }
 )
 
+export const updateEvent = createAsyncThunk(
+    'event/updateEvent',
+    async (eventData) => {   
+        debugger     
+        const parsedId = parseInt(eventData.id)
+        return fetch(
+            `http://localhost:3001/events/${parsedId}`, {
+                method: "PATCH",
+                headers: {
+                    Accept: "application/json",
+                },
+                body: eventData.data
+            }
+        )
+        .then(res => res.json())
+    }
+)
+
 export const initialState = {
     status: null,
     events: []
@@ -43,7 +61,7 @@ export const EventSlice = createSlice({
         },
 
         [getEvents.fulfilled]: (state, { payload} ) => {
-            state.status = "successs"
+            state.status = "complete"
             state.events = payload.data
             console.log('payload', payload)
         },
@@ -59,12 +77,30 @@ export const EventSlice = createSlice({
         },
 
         [addEvent.fulfilled]: (state, { payload} ) => {
-            state.status = "successs"
+            state.status = "complete"
             state.events = state.events.concat([payload.data])
             console.log('payload', payload)
         },
         
         [addEvent.rejected]: (state, { payload} ) => {
+            state.status = "rejected"
+     
+            console.log('payload', payload)
+        },
+
+        [updateEvent.pending]: (state) => {
+            state.status = "loading"
+        },
+
+        [updateEvent.fulfilled]: (state, { payload} ) => {
+            debugger
+            state.status = "complete"
+            const event = state.events.find(event => event.id === payload.data.id)
+            event.attributes = payload.data.attributes
+            console.log('payload', payload)
+        },
+        
+        [updateEvent.rejected]: (state, { payload} ) => {
             state.status = "rejected"
      
             console.log('payload', payload)

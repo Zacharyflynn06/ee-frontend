@@ -2,18 +2,18 @@ import React, {useState, useEffect} from 'react'
 import NavBar from '../navbar/NavBar';
 import style from './Events.module.css'
 import { useDispatch, useSelector } from 'react-redux';
-import { addEvent, selectEvents } from './EventSlice'
+import { addEvent, updateEvent, selectEvents } from './EventSlice'
 import { useHistory, useParams } from 'react-router-dom';
 
 const EventForm = () => {
     
     const history = useHistory()
-    const params = useParams
+    const params = useParams()
     const dispatch = useDispatch()
 
     const eventId = params.id
     const events = useSelector(selectEvents)
-    const event = events.find(event => event.id === eventId)
+    const eventObj = events.find(event => event.id === eventId)
 
     const [eventData, setEventData] = useState({
         date: "",
@@ -22,36 +22,36 @@ const EventForm = () => {
         state: "",
         ticket_link: ""
     })
-
     useEffect(() => {
-        if (event) {
+        if (eventObj) {
+            
             setEventData({
-                name: event.attributes.date || "",
-                description: event.attributes.venue_name || "",
-                city: event.attributes.city || "",
-                state: event.attributes.city || "",
-                ticket_link: event.attributes.ticket_link || "",
+                date: eventObj.attributes.date || "",
+                venue_name: eventObj.attributes.venue_name || "",
+                city: eventObj.attributes.city || "",
+                state: eventObj.attributes.state || "",
+                ticket_link: eventObj.attributes.ticket_link || "",
             })
         }
-    }, [event])
+    }, [eventObj])
     
-    const handleSubmit = (e) => {
+    const handleSubmit = (event) => {
         
-        e.preventDefault()
-        const formData = new FormData(e.target)
-        if(event) {
-            dispatch(updateEvent(formData))
-            history.push(`/events/${event.id}`)
+        event.preventDefault()
+        const formData = new FormData(event.target)
+        if(eventObj) {
+            dispatch(updateEvent({data: formData, id: eventObj.id}))
+            history.push(`/events/${eventObj.id}`)
         } else {
             dispatch(addEvent(formData))
             history.push("/events")
         }
     } 
 
-    const handleChange = (e) => {
+    const handleChange = (event) => {
         setEventData((prevState) => ({
             ...prevState,
-            [e.target.name]: e.target.value
+            [event.target.name]: event.target.value
         }))
     }
 
@@ -65,7 +65,7 @@ const EventForm = () => {
                 <input type="text" name="city" placeholder="City" value={eventData.city} onChange={handleChange}/>
                 <input type="text" name="state" placeholder="State" value={eventData.state} onChange={handleChange}/>
                 <input type="text" name="ticket_link" placeholder="ticket_link" value={eventData.ticket_link} onChange={handleChange}/>
-                <input type="submit" value="Submit" />
+                <input type="submit" />
             </form>
         </div>
     );
