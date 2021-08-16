@@ -44,8 +44,11 @@ export const updateEvent = createAsyncThunk(
     }
 )
 
-export const initialState = {
-    status: null,
+const initialState = {
+    isFetching: false,
+    isSuccess: false,
+    isError: false,
+    errorMessage: '',
     events: []
 }
 
@@ -57,27 +60,28 @@ export const EventSlice = createSlice({
     },
     extraReducers: {
         [getEvents.pending]: (state) => {
-            state.status = "loading"
+            state.isFetching = true
         },
 
         [getEvents.fulfilled]: (state, { payload} ) => {
-            state.status = "complete"
+            state.isFetching = false
+            state.isSuccess = true
             state.events = payload.data
-            console.log('payload', payload)
         },
         
         [getEvents.rejected]: (state, { payload} ) => {
-            state.status = "rejected"
-     
-            console.log('payload', payload)
+            state.isFetching = false;
+            state.isError = true;
+            state.errorMessage = payload.status.message;
         },
 
         [addEvent.pending]: (state) => {
-            state.status = "loading"
+            state.isFetching = true
         },
 
         [addEvent.fulfilled]: (state, { payload} ) => {
-            state.status = "complete"
+            state.isFetching = false
+            state.isSuccess = true
             state.events = state.events.concat([payload.data])
             console.log('payload', payload)
         },
@@ -85,29 +89,35 @@ export const EventSlice = createSlice({
         [addEvent.rejected]: (state, { payload} ) => {
             state.status = "rejected"
      
-            console.log('payload', payload)
+            state.isFetching = false;
+            state.isError = true;
+            state.errorMessage = payload.status.message;
         },
 
         [updateEvent.pending]: (state) => {
-            state.status = "loading"
+            state.isFetching = true
         },
 
         [updateEvent.fulfilled]: (state, { payload} ) => {
             debugger
-            state.status = "complete"
+            state.isFetching = false
+            state.isSuccess = true
             const event = state.events.find(event => event.id === payload.data.id)
             event.attributes = payload.data.attributes
             console.log('payload', payload)
         },
         
         [updateEvent.rejected]: (state, { payload} ) => {
-            state.status = "rejected"
-     
-            console.log('payload', payload)
+                    
+            state.isFetching = false;
+            state.isError = true;
+            state.errorMessage = payload.status.message;
         },
     }
     
 })
+
+export const eventSelector = (state) => state.events
 
 export const selectEvents = (state) => state.event.events
 export const selectStatus = (state) => state.event.status

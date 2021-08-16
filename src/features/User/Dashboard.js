@@ -1,15 +1,16 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { logoutUser, userSelector } from './userSlice'
 // import { useHistory } from 'react-router'
 import NavBar from '../navbar/NavBar'
 import style from './User.module.css'
+import { useHistory } from 'react-router-dom'
 
 const Dashboard = () => {
-    // const history = useHistory()
+    const history = useHistory()
     const dispatch = useDispatch()
 
-    // const { isFetching, isError, isSuccess } = useSelector(userSelector);
+    const { isFetching, isError, isSuccess } = useSelector(userSelector);
 
 
     const {currentUser} = useSelector(userSelector)
@@ -24,17 +25,17 @@ const Dashboard = () => {
     //     dispatch(fetchUserBytoken({ token: localStorage.getItem('token') }));
     // }, []);
 
-    // useEffect(() => {
-    //     if (isError) {
-    //       dispatch(clearState());
-    //       history.push('/dashboard');
-    //     }
+    useEffect(() => {
+        if (isError) {
+        //   dispatch(clearState());
+          history.push('/dashboard');
+        }
 
-    //     if (isSuccess) {
-    //         localStorage.removeItem('token');
-    //         history.push('/login');
-    //     }
-    //   }, [isError]);
+        if (isSuccess) {
+            localStorage.removeItem('token');
+            history.push('/login');
+        }
+      }, [isError]);
 
       
     return(

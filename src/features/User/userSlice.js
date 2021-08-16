@@ -139,6 +139,9 @@ export const userSlice = createSlice({
 
     extraReducers: {
       // Sign Up
+      [signupUser.pending]: (state) => {
+        state.isFetching = true;
+      },
       [signupUser.fulfilled]: (state, { payload }) => {
         
         console.log('payload', payload);
@@ -147,9 +150,6 @@ export const userSlice = createSlice({
         state.currentUser = payload.data.data
       },
 
-      [signupUser.pending]: (state) => {
-        state.isFetching = true;
-      },
 
       [signupUser.rejected]: (state, { payload }) => {
         
