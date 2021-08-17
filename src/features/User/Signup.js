@@ -55,16 +55,19 @@ const Signup = (props) => {
 
     return (
         <div className={style.formContainer}>
-            <h1>Signup</h1>
+            <h1>Sign Up</h1>
             <form onSubmit={handleSubmit} className={style.userForm}>
-                <div >
+                <div className={style.userFormNameCell}>
+                    <h4>First Name</h4>
                     <input 
                         type="text" 
                         name="first_name" 
                         value={userData.first_name} 
                         onChange={handleChange}
-                        placeholder="First Name"
+                        // placeholder="First Name"
                     />
+                    <h4>Last Name</h4>
+
                     <input 
                         type="text" 
                         name="last_name" 
@@ -74,6 +77,8 @@ const Signup = (props) => {
                     />
                 </div>
                 <div>
+                <h4>Email</h4>
+
                     <input 
                         type="text" 
                         name="email" 
@@ -83,6 +88,8 @@ const Signup = (props) => {
                     />
                     
                 </div>
+                <h4>Password</h4>
+                
                 <input 
                     type="password" 
                     name="password" 

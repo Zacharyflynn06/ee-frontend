@@ -11,11 +11,16 @@
     align-items: center;
     justify-content: space-between;
     background-color: blue;
-    width: 30%;
-    height: 50%;
+    width: 40%;
+    height: auto;
     border:0.1em solid #FFFFFF;
     border-radius: .5em;
     background-color: rgba(0, 0, 0, 0.1);
     padding: 2.5%;
+}
+
+.userFormNameCell {
+    display: flex;
+    flex-direction: column;
 }
 

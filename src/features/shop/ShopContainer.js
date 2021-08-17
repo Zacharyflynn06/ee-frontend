@@ -1,27 +1,37 @@
 import React, {useState, useEffect} from 'react';
 // import ErrorPage from './ErrorPage'
 import NavBar from '../navbar/NavBar';
-import { selectProducts, selectStatus } from './ShopSlice';
-import { useSelector } from 'react-redux';
+import { clearState, shopSelector } from './ShopSlice';
+import { useDispatch, useSelector } from 'react-redux';
 import ProductCard from './ProductCard';
 import Loading from '../loading/Loading';
+
 
 import style from './Shop.module.css'
 
 const ShopContainer = () => {
+    
+    const dispatch = useDispatch()
+    const products = useSelector(shopSelector).products
+    const {isSuccess, isFetching, isError} = useSelector(shopSelector)
 
-    const products = useSelector(selectProducts)
-    const status = useSelector(selectStatus)
+    useEffect(() => {
+        return(
+            dispatch(clearState()),
+            console.log(isSuccess)
+        )
 
-    if (status === "loading") {
-
+    }, []);
+    
+    if (isFetching) {
+        
         return (
             <Loading />
         )
 
     } else {
         return(
-    
+            
                 <div className={style.shopContainer}>
                     {/* <NavBar></NavBar> */}
                     <h1>Shop</h1>
