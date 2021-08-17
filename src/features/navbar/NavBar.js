@@ -20,15 +20,17 @@ const NavBar = (props) => {
 
     return (
         <div className={style.navContainer}>
-            <NavLink
-                to="/"
-                exact
-                className={style.navLink}
-                activeClassName={style.active}
-            >
-                Home
-            </NavLink>
-            
+            <div>
+                <NavLink
+                    to="/"
+                    exact
+                    className={style.navLink}
+                    activeClassName={style.active}
+                >
+                    Home
+                </NavLink>
+            </div>
+            <div>
             <NavLink
                 to="/shop"
                 exact
@@ -37,43 +39,56 @@ const NavBar = (props) => {
             >
                 Shop
             </NavLink>
+            </div>
+            
+            <div>
+                <NavLink
+                    to="/events"
+                    exact
+                    className={style.navLink}
+                    activeClassName={style.active}
+                    
+                >
+                    Events
+                </NavLink>
+            </div>
+            
+            <div>
 
-            <NavLink
-                to="/events"
-                exact
-                className={style.navLink}
-                activeClassName={style.active}
-                
-            >
-                Events
-            </NavLink>
+                <NavLink
+                    to="/about"
+                    exact
+                    className={style.navLink}
+                    activeClassName={style.active}
+                >
+                    About
+                </NavLink>
+            </div>
 
-            <NavLink
-                to="/about"
-                exact
-                className={style.navLink}
-                activeClassName={style.active}
-            >
-                About
-            </NavLink>
+            <div>
 
-            <NavLink
-                to="/music"
-                exact
-                className={style.navLink}
-                activeClassName={style.active}
-            >
-                Music
-            </NavLink>
+                <NavLink
+                    to="/music"
+                    exact
+                    className={style.navLink}
+                    activeClassName={style.active}
+                >
+                    Music
+                </NavLink>
+            </div>
 
-            <NavLink
-                to="/contact"
-                exact
-                className={style.navLink}
-                activeClassName={style.active}
-            >
-                Contact
-            </NavLink>
+            <div>
+
+                <NavLink
+                    to="/contact"
+                    exact
+                    className={style.navLink}
+                    activeClassName={style.active}
+                >
+                    Contact
+                </NavLink>
+            </div>
+            
         </div>
     )
 }

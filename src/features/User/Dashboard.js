@@ -5,6 +5,7 @@ import { logoutUser, userSelector } from './userSlice'
 import NavBar from '../navbar/NavBar'
 import style from './User.module.css'
 import { useHistory } from 'react-router-dom'
+import { clearState } from './userSlice'
 
 const Dashboard = () => {
     const history = useHistory()
@@ -25,17 +26,17 @@ const Dashboard = () => {
     //     dispatch(fetchUserBytoken({ token: localStorage.getItem('token') }));
     // }, []);
 
-    useEffect(() => {
-        if (isError) {
-        //   dispatch(clearState());
-          history.push('/dashboard');
-        }
+    // useEffect(() => {
+    //     if (isError) {
+    //       dispatch(clearState());
+    //       history.push('/dashboard');
+    //     }
 
-        if (isSuccess) {
-            localStorage.removeItem('token');
-            history.push('/login');
-        }
-      }, [isError]);
+    //     if (isSuccess) {
+    //         localStorage.removeItem('token');
+    //         history.push('/login');
+    //     }
+    //   }, [isError]);
 
       
     return(

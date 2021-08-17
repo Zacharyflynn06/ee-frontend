@@ -47,7 +47,7 @@ function App() {
           <Route exact path="/shop/products/:id/edit" component={ProductForm}/>
           <Route exact path="/events/new" component={WithAuth(EventForm)}/>
 
-          <Route exact path="/events/:id/edit" component={EventForm}/>
+          <Route exact path="/events/:id/edit" component={WithAuth(EventForm)}/>
 
           {/* Static */}
           <Route exact path="/about" component={About}/>
@@ -61,7 +61,7 @@ function App() {
           {/* User */}
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/dashboard" component={WithAuth(Dashboard)} />
 
           {/* Shop */}
           {/* <Route exact path="/shop/products/:id" render={(routeProps) => {
