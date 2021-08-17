@@ -220,6 +220,7 @@ export const userSlice = createSlice({
         state.loggedIn = false
         state.message = payload.message
         state.currentUser = {}
+        state.admin = false
         localStorage.removeItem('token')
         
       },
@@ -232,6 +233,7 @@ export const userSlice = createSlice({
 
         state.authChecked = true
         state.loggedIn = false
+        state.admin = false
         
       },
       [checkAuth.pending]: (state) => {
@@ -257,6 +259,7 @@ export const userSlice = createSlice({
 
         state.authChecked = true
         state.loggedIn = false
+        state.admin = false
         // state.message = payload.error
       },
 
