@@ -6,12 +6,13 @@ import NavBar from '../navbar/NavBar'
 import style from './User.module.css'
 import { useHistory } from 'react-router-dom'
 import { clearState } from './userSlice'
+import toast from 'react-hot-toast'
 
 const Dashboard = () => {
     const history = useHistory()
     const dispatch = useDispatch()
 
-    const { isFetching, isError, isSuccess } = useSelector(userSelector);
+    const { isFetching, isError, isSuccess, message } = useSelector(userSelector);
 
 
     const {currentUser} = useSelector(userSelector)
@@ -19,24 +20,11 @@ const Dashboard = () => {
     const handleLogout = (event) => {
         event.preventDefault()
         dispatch(logoutUser())
+        toast.success('Logged Out')
+        history.push('/')
 
     }
 
-    // useEffect(() => {
-    //     dispatch(fetchUserBytoken({ token: localStorage.getItem('token') }));
-    // }, []);
-
-    // useEffect(() => {
-    //     if (isError) {
-    //       dispatch(clearState());
-    //       history.push('/dashboard');
-    //     }
-
-    //     if (isSuccess) {
-    //         localStorage.removeItem('token');
-    //         history.push('/login');
-    //     }
-    //   }, [isError]);
 
       
     return(

@@ -84,10 +84,9 @@ export const loginUser = createAsyncThunk(
 );
 
 export const logoutUser = createAsyncThunk(
-  'user/logout',
+  'users/logout',
   async (thunkAPI) => {
-    try {
-      const response = fetch(
+      const response = await fetch(
         "http://localhost:3001/logout", {
           
           method: "DELETE",
@@ -98,20 +97,16 @@ export const logoutUser = createAsyncThunk(
           
         }
       )
-        console.log(response)
       
-      // let data = await response.json()
-      // console.log('response', data)
-      if (response.status === 200) {
-        debugger
+      let data = await response.json()
+      console.log('data', data)
 
+      if (response.status === 200) {
+        return data
       } else {
         return thunkAPI.rejectWithValue();
       }
-    } catch (event) {
-      console.log('Error', event.response.data);
-      thunkAPI.rejectWithValue(event.response.data);
-    }
+
   }
 )
 
@@ -143,7 +138,7 @@ const initialState = {
     isError: false,
     authChecked: false,
     loggedIn: false,
-    errorMessage: '',
+    message: '',
     currentUser: {}
     
 }
@@ -186,7 +181,7 @@ export const userSlice = createSlice({
 
         state.authChecked = true
         state.loggedIn = false
-        state.errorMessage = payload.status.message;
+        state.message = payload.status.message;
       },
 
       // Login
@@ -213,7 +208,7 @@ export const userSlice = createSlice({
 
         state.authChecked = true
         state.loggedIn = false
-        state.errorMessage = payload.error
+        state.message = payload.error
       },
 
       // Logout
@@ -222,13 +217,13 @@ export const userSlice = createSlice({
       },
 
       [logoutUser.fulfilled]: (state, { payload }) => {
-
-        console.log('payload', payload);
+        debugger
         state.isFetching = false;
         state.isSuccess = true;
 
-        state.authChecked = true
+        state.authChecked = false
         state.loggedIn = false
+        state.message = payload.message
         state.currentUser = {}
         localStorage.removeItem('token')
       },
@@ -241,7 +236,7 @@ export const userSlice = createSlice({
 
         state.authChecked = true
         state.loggedIn = false
-        state.errorMessage = payload.error
+        // state.message = payload.error
       },
       [checkAuth.pending]: (state) => {
         state.isFetching = true;
@@ -267,7 +262,7 @@ export const userSlice = createSlice({
 
         state.authChecked = true
         state.loggedIn = false
-        state.errorMessage = payload.error
+        state.message = payload.error
       },
 
     }

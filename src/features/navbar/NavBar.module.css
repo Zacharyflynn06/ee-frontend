@@ -1,7 +1,6 @@
 .navContainer {
     display: flex;
-    justify-content: space-evenly;
-    width: 50vw; 
+    justify-content: center;
     padding-top: 2em; 
     padding-bottom: 2em;  
 }
@@ -12,6 +11,7 @@
     color: black;
     -webkit-filter: drop-shadow(5px 5px 5px #222222);
     filter: drop-shadow(5px 5px 5px #222222);
+    padding-right: 1em;
 }
 
 .active {

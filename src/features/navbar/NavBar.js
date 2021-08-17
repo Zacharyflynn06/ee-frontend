@@ -2,21 +2,13 @@ import React from 'react';
 import {NavLink} from 'react-router-dom'
 
 import style from './NavBar.module.css'
-
+import { useSelector } from 'react-redux';
+import { userSelector } from '../User/userSlice';
 
 
 const NavBar = (props) => {
 
-
-    // const toggleNavBar = () =>
-    //     if(navBar().className === "closed"){
-    //         navBar().className = "open"
-    //     } else if(navBar().className === "open") {
-    //         navBar().className = "closed"
-    //     }
-    // }
-
-
+    const { loggedIn, authChecked, currentUser } = useSelector(userSelector)
 
     return (
         <div className={style.navContainer}>
@@ -87,6 +79,42 @@ const NavBar = (props) => {
                 >
                     Contact
                 </NavLink>
+            </div>
+
+            <div>
+                {loggedIn ? (
+                    <>
+                        <NavLink
+                            exact
+                            to='/logout'
+                            className={style.navLink}
+                            activeClassName={style.active}
+                        >
+                        Logout
+                        </NavLink>
+                    </>
+                ) : (
+                    <>
+                        <NavLink
+                            exact
+                            to='/signup'
+                            className={style.navLink}
+                            activeClassName={style.active}
+                        
+                        >
+                        Sign Up
+                        </NavLink>
+                        <NavLink
+                            exact
+                            to='/login'
+                            className={style.navLink}
+                            activeClassName={style.active}
+                        >
+                        Log In
+                        </NavLink>
+                    </>
+
+                )}
             </div>
             
         </div>

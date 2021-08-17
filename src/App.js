@@ -61,7 +61,7 @@ function App() {
           {/* User */}
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/dashboard" component={WithAuth(Dashboard)} />
+          <Route exact path="/dashboard" component={Dashboard} />
 
           {/* Shop */}
           {/* <Route exact path="/shop/products/:id" render={(routeProps) => {
