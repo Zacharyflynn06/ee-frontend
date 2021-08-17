@@ -18,22 +18,18 @@ const ShowEvent = () => {
     const eventId = params.id
 
     const checkAdmin = () => {
-        
-        debugger
-        
         if (admin) {
             return (
                 <div>
                     <NavLink
                         to={`/events/${eventId}/edit`}
                     >
-                        <input type="button" value="Edit" />
+                        
                     </NavLink>
 
                 </div>
             )
-        }
-        
+        }    
     }
     
     if (isFetching) {

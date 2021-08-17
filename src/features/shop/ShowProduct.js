@@ -5,9 +5,9 @@ import { selectProducts, selectStatus } from './ShopSlice';
 import { useSelector } from 'react-redux';
 import Loading from '../loading/Loading';
 import style from './Shop.module.css'
-
+import { userSelector } from '../User/userSlice';
 const ShowProduct = () => {
-
+    const {admin} = useSelector(userSelector)
     const params = useParams()
     const status = useSelector(selectStatus)
     const products = useSelector(selectProducts)
@@ -15,6 +15,23 @@ const ShowProduct = () => {
 
     const formatImageUrl = () => {
         return product.attributes.image_format ? product.attributes.image_format.url : process.env.PUBLIC_URL + "logo192.png"
+    }
+
+    const checkAdmin = () => {
+        debugger
+        if (admin) {
+            return (
+                <div>
+                    <NavLink
+                        to={`/shop/products/${product.id}/edit`}
+                        exact
+                >
+                <input type="button" value="Edit Product" />
+                </NavLink>
+
+                </div>
+            )
+        }    
     }
 
     if (status === "loading") {
@@ -46,17 +63,11 @@ const ShowProduct = () => {
                             
                         </div>
                     </div>
-                
+
                 </div>
+                    {checkAdmin()}
                 
-                <NavLink
-                    to={{
-                        pathname: `/shop/products/${product.id}/edit`,
-                    }}
-                    exact
-                >
-                    <button>edit</button>
-                </NavLink>
+
             </div>
         )
 
