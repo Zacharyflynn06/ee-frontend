@@ -1,12 +1,10 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { logoutUser, userSelector } from './userSlice'
-// import { useHistory } from 'react-router'
-import NavBar from '../navbar/NavBar'
 import style from './User.module.css'
 import { useHistory } from 'react-router-dom'
-import { clearState } from './userSlice'
 import toast from 'react-hot-toast'
+import { clearState } from '../event/EventSlice'
 
 const Dashboard = () => {
     const history = useHistory()
@@ -23,6 +21,7 @@ const Dashboard = () => {
         dispatch(logoutUser())
         toast.success('Logged Out')
         history.push('/')
+        dispatch(clearState())
 
     }
 

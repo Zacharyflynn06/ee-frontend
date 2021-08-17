@@ -56,7 +56,7 @@ const Signup = (props) => {
     return (
         <div className={style.formContainer}>
             <h1>Signup</h1>
-            <form onSubmit={handleSubmit} className={style.signupForm}>
+            <form onSubmit={handleSubmit} className={style.userForm}>
                 <div >
                     <input 
                         type="text" 

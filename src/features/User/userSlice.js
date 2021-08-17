@@ -1,5 +1,6 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 
+
 function setToken(token) {
     localStorage.setItem("token", token);
     localStorage.setItem("lastLoginTime", new Date(Date.now()).getTime());
@@ -221,6 +222,7 @@ export const userSlice = createSlice({
         state.message = payload.message
         state.currentUser = {}
         localStorage.removeItem('token')
+        
       },
       
 

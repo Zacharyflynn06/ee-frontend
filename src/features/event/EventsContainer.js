@@ -7,7 +7,7 @@ import EventCard from './EventCard';
 
 const EventContainer = () => {
 
-    const {events, isFetching, isSuccess, clearState } = useSelector(eventSelector)
+    const {events, isFetching, isSuccess } = useSelector(eventSelector)
     if (isFetching) {
 
         return (
@@ -19,7 +19,7 @@ const EventContainer = () => {
         return (
             <div className={style.eventsContainer}>
                 
-                <h1>Events</h1>
+                <h1>Upcoming Events</h1>
                 <div className={style.eventsTable}>
                     {events.map(event => 
     

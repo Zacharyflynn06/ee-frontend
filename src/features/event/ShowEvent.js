@@ -35,7 +35,7 @@ const ShowEvent = () => {
                         {venue_name}
                     </div>
                     <div>
-                        {description}
+                        Description: {description}
                     </div>
                     <div>
                         {city}, {state}

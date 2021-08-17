@@ -10,7 +10,7 @@ const Login = (props) => {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const { isSuccess, isError, message } = useSelector(userSelector)
+    const { isSuccess, isError, message, loggedIn } = useSelector(userSelector)
 
     const [userData, setUserData] = useState({
         email: '',
@@ -42,17 +42,17 @@ const Login = (props) => {
             dispatch(clearState())
         }
 
-        if (isSuccess) {
+        if (loggedIn) {
             dispatch(clearState())
             toast.success('Logged In')
             history.push('/dashboard')
         }
-    }, [dispatch, message, isError, isSuccess])
+    }, [isError, isSuccess])
 
     return (
         <div className={style.formContainer}>
             <h1>Login</h1>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className={style.userForm}>
 
                 <h4>Email:</h4>
                 <input 
