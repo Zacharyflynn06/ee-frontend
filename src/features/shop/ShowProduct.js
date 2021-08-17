@@ -44,9 +44,7 @@ const ShowProduct = () => {
         return (
 
             <div className={style.shopContainer}>
-                {/* <NavBar /> */}
-
-
+                
                 < div className={style.showProductCard}>
                     <div className={style.showProductImageContainer}>
                         <img className={style.showProductImage} src={formatImageUrl()} alt="" />

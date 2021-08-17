@@ -24,7 +24,7 @@ const ShowEvent = () => {
                     <NavLink
                         to={`/events/${eventId}/edit`}
                     >
-                        
+                    <input type="button" value="Edit Event"/>  
                     </NavLink>
 
                 </div>

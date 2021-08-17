@@ -71,7 +71,7 @@ const Login = (props) => {
                 />
 
                 <br />
-                <input type="submit" value="Log In" />
+                <input className={style.button} type="submit" value="Log In" />
 
             </form>
 

@@ -19,7 +19,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: black solid 1px;
     border-radius: 1em;
     background-color: white;
     -webkit-filter: drop-shadow(5px 5px 5px #222222);
@@ -47,6 +46,11 @@
 .showProductCard {
     display:flex;
     background-color: white;
+    width: 80%;
+    border:0.1em solid #FFFFFF;
+    border-radius: .5em;
+    background-color: white;
+    padding: 5%
     
 }
 .showProductImageContainer {
@@ -60,9 +64,11 @@
 .showProductDetails {
     display: flex;
     flex-direction: column;
-    
-    
+    align-content: center;
+    text-align: center;
 }
+
+
 .productFormContainer {
     display: flex;
     flex-direction: column;

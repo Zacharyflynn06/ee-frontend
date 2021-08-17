@@ -25,3 +25,30 @@ body {
     cursor: pointer;
     text-decoration: none;
   }
+
+  input[type="button"], input[type="submit"] {
+    color: black
+  }
+
+  input[type="button"], input[type="submit"]{
+    text-decoration: none;
+    display:inline-block;
+    padding:0.35em 1.2em;
+    border:0.1em solid #FFFFFF;
+    margin:0 0.3em 0.3em 0;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-weight:bold;
+    color: black;
+    text-align:center;
+    transition: all 0.2s;
+    background-color: rgba(0, 0, 0, 0.01);
+    
+  }
+
+  input[type="button"]:hover, input[type="submit"]:hover{
+    color:#000000;
+    background-color:#FFFFFF;
+
+  }
