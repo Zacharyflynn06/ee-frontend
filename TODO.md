@@ -1,6 +1,6 @@
 Mailchimp integration []
 
-Fetch all Data []
+Fetch all Data [x]
 
 Home Page
 
@@ -10,24 +10,29 @@ Home Page
 User
 
     login page [x]
-    logout page []
+    logout page [x]
     signup page [x]
+
+    authorization
 
 Store
 
-    create products []
-    show products []
-    edit products []
-    delete products []
+    create products [x]
+    show products [x]
+    edit products [x]
+    delete products [x]
 
-    Integrate Stripe
+    Integrate Stripe []
+    freezes backend??? []
+
+    CART []
 
 Events
 
-    create events []
-    show events []
-    edit events []
-    delete events []
+    create events [x]
+    show events [x]
+    edit events [x]
+    delete events [x]
 
 Music
 

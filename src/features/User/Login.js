@@ -10,7 +10,7 @@ const Login = (props) => {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const { isSuccess, isError } = useSelector(userSelector)
+    const { isSuccess, isError, message } = useSelector(userSelector)
 
     const [userData, setUserData] = useState({
         email: '',
@@ -29,19 +29,25 @@ const Login = (props) => {
         }))
     }
 
-
+    useEffect(() => {
+        return () => {
+          dispatch(clearState());
+          console.log('state was cleared')
+        };
+      }, []);
 
     useEffect(() => {
         if (isError) {
-            // toast.error(errorMessage)
+            toast.error(message)
             dispatch(clearState())
         }
 
         if (isSuccess) {
             dispatch(clearState())
+            toast.success('Logged In')
             history.push('/dashboard')
         }
-    }, [dispatch, history, isError, isSuccess])
+    }, [dispatch, message, isError, isSuccess])
 
     return (
         <div className={style.formContainer}>

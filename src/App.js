@@ -61,12 +61,9 @@ function App() {
           {/* User */}
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/dashboard" component={WithAuth(Dashboard)} />
 
           {/* Shop */}
-          {/* <Route exact path="/shop/products/:id" render={(routeProps) => {
-            return <ShowProduct {...routeProps}/>
-          }} /> */}
           <Route exact path="/shop" component={ShopContainer} />
           <Route exact path="/shop/products/:id" component={ShowProduct} />
           <Route component={ErrorPage} />

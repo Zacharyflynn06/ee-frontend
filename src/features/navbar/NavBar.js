@@ -86,11 +86,11 @@ const NavBar = (props) => {
                     <>
                         <NavLink
                             exact
-                            to='/logout'
+                            to='/dashboard'
                             className={style.navLink}
                             activeClassName={style.active}
                         >
-                        Logout
+                        Dashboard
                         </NavLink>
                     </>
                 ) : (

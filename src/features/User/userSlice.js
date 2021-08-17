@@ -50,7 +50,6 @@ export const signupUser = createAsyncThunk(
 export const loginUser = createAsyncThunk(
   'users/login',
   async ({ email, password }, thunkAPI) => {
-    try {
       const response = await fetch(
         "http://localhost:3001/login",
         {
@@ -76,11 +75,7 @@ export const loginUser = createAsyncThunk(
       } else {
         return thunkAPI.rejectWithValue(data);
       }
-    } catch (event) {
-      console.log('Error', event.response.data);
-      thunkAPI.rejectWithValue(event.response.data);
     }
-  }
 );
 
 export const logoutUser = createAsyncThunk(
@@ -217,7 +212,7 @@ export const userSlice = createSlice({
       },
 
       [logoutUser.fulfilled]: (state, { payload }) => {
-        debugger
+        
         state.isFetching = false;
         state.isSuccess = true;
 
@@ -236,7 +231,7 @@ export const userSlice = createSlice({
 
         state.authChecked = true
         state.loggedIn = false
-        // state.message = payload.error
+        
       },
       [checkAuth.pending]: (state) => {
         state.isFetching = true;

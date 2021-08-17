@@ -16,6 +16,7 @@ const Dashboard = () => {
 
 
     const {currentUser} = useSelector(userSelector)
+
     
     const handleLogout = (event) => {
         event.preventDefault()
@@ -25,11 +26,8 @@ const Dashboard = () => {
 
     }
 
-
-      
     return(
         <div className={style.formContainer}>
-            <NavBar></NavBar>
             <h1>Dashboard</h1>
             <h2>Welcome Back {currentUser.attributes.first_name} {currentUser.attributes.last_name}</h2>
             

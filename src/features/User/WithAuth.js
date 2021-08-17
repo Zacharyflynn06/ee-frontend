@@ -8,20 +8,19 @@ import toast from 'react-hot-toast'
 import { useHistory } from 'react-router'
 import ErrorPage from '../error/Error'
 function WithAuth(WrappedComponent) {
+
     const dispatch = useDispatch()
     const {authChecked, loggedIn} = useSelector(userSelector)
     const history = useHistory()
 
-    useEffect(() => {
-        return () => {
-            dispatch(checkAuth)
-        }
-    }, [dispatch])
+    useEffect(()=> {
+        dispatch(checkAuth())
+    }, [])
     
     class Wrapper extends React.Component {
         
         render() {
-
+            
             if (!authChecked) {
                 return(
                     <p>You are not authorized to view this page</p>
