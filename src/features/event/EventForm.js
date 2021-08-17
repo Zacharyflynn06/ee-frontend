@@ -23,7 +23,10 @@ const EventForm = () => {
         venue_name: "",
         city: "",
         state: "",
-        ticket_link: ""
+        ticket_link: "",
+        name: "",
+        description: "",
+        lineup: ""
     })
 
     useEffect(() => {
@@ -35,6 +38,9 @@ const EventForm = () => {
                 city: eventObj.attributes.city || "",
                 state: eventObj.attributes.state || "",
                 ticket_link: eventObj.attributes.ticket_link || "",
+                name: eventObj.attributes.name || "",
+                description: eventObj.attributes.description || "",
+                lineup: eventObj.attributes.lineup || "",
             })
         }
     }, [eventObj])
@@ -68,11 +74,9 @@ const EventForm = () => {
     // clear state on initial render
     useEffect(() => {
         return (
-
             dispatch(clearState())
         )
-        
-      }, []);
+    }, []);
 
     useEffect(() => {
         if (isError) {
@@ -99,6 +103,9 @@ const EventForm = () => {
                 <input type="text" name="city" placeholder="City" value={eventData.city} onChange={handleChange}/>
                 <input type="text" name="state" placeholder="State" value={eventData.state} onChange={handleChange}/>
                 <input type="text" name="ticket_link" placeholder="ticket_link" value={eventData.ticket_link} onChange={handleChange}/>
+                <input type="text" name="name" placeholder="name" value={eventData.name} onChange={handleChange}/>
+                <textarea type="text" name="description" placeholder="description" value={eventData.description} onChange={handleChange}/>
+                <input type="text" name="lineup" placeholder="lineup" value={eventData.lineup} onChange={handleChange}/>
                 <input type="submit" />
             </form>
             <input type="button" value="Delete" onClick={handleDelete} />
