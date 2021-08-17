@@ -1,13 +1,12 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { 
   BrowserRouter as Router,
   Switch,
   Route
  } from 'react-router-dom';
 import './App.css';
-
+import { eventSelector, getEvents, clearState } from './features/event/EventSlice';
 import WithAuth from './features/User/WithAuth';
-// import NavBar from './features/navbar/NavBar';
 
 // Static
 import Home from './features/home/Home';
@@ -31,9 +30,19 @@ import ShopContainer from './features/shop/ShopContainer';
 import ProductForm from './features/shop/ProductForm';
 import ShowProduct from './features/shop/ShowProduct';
 import NavBar from './features/navbar/NavBar';
+import { useSelector, useDispatch } from 'react-redux';
 function App() {  
+  
+  
+  // const {isSuccess} = useSelector(eventSelector)
+  // const dispatch = useDispatch()
 
-
+  // useEffect(() => {
+  //   if (!isSuccess) {
+  //     dispatch(getEvents())
+  //   }
+  //   dispatch(clearState())
+  // }, [])
   
   return (
     <div className="app">
@@ -43,7 +52,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home}/>
           {/* Protected Routes */}
-          <Route exact path="/shop/products/new" component={WithAuth(ProductForm)}/>
+          <Route exact path="/shop/products/new" component={ProductForm}/>
           <Route exact path="/shop/products/:id/edit" component={ProductForm}/>
           <Route exact path="/events/new" component={WithAuth(EventForm)}/>
 

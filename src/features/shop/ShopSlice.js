@@ -3,9 +3,15 @@ import { createAsyncThunk, createSlice, current } from '@reduxjs/toolkit'
 
 export const getProducts = createAsyncThunk(
     'shop/getProducts',
-    async () => {
-        return fetch('http://localhost:3001/products')
-        .then(res => res.json())
+    async (thunkAPI) => {
+        const results = await fetch('http://localhost:3001/products')
+        
+        const data = await results.json()
+        if (results.ok) {
+            return data
+        } else {
+            return thunkAPI.rejectWithValue(data)
+        }
     }
 )
 

@@ -27,7 +27,7 @@ const ShowProduct = () => {
         return (
 
             <div className={style.shopContainer}>
-                <NavBar />
+                {/* <NavBar /> */}
 
 
                 < div className={style.showProductCard}>

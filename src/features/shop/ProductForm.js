@@ -67,15 +67,31 @@ const ProductForm = (props) => {
     return ( 
         
         <div className={style.shopContainer}>
-            <NavBar></NavBar>
-            <form className={style.productForm} onSubmit={handleSubmit}>
-                <input type="text" name="name" placeholder="name" value={ productData.name} onChange={handleChange} />
-                <input type="number" name="price" id="" placeholder="price" value={ productData.price} onChange={handleChange}/>
-                <textarea type="text" name="description" id="" placeholder="description" value={ productData.description} onChange={handleChange}/>
-                <input type="file" name="image" id="" ref={imageFile} />
-                <input type="submit" value="Submit"/>
-            </form>
-                <input type="button" value="Delete" onClick={handleDelete} />
+
+            <h1>Product Form</h1>
+            <div className={style.productFormContainer}>
+
+                <form className={style.productForm} onSubmit={handleSubmit}>
+                    <div>
+                        
+                        <input type="text" name="name" placeholder="name" value={ productData.name} onChange={handleChange} />
+                    </div>
+                    <div>
+                        <input type="currency" name="price" min="0.00" max="200.00" placeholder="price" value={ productData.price} onChange={handleChange}/>
+                    </div>
+                    <div>
+                        <textarea type="text" name="description" id="" placeholder="description" value={ productData.description} onChange={handleChange}/>
+                    </div>
+                    <div>
+                        
+                        <input type="file" name="image" id="" ref={imageFile} />
+                    </div>
+                    
+                    <input type="submit" value="Submit"/>
+                </form>
+                    <input type="button" value="Delete" onClick={handleDelete} />
+
+            </div>
         </div>
     );
 }

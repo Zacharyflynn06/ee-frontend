@@ -19,6 +19,7 @@ const ShowEvent = () => {
 
     const checkAdmin = () => {
         
+        debugger
         
         if (admin) {
             return (
@@ -68,7 +69,7 @@ const ShowEvent = () => {
                     </div>
     
                     {checkAdmin()}
-                    
+
                 </div>
             </div>
         );

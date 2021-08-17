@@ -8,7 +8,7 @@ import Loading from '../loading/Loading';
 
 import style from './Shop.module.css'
 
-const ShopContainer = (props) => {
+const ShopContainer = () => {
 
     const products = useSelector(selectProducts)
     const status = useSelector(selectStatus)
@@ -23,7 +23,7 @@ const ShopContainer = (props) => {
         return(
     
                 <div className={style.shopContainer}>
-                    <NavBar></NavBar>
+                    {/* <NavBar></NavBar> */}
                     <h1>Shop</h1>
                     <div className={style.productsContainer}>
                         {products.map(product => 
