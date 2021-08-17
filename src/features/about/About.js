@@ -15,7 +15,6 @@ import zacAndWil from './Gallery/zacAndWil.jpg'
 const About = (props) => {
     return (
         <div className={style.aboutContainer}>
-            <NavBar />
             <h1>About</h1>
             <div className={style.imageContainer}>
                 <img className={style.image} src={image} alt="press-shot" />

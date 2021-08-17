@@ -7,6 +7,8 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     text-decoration: none;
+    width: 100vw;
+    height: 100vh
     
   }
   

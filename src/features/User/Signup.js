@@ -55,35 +55,40 @@ const Signup = (props) => {
 
     return (
         <div className={style.formContainer}>
-            <h3>Signup</h3>
-            <form onSubmit={handleSubmit}>
-                <h4>First Name:</h4>
+            <h1>Signup</h1>
+            <form onSubmit={handleSubmit} className={style.signupForm}>
+                <div >
+                    <input 
+                        type="text" 
+                        name="first_name" 
+                        value={userData.first_name} 
+                        onChange={handleChange}
+                        placeholder="First Name"
+                    />
+                    <input 
+                        type="text" 
+                        name="last_name" 
+                        value={userData.last_name} 
+                        onChange={handleChange} 
+                        placeholder="Last Name"
+                    />
+                </div>
+                <div>
+                    <input 
+                        type="text" 
+                        name="email" 
+                        value={userData.email} 
+                        onChange={handleChange} 
+                        placeholder="Email"
+                    />
+                    
+                </div>
                 <input 
-                    type="text" 
-                    name="first_name" 
-                    value={userData.first_name} 
-                    onChange={handleChange} 
-                />
-                <h4>Last Name:</h4>
-                <input 
-                    type="text" 
-                    name="last_name" 
-                    value={userData.last_name} 
-                    onChange={handleChange} 
-                />
-                <h4>Email:</h4>
-                <input 
-                    type="text" 
-                    name="email" 
-                    value={userData.email} 
-                    onChange={handleChange} 
-                />
-                <h4>Password:</h4>
-                <input 
-                    type="text" 
+                    type="password" 
                     name="password" 
                     value={userData.password} 
                     onChange={handleChange} 
+                    placeholder="Password"
                 />
                 <br />
                 <input type="submit" value="Sign Up" />
