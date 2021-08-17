@@ -139,6 +139,7 @@ export const shopSlice = createSlice({
             console.log("before", current(state))
             const product = state.products.find(product => product.id === payload.data.id)
             state.products -= product
+            
 
         },
         
@@ -155,10 +156,5 @@ export const shopSlice = createSlice({
 export const selectStatus = (state) => state.shop.status
 
 export const selectProducts = (state) => state.shop.products
-
-export const selectProductById = (state, productId) => {
-    debugger
-    state.shop.products.find(product => product.id === productId)
-}
 
 export default shopSlice.reducer

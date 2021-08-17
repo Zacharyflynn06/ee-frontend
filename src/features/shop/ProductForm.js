@@ -56,7 +56,7 @@ const ProductForm = (props) => {
         }))
     }
 
-    const handleDelete = (event) => {
+    const handleDelete = () => {
         if(product) {
             dispatch(deleteProduct(product))
             history.push('/shop')

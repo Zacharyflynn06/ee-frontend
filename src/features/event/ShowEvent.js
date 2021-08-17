@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import NavBar from '../navbar/NavBar';
 import { clearState, eventSelector, selectEvents } from './EventSlice';
 import { useParams } from 'react-router';
@@ -19,8 +19,8 @@ const ShowEvent = () => {
     const events = useSelector(selectEvents)
     const event = events.find(event => event.id === eventId)
 
+
     if (isFetching) {
-        // dispatch(clearState())
         return (
             <Loading />
             )

@@ -35,7 +35,7 @@ export const addEvent = createAsyncThunk(
 export const updateEvent = createAsyncThunk(
     'event/updateEvent',
     async (eventData) => {   
-        debugger     
+             
         const parsedId = parseInt(eventData.id)
         return fetch(
             `http://localhost:3001/events/${parsedId}`, {
@@ -50,11 +50,35 @@ export const updateEvent = createAsyncThunk(
     }
 )
 
+export const deleteEvent= createAsyncThunk(
+    'event/DeleteEvent',
+    async (event, thunkAPI) => {
+        const parsedId = parseInt(event.id)
+        const response = await fetch(
+            `http://localhost:3001/events/${parsedId}`, {
+                method: "DELETE",
+                headers: {
+                    Accept: "application/json",
+                }
+            }
+        )
+        const data = await response.json()
+        if (response.ok) {
+            return data
+        } else {
+            return thunkAPI.rejectWithValue(data)
+        }
+            
+        
+    }
+)
+
 const initialState = {
     isFetching: false,
     isSuccess: false,
     isError: false,
     errorMessage: '',
+    status: "idle",
     events: []
 }
 
@@ -72,17 +96,20 @@ export const EventSlice = createSlice({
     extraReducers: {
         [getEvents.pending]: (state) => {
             state.isFetching = true
+            state.status = "loading"
         },
 
         [getEvents.fulfilled]: (state, { payload} ) => {
             state.isFetching = false
-            state.isSuccess = true
+            // state.isSuccess = true
+            state.status = "complete"
             state.events = payload.data
         },
         
         [getEvents.rejected]: (state, { payload} ) => {
-            state.isFetching = false;
-            state.isError = true;
+            // state.isFetching = false;
+            // state.isError = true;
+            state.status = "rejected"
             state.errorMessage = payload.status.message;
         },
 
@@ -116,7 +143,7 @@ export const EventSlice = createSlice({
             state.isSuccess = true
             const event = state.events.find(event => event.id === payload.data.id)
             event.attributes = payload.data.attributes
-            console.log('payload', payload)
+            
         },
         
         [updateEvent.rejected]: (state, { payload} ) => {
@@ -125,15 +152,34 @@ export const EventSlice = createSlice({
             state.isError = true;
             state.errorMessage = payload.status.message;
         },
+
+        [deleteEvent.pending]: (state) => {
+            state.isFetching = true
+        },
+
+        [deleteEvent.fulfilled]: (state, { payload} ) => {
+            debugger
+            const event = state.events.find(event => event.id === payload.data.id)
+            state.events -= event
+            state.isFetching = false
+            state.isSuccess = true
+        },
+        
+        [deleteEvent.rejected]: (state, { payload} ) => {
+
+            state.isFetching = false;
+            state.isError = true;
+            state.errorMessage = "there was a problem"
+        },
     }
     
 })
 
-export const {clearState} = EventSlice.actions
-export const eventSelector = (state) => state.eventReducer
+export const { clearState } = EventSlice.actions
+export const eventSelector = (state) => state.event
 
-export const selectEvents = (state) => state.eventReducer.events
-export const selectStatus = (state) => state.eventReducer.status
+export const selectEvents = (state) => state.event.events
+export const selectStatus = (state) => state.event.status
 
 export const selectEventById = (state, eventId) => {
     debugger

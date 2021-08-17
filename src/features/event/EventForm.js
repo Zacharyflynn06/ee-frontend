@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import NavBar from '../navbar/NavBar';
 import style from './Events.module.css'
 import { useDispatch, useSelector } from 'react-redux';
-import { addEvent, updateEvent, selectEvents, eventSelector, clearState } from './EventSlice'
+import { addEvent, updateEvent, deleteEvent, selectEvents, eventSelector, clearState } from './EventSlice'
 import { useHistory, useParams } from 'react-router-dom';
 import toast from 'react-hot-toast'
 
@@ -57,27 +57,37 @@ const EventForm = () => {
         }))
     }
 
+    const handleDelete = () => {
+        if(eventObj) {
+            dispatch(deleteEvent(eventObj))
+            toast.success('deleted')
+            history.push('/')
+        }
+    }
+
     // clear state on initial render
     useEffect(() => {
-        return () => {
-          dispatch(clearState());
-        };
+        return (
+
+            dispatch(clearState())
+        )
+        
       }, []);
 
     useEffect(() => {
         if (isError) {
-            debugger
-            
+        
             toast.error('there was a problem! try again')
-            dispatch(clearState)
+            dispatch(clearState())
         }
 
-        if (isSuccess && eventObj) {
+        if (isSuccess) {
+            debugger
             toast.success('Success')
             dispatch(clearState())
             history.push('/events')
         }
-    })
+    }, [isError, isSuccess])
 
     return ( 
         <div className={style.eventsContainer}>
@@ -91,6 +101,7 @@ const EventForm = () => {
                 <input type="text" name="ticket_link" placeholder="ticket_link" value={eventData.ticket_link} onChange={handleChange}/>
                 <input type="submit" />
             </form>
+            <input type="button" value="Delete" onClick={handleDelete} />
         </div>
     );
 }
