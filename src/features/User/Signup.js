@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { userSelector, signupUser, clearState } from "./userSlice"
 import { useHistory } from 'react-router-dom';
-// import toast from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import style from "./User.module.css"
 
 const Signup = (props) => {
@@ -10,7 +10,7 @@ const Signup = (props) => {
     const dispatch = useDispatch()
     const history = useHistory();
 
-    const { isSuccess, isError } = useSelector(userSelector);
+    const { isSuccess, isError, errorMessage } = useSelector(userSelector);
 
     const [userData, setUserData] = useState({
         first_name: '',
@@ -27,13 +27,14 @@ const Signup = (props) => {
 
     useEffect(() => {
     if (isSuccess) {
+        toast.success('Successfully Signed Up')
         dispatch(clearState());
         history.push('/dashboard');
     }
 
     if (isError) {
         debugger
-        // toast.error(errorMessage);
+        toast.error(errorMessage);
         dispatch(clearState());
     }
     });

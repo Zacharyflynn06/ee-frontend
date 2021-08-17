@@ -5,6 +5,8 @@ import {
   Route
  } from 'react-router-dom';
 import './App.css';
+
+import WithAuth from './features/User/WithAuth';
 // import NavBar from './features/navbar/NavBar';
 
 // Static
@@ -28,6 +30,7 @@ import Dashboard from './features/User/Dashboard';
 import ShopContainer from './features/shop/ShopContainer';
 import ProductForm from './features/shop/ProductForm';
 import ShowProduct from './features/shop/ShowProduct';
+import NavBar from './features/navbar/NavBar';
 function App() {  
 
 
@@ -36,13 +39,13 @@ function App() {
     <div className="app">
       {console.log("re-render")}
       <Router>
-
+        <NavBar />
         <Switch>
           <Route exact path="/" component={Home}/>
           {/* Protected Routes */}
-          <Route exact path="/shop/products/new" component={ProductForm}/>
+          <Route exact path="/shop/products/new" component={WithAuth(ProductForm)}/>
           <Route exact path="/shop/products/:id/edit" component={ProductForm}/>
-          <Route exact path="/events/new" component={EventForm}/>
+          <Route exact path="/events/new" component={WithAuth(EventForm)}/>
 
           <Route exact path="/events/:id/edit" component={EventForm}/>
 

@@ -115,11 +115,34 @@ export const logoutUser = createAsyncThunk(
   }
 )
 
+export const checkAuth = createAsyncThunk(
+  'users/checkAuth',
+  async(thunkAPI) => {
+    const response = await fetch(
+      "http://localhost:3001/current_user", {
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          Authorization: getToken()
+        }
+      }
+    )
+    let data = await response.json()
+    if(response.ok) {
+      return data
+    } else {
+      return thunkAPI.rejectWithValue(data)
+    }
+  }
+)
+
 
 const initialState = {
     isFetching: false,
     isSuccess: false,
     isError: false,
+    authChecked: false,
+    loggedIn: false,
     errorMessage: '',
     currentUser: {}
     
@@ -133,8 +156,10 @@ export const userSlice = createSlice({
         state.isError = false;
         state.isSuccess = false;
         state.isFetching = false;
+        
         return state
       },
+
     },
 
     extraReducers: {
@@ -147,6 +172,9 @@ export const userSlice = createSlice({
         console.log('payload', payload);
         state.isFetching = false;
         state.isSuccess = true;
+        
+        state.authChecked = true
+        state.loggedIn = true
         state.currentUser = payload.data.data
       },
 
@@ -155,52 +183,91 @@ export const userSlice = createSlice({
         
         state.isFetching = false;
         state.isError = true;
+
+        state.authChecked = true
+        state.loggedIn = false
         state.errorMessage = payload.status.message;
       },
 
       // Login
+      [loginUser.pending]: (state) => {
+        state.isFetching = true;
+      },
       [loginUser.fulfilled]: (state, { payload }) => {
 
         console.log('payload', payload);
         state.isFetching = false;
         state.isSuccess = true;
-        debugger
+
+        state.authChecked = true
+        state.loggedIn = true
         state.currentUser = payload.data.data
-        return state;
       },
       
-      [loginUser.pending]: (state) => {
-        state.isFetching = true;
-      },
 
       [loginUser.rejected]: (state, { payload }) => {
         debugger
         console.log('payload', payload);
         state.isFetching = false;
         state.isError = true;
+
+        state.authChecked = true
+        state.loggedIn = false
         state.errorMessage = payload.error
       },
 
       // Logout
+      [logoutUser.pending]: (state) => {
+        state.isFetching = true;
+      },
+
       [logoutUser.fulfilled]: (state, { payload }) => {
 
         console.log('payload', payload);
         state.isFetching = false;
         state.isSuccess = true;
+
+        state.authChecked = true
+        state.loggedIn = false
         state.currentUser = {}
         localStorage.removeItem('token')
-        return state;
       },
       
-      [logoutUser.pending]: (state) => {
-        state.isFetching = true;
-      },
 
       [logoutUser.rejected]: (state, { payload }) => {
         
         state.isFetching = false;
         state.isError = true;
-        // state.errorMessage = payload.error
+
+        state.authChecked = true
+        state.loggedIn = false
+        state.errorMessage = payload.error
+      },
+      [checkAuth.pending]: (state) => {
+        state.isFetching = true;
+      },
+
+      [checkAuth.fulfilled]: (state, { payload }) => {
+
+        console.log('payload', payload);
+        state.isFetching = false;
+        state.isSuccess = true;
+
+        state.authChecked = true
+        state.loggedIn = false
+        state.currentUser = {}
+        localStorage.removeItem('token')
+      },
+      
+
+      [checkAuth.rejected]: (state, { payload }) => {
+        
+        state.isFetching = false;
+        state.isError = true;
+
+        state.authChecked = true
+        state.loggedIn = false
+        state.errorMessage = payload.error
       },
 
     }
