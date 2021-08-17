@@ -29,22 +29,25 @@ const ShowEvent = () => {
         return ( 
             <div class={style.eventsContainer}>
                 <NavBar />
-                <div>
-                    {event.attributes.date}
-                </div>
-                <div>
-                    {event.attributes.venue_name}
-                </div>
-                <div>
-                    {event.attributes.city},{event.attributes.state}
+                <div className={style.showEventCard}>
+                    <div >
+                        {event.attributes.date}
+                    </div>
+                    <div>
+                        {event.attributes.venue_name}
+                    </div>
+                    <div>
+                        {event.attributes.city},{event.attributes.state}
+
+                    </div>
+
+                    <NavLink
+                        to={`/events/${eventId}/edit`}
+                    >
+                        <input type="button" value="Edit" />
+                    </NavLink>
 
                 </div>
-
-                <NavLink
-                    to={`/events/${eventId}/edit`}
-                >
-                    <input type="button" value="Edit" />
-                </NavLink>
             </div>
         );
 

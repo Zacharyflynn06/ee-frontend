@@ -1,0 +1,25 @@
+
+
+body {
+
+    font-family: 'Montserrat', sans-serif;
+    background-image: linear-gradient(to bottom right, #E8FFFF, #41AEA9);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    text-decoration: none;
+    
+  }
+  
+  h1 {
+    font-size: 3em;
+    -webkit-filter: drop-shadow(5px 5px 5px #222222);
+    filter: drop-shadow(5px 5px 5px #222222);
+    font-weight: bold;
+  }
+  
+  
+  a:-webkit-any-link {
+   
+    cursor: pointer;
+    text-decoration: none;
+  }
