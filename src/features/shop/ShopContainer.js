@@ -18,10 +18,9 @@ const ShopContainer = () => {
     useEffect(() => {
         return(
             dispatch(clearState()),
-            console.log(isSuccess)
+            console.log('shop is success', isSuccess)
         )
-
-    }, []);
+    }, [dispatch, isSuccess]);
     
     if (isFetching) {
         
@@ -32,19 +31,19 @@ const ShopContainer = () => {
     } else {
         return(
             
-                <div className={style.shopContainer}>
-                    {/* <NavBar></NavBar> */}
-                    <h1>Shop</h1>
-                    <div className={style.productsContainer}>
-                        {products.map(product => 
-                            <ProductCard 
-                                product={product} 
-                                key={product.id}
-                            />
-                        )}
-                            
-                    </div>
-                </div>     
+            <div className={style.shopContainer}>
+                {/* <NavBar></NavBar> */}
+                <h1>Shop</h1>
+                <div className={style.productsContainer}>
+                    {products.map(product => 
+                        <ProductCard 
+                            product={product} 
+                            key={product.id}
+                        />
+                    )}
+                        
+                </div>
+            </div>     
         )    
 
     }
