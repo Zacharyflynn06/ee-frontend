@@ -78,7 +78,6 @@ const initialState = {
     isSuccess: false,
     isError: false,
     errorMessage: '',
-    status: "idle",
     events: []
 }
 
@@ -96,20 +95,18 @@ export const EventSlice = createSlice({
     extraReducers: {
         [getEvents.pending]: (state) => {
             state.isFetching = true
-            state.status = "loading"
+            
         },
 
         [getEvents.fulfilled]: (state, { payload} ) => {
             state.isFetching = false
             state.isSuccess = true
-            state.status = "complete"
             state.events = payload.data
         },
         
         [getEvents.rejected]: (state, { payload} ) => {
             state.isFetching = false;
             state.isError = true;
-            state.status = "rejected"
             state.errorMessage = payload.status.message;
         },
 
@@ -125,8 +122,6 @@ export const EventSlice = createSlice({
         },
         
         [addEvent.rejected]: (state, { payload} ) => {
-            
-            state.status = "rejected"
      
             state.isFetching = false;
             state.isError = true;
@@ -158,7 +153,7 @@ export const EventSlice = createSlice({
         },
 
         [deleteEvent.fulfilled]: (state, { payload} ) => {
-            debugger
+            
             const event = state.events.find(event => event.id === payload.data.id)
             state.events -= event
             state.isFetching = false
@@ -179,7 +174,7 @@ export const { clearState } = EventSlice.actions
 export const eventSelector = (state) => state.event
 
 export const selectEvents = (state) => state.event.events
-export const selectStatus = (state) => state.event.status
+
 
 export const selectEventById = (state, eventId) => {
     debugger

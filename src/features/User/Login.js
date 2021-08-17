@@ -47,7 +47,7 @@ const Login = (props) => {
             toast.success('Logged In')
             history.push('/dashboard')
         }
-    }, [isError, isSuccess])
+    }, [isError, loggedIn])
 
     return (
         <div className={style.formContainer}>

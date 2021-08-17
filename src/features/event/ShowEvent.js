@@ -1,7 +1,7 @@
 import React from 'react'
 import { eventSelector } from './EventSlice';
 import { useParams } from 'react-router';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector} from 'react-redux';
 import Loading from '../loading/Loading';
 import { NavLink } from 'react-router-dom';
 import style from './Events.module.css'
@@ -25,7 +25,7 @@ const ShowEvent = () => {
         const {ticket_link, name, date, venue_name, description, city, state, lineup} = event.attributes
 
         return ( 
-            <div class={style.eventsContainer}>
+            <div className={style.eventsContainer}>
 
                 <div className={style.showEventContainer}>
                     <div className={style.showEventTitle}>

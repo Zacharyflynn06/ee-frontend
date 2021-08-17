@@ -18,33 +18,30 @@ function getToken() {
 export const signupUser = createAsyncThunk(
   'users/signupUser',
   async (userData, thunkAPI) => {
-    try {
-      const response = await fetch(
-        "http://localhost:3001/signup",
-        {
-          method: 'POST',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            user: userData
-          }),
-        }
-      );
-      let data = await response.json();
-      console.log('data', data);
-
-      if (response.ok) {
-        setToken(response.headers.get("Authorization"));
-        return data;
-      } else {
-        return thunkAPI.rejectWithValue(data);
+   
+    const response = await fetch(
+      "http://localhost:3001/signup",
+      {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          user: userData
+        }),
       }
-    } catch (event) {
-      console.log('Error', event.response.data);
-      return thunkAPI.rejectWithValue(event.response.data);
+    );
+    let data = await response.json();
+  
+
+    if (response.ok) {
+      setToken(response.headers.get("Authorization"));
+      return data;
+    } else {
+      return thunkAPI.rejectWithValue(data);
     }
+    
   }
 );
 
@@ -68,9 +65,7 @@ export const loginUser = createAsyncThunk(
         }
       );
       let data = await response.json();
-      console.log('response', data);
       if (response.ok) {
-        console.log(response.headers.get("Authorization"))
         setToken(response.headers.get("Authorization"));
         return data;
       } else {
@@ -95,8 +90,6 @@ export const logoutUser = createAsyncThunk(
       )
       
       let data = await response.json()
-      console.log('data', data)
-
       if (response.status === 200) {
         return data
       } else {
@@ -135,7 +128,8 @@ const initialState = {
     authChecked: false,
     loggedIn: false,
     message: '',
-    currentUser: {}
+    currentUser: {},
+    admin: false
     
 }
 
@@ -160,13 +154,16 @@ export const userSlice = createSlice({
       },
       [signupUser.fulfilled]: (state, { payload }) => {
         
-        console.log('payload', payload);
         state.isFetching = false;
         state.isSuccess = true;
         
         state.authChecked = true
         state.loggedIn = true
         state.currentUser = payload.data.data
+
+        if (state.currentUser.role === "admin") {
+          state.admin = true
+        }
       },
 
 
@@ -186,19 +183,21 @@ export const userSlice = createSlice({
       },
       [loginUser.fulfilled]: (state, { payload }) => {
 
-        console.log('payload', payload);
         state.isFetching = false;
         state.isSuccess = true;
 
         state.authChecked = true
         state.loggedIn = true
         state.currentUser = payload.data.data
+        
+        if (payload.data.data.attributes.role === "admin") {
+          state.admin = true
+        }
       },
       
 
       [loginUser.rejected]: (state, { payload }) => {
         debugger
-        console.log('payload', payload);
         state.isFetching = false;
         state.isError = true;
 
@@ -241,7 +240,6 @@ export const userSlice = createSlice({
 
       [checkAuth.fulfilled]: (state, { payload }) => {
 
-        console.log('payload', payload);
         state.isFetching = false;
         state.isSuccess = true;
 

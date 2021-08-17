@@ -10,7 +10,7 @@ const Signup = (props) => {
     const dispatch = useDispatch()
     const history = useHistory();
 
-    const { isSuccess, isError, errorMessage } = useSelector(userSelector);
+    const { isSuccess, isError, errorMessage, loggedIn } = useSelector(userSelector);
 
     const [userData, setUserData] = useState({
         first_name: '',
@@ -26,7 +26,7 @@ const Signup = (props) => {
     }, [dispatch]);
 
     useEffect(() => {
-    if (isSuccess) {
+    if (loggedIn && isSuccess) {
         toast.success('Successfully Signed Up')
         dispatch(clearState());
         history.push('/dashboard');
