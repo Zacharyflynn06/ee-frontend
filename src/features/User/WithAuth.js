@@ -13,9 +13,9 @@ function WithAuth(WrappedComponent) {
     const {authChecked, loggedIn} = useSelector(userSelector)
     const history = useHistory()
 
-    useEffect(()=> {
-        dispatch(checkAuth())
-    }, [])
+    // useEffect(()=> {
+    //     dispatch(checkAuth())
+    // }, [])
     
     class Wrapper extends React.Component {
         

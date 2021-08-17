@@ -257,7 +257,7 @@ export const userSlice = createSlice({
 
         state.authChecked = true
         state.loggedIn = false
-        state.message = payload.error
+        // state.message = payload.error
       },
 
     }

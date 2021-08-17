@@ -1,6 +1,5 @@
-import React, {useEffect} from 'react'
-import NavBar from '../navbar/NavBar';
-import { clearState, eventSelector, selectEvents } from './EventSlice';
+import React from 'react'
+import { eventSelector } from './EventSlice';
 import { useParams } from 'react-router';
 import { useSelector, useDispatch } from 'react-redux';
 import Loading from '../loading/Loading';
@@ -11,34 +10,41 @@ import style from './Events.module.css'
 
 const ShowEvent = () => {
 
-    const {isSuccess, isError, isFetching} = useSelector(eventSelector)
-    const dispatch = useDispatch()
-
+    const {isFetching, isSuccess} = useSelector(eventSelector)
     const params = useParams()
-    const eventId = params.id
-    const events = useSelector(selectEvents)
-    const event = events.find(event => event.id === eventId)
-
-
+    const events = useSelector(eventSelector).events
+    
     if (isFetching) {
         return (
             <Loading />
             )
-    } else {
-        
+        } else if(isSuccess){
+            
+        const eventId = params.id
+        const event = events.find(event => event.id === eventId)
+        const {ticket_link, name, date, venue_name, description, city, state, lineup} = event.attributes
+
         return ( 
             <div class={style.eventsContainer}>
-                <NavBar />
-                <div className={style.showEventCard}>
-                    <div >
-                        {event.attributes.date}
-                    </div>
-                    <div>
-                        {event.attributes.venue_name}
-                    </div>
-                    <div>
-                        {event.attributes.city},{event.attributes.state}
 
+                <div className={style.showEventContainer}>
+                    <div className={style.showEventTitle}>
+                        {name} - {date}
+                    </div>
+                    <div>
+                        {venue_name}
+                    </div>
+                    <div>
+                        {description}
+                    </div>
+                    <div>
+                        {city}, {state}
+                    </div>
+                    <div >
+                       Lineup: {lineup}
+                    </div>
+                    <div className={style.eventLink}>
+                        <a target="_blank" rel="noreferrer" href={ticket_link}>Tickets</a>
                     </div>
 
                     <NavLink

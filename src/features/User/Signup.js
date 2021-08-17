@@ -23,7 +23,7 @@ const Signup = (props) => {
         return () => {
           dispatch(clearState());
         };
-      }, [dispatch]);
+    }, [dispatch]);
 
     useEffect(() => {
     if (isSuccess) {

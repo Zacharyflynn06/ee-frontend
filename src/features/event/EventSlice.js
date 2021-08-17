@@ -101,14 +101,14 @@ export const EventSlice = createSlice({
 
         [getEvents.fulfilled]: (state, { payload} ) => {
             state.isFetching = false
-            // state.isSuccess = true
+            state.isSuccess = true
             state.status = "complete"
             state.events = payload.data
         },
         
         [getEvents.rejected]: (state, { payload} ) => {
-            // state.isFetching = false;
-            // state.isError = true;
+            state.isFetching = false;
+            state.isError = true;
             state.status = "rejected"
             state.errorMessage = payload.status.message;
         },

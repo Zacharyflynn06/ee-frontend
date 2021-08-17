@@ -1,25 +1,23 @@
 import React from 'react';
-import NavBar from '../navbar/NavBar';
 import style from './Events.module.css'
 import Loading from '../loading/Loading'
-import { selectEvents, selectStatus } from './EventSlice';
+import { eventSelector } from './EventSlice';
 import { useSelector } from 'react-redux';
 import EventCard from './EventCard';
 
 const EventContainer = () => {
 
-    const events = useSelector(selectEvents)
-    const status = useSelector(selectStatus)
+    const {events, isFetching, isSuccess, clearState } = useSelector(eventSelector)
+    if (isFetching) {
 
-    if (status === 'loading') {
         return (
             <Loading />
         )
-    } else{
+
+    } else if (isSuccess){
         
         return (
             <div className={style.eventsContainer}>
-                <NavBar></NavBar>
                 
                 <h1>Events</h1>
                 <div className={style.eventsTable}>
