@@ -21,7 +21,7 @@ const ShowProduct = () => {
     }
 
     const checkAdmin = () => {
-        debugger
+        
         if (admin) {
             return (
                 <div>
@@ -54,7 +54,7 @@ const ShowProduct = () => {
                     </div>
                     <div className={style.showProductDetails}>
                         <div>
-                            <h1> {product.attributes.name}</h1>
+                            <h2> {product.attributes.name}</h2>
                             <span>
                                 ${product.attributes.price}
                             </span>

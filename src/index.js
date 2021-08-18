@@ -9,6 +9,11 @@ import { Toaster } from 'react-hot-toast'
 import { getProducts } from './features/shop/ShopSlice';
 import { getEvents } from './features/event/EventSlice';
 
+import { library }  from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+
+library.add(fab)
+
 
 store.dispatch(getProducts())
 store.dispatch(getEvents())
