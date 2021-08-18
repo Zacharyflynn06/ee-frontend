@@ -38,40 +38,22 @@
 .apple a:hover {
     color:white
 }
-.apple:hover{
-    color:white
-}
 
 .spotify a:hover{
-    color: #1DB954;
-}
-.spotify:hover{
     color: #1DB954;
 }
 
 .amazon a:hover{
     color: #FF9900;
 }
-.amazon:hover{
-    color: #FF9900;
-}
 
 .deezer a:hover{
-    color: #FF0092;
-}
-.deezer:hover{
     color: #FF0092;
 }
 .bandcamp a:hover{
     color: blue;
 }
-.bandcamp:hover{
-    color: blue;
-}
 .youtube a:hover{
-    color: #FF0000;
-}
-.youtube:hover{
     color: #FF0000;
 }
 
