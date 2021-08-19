@@ -1,8 +1,8 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import NavBar from '../navbar/NavBar';
 import { NavLink, useParams } from 'react-router-dom';
-import { shopSelector } from './ShopSlice';
-import { useSelector } from 'react-redux';
+import { shopSelector, getProducts } from './ShopSlice';
+import { useSelector, useDispatch } from 'react-redux';
 import Loading from '../loading/Loading';
 import style from './Shop.module.css'
 import { userSelector } from '../User/userSlice';
@@ -10,40 +10,40 @@ import { userSelector } from '../User/userSlice';
 
 
 const ShowProduct = () => {
+    
     const {admin} = useSelector(userSelector)
     const params = useParams()
-    const {isFetching, isSuccess} = useSelector(shopSelector)
-    const products = useSelector(shopSelector).products
-    const product = products.find(product => product.id === params.id)
-
-    const formatImageUrl = () => {
-        return product.attributes.image_format ? product.attributes.image_format.url : process.env.PUBLIC_URL + "logo192.png"
-    }
-
-    const checkAdmin = () => {
+    const {status, products} = useSelector(shopSelector)
+    
+    if (status === "loading" ) {
         
-        if (admin) {
-            return (
-                <div>
-                    <NavLink
-                        to={`/shop/products/${product.id}/edit`}
-                        exact
-                >
-                <input type="button" value="Edit Product" />
-                </NavLink>
+        return ( <Loading />)
 
-                </div>
-            )
-        }    
-    }
+    } else if (status === "complete"){
+        
+        const product = products.find(product => product.id === params.id)
+        
+        const formatImageUrl = () => {
+            return product.attributes.image_format ? product.attributes.image_format.url : process.env.PUBLIC_URL + "logo192.png"
+        }
 
-    if (isFetching) {
+        const checkAdmin = () => {
+        
+            if (admin) {
+                return (
+                    <div>
+                        <NavLink
+                            to={`/shop/products/${params.id}/edit`}
+                            exact
+                    >
+                    <input type="button" value="Edit Product" />
+                    </NavLink>
+    
+                    </div>
+                )
+            }    
+        }
 
-  
-        return (
-            <Loading />
-        )
-    } else {
         return (
 
             <div className={style.shopContainer}>

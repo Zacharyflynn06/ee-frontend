@@ -1,5 +1,6 @@
 import React from 'react';
 // import ErrorPage from './ErrorPage'
+import NavBar from '../navbar/NavBar';
 import { shopSelector } from './ShopSlice';
 import { useSelector } from 'react-redux';
 import ProductCard from './ProductCard';
@@ -7,10 +8,12 @@ import Loading from '../loading/Loading';
 
 
 import style from './Shop.module.css'
+import { useParams } from 'react-router-dom';
+import ShowProduct from './ShowProduct';
 
 const ShopContainer = () => {
     
-   
+    const params = useParams()
     const products = useSelector(shopSelector).products
     const {status} = useSelector(shopSelector)
     
@@ -18,7 +21,8 @@ const ShopContainer = () => {
         
         return ( <Loading /> )
 
-    } else if (status === 'complete'){
+    } else {
+         
         return(
             
             <div className={style.shopContainer}>
@@ -35,10 +39,9 @@ const ShopContainer = () => {
                 </div>
             </div>     
         )    
-
     }
 
-                
+         
   
 }
  

@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux'
 import Loading from '../loading/Loading'
 import toast from 'react-hot-toast'
 import { useHistory } from 'react-router'
+
 function WithAuth(WrappedComponent) {
 
     const dispatch = useDispatch()

@@ -33,8 +33,6 @@ export const signupUser = createAsyncThunk(
       }
     );
     let data = await response.json();
-  
-
     if (response.ok) {
       setToken(response.headers.get("Authorization"));
       return data;
@@ -122,12 +120,10 @@ export const checkAuth = createAsyncThunk(
 
 
 const initialState = {
-    isFetching: false,
-    isSuccess: false,
-    isError: false,
+    status: 'idle',
     authChecked: false,
     loggedIn: false,
-    message: '',
+    message: null,
     currentUser: {},
     admin: false
     
@@ -150,12 +146,11 @@ export const userSlice = createSlice({
     extraReducers: {
       // Sign Up
       [signupUser.pending]: (state) => {
-        state.isFetching = true;
+        state.status = "loading"
       },
       [signupUser.fulfilled]: (state, { payload }) => {
         
-        state.isFetching = false;
-        state.isSuccess = true;
+        state.status = "complete"
         
         state.authChecked = true
         state.loggedIn = true
@@ -169,8 +164,7 @@ export const userSlice = createSlice({
 
       [signupUser.rejected]: (state, { payload }) => {
         
-        state.isFetching = false;
-        state.isError = true;
+        state.status= "rejected"
 
         state.authChecked = true
         state.loggedIn = false
@@ -179,12 +173,11 @@ export const userSlice = createSlice({
 
       // Login
       [loginUser.pending]: (state) => {
-        state.isFetching = true;
+        state.status = "loading"
       },
       [loginUser.fulfilled]: (state, { payload }) => {
 
-        state.isFetching = false;
-        state.isSuccess = true;
+        state.status = "complete"
 
         state.authChecked = true
         state.loggedIn = true
@@ -197,9 +190,7 @@ export const userSlice = createSlice({
       
 
       [loginUser.rejected]: (state, { payload }) => {
-        debugger
-        state.isFetching = false;
-        state.isError = true;
+        state.status= "rejected"
 
         state.authChecked = true
         state.loggedIn = false
@@ -208,13 +199,12 @@ export const userSlice = createSlice({
 
       // Logout
       [logoutUser.pending]: (state) => {
-        state.isFetching = true;
+        state.status = "loading"
       },
 
       [logoutUser.fulfilled]: (state, { payload }) => {
         
-        state.isFetching = false;
-        state.isSuccess = true;
+        state.status = "complete"
 
         state.authChecked = false
         state.loggedIn = false
@@ -228,8 +218,7 @@ export const userSlice = createSlice({
 
       [logoutUser.rejected]: (state, { payload }) => {
         
-        state.isFetching = false;
-        state.isError = true;
+        state.status= "rejected"
 
         state.authChecked = true
         state.loggedIn = false
@@ -237,13 +226,12 @@ export const userSlice = createSlice({
         
       },
       [checkAuth.pending]: (state) => {
-        state.isFetching = true;
+        state.status = "loading"
       },
 
       [checkAuth.fulfilled]: (state, { payload }) => {
 
-        state.isFetching = false;
-        state.isSuccess = true;
+        state.status = "complete"
 
         state.authChecked = true
         state.loggedIn = false
@@ -254,8 +242,7 @@ export const userSlice = createSlice({
 
       [checkAuth.rejected]: (state, { payload }) => {
         
-        state.isFetching = false;
-        state.isError = true;
+        state.status= "rejected"
 
         state.authChecked = true
         state.loggedIn = false

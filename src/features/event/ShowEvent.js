@@ -15,7 +15,6 @@ const ShowEvent = () => {
     const {admin} = useSelector(userSelector)
     const params = useParams()
     const eventId = params.id
-    debugger
 
     const checkAdmin = () => {
         if (admin) {
