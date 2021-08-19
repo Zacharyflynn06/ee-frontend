@@ -38,9 +38,9 @@ export const addProduct = createAsyncThunk(
 
 export const updateProduct = createAsyncThunk(
     'shop/updateProduct',
-    async (product) => {        
+    async (product, thunkAPI) => {        
         const parsedId = parseInt(product.id)
-        return fetch(
+        const response = await fetch(
             `http://localhost:3001/products/${parsedId}`, {
                 method: "PATCH",
                 headers: {
@@ -49,15 +49,20 @@ export const updateProduct = createAsyncThunk(
                 body: product.data
             }
         )
-        .then(res => res.json())
+        const data = await response.json()
+        if (response.ok) {
+            return data
+        } else {
+            return thunkAPI.rejectWithValue(data)
+        }
     }
 )
 
 export const deleteProduct = createAsyncThunk(
     'shop/deleteProduct',
-    async (product) => {
+    async (product, thunkAPI) => {
         const parsedId = parseInt(product.id)
-        return fetch(
+        const response = await fetch(
             `http://localhost:3001/products/${parsedId}`, {
                 method: "DELETE",
                 headers: {
@@ -65,7 +70,12 @@ export const deleteProduct = createAsyncThunk(
                 }
             }
         )
-        .then(res => res.json())
+        const data = response.json()
+        if (response.ok) {
+            return data
+        } else {
+            return thunkAPI.rejectWithValue(data)
+        }
     }
 )
 
