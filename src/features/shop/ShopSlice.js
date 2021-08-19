@@ -4,10 +4,10 @@ import { createAsyncThunk, createSlice, current } from '@reduxjs/toolkit'
 export const getProducts = createAsyncThunk(
     'shop/getProducts',
     async (thunkAPI) => {
-        const results = await fetch('http://localhost:3001/products')
+        const response = await fetch('http://localhost:3001/products')
         
-        const data = await results.json()
-        if (results.ok) {
+        const data = await response.json()
+        if (response.ok) {
             return data
         } else {
             return thunkAPI.rejectWithValue(data)
@@ -17,9 +17,9 @@ export const getProducts = createAsyncThunk(
 
 export const addProduct = createAsyncThunk(
     'shop/addProduct',
-    async (product) => {
+    async (product, thunkAPI) => {
         
-        return fetch(
+        const response = await fetch(
             'http://localhost:3001/products', {
                 method: "POST",
                 headers: {
@@ -28,9 +28,13 @@ export const addProduct = createAsyncThunk(
                 body: product
             }
         )
-        .then(res => res.json())
-    }
-)
+        const data = await response.json()
+        if (response.ok) {
+            return data
+        } else {
+            return thunkAPI.rejectWithValue(data)
+        }
+    })
 
 export const updateProduct = createAsyncThunk(
     'shop/updateProduct',
@@ -66,10 +70,9 @@ export const deleteProduct = createAsyncThunk(
 )
 
 const initialState = {
-    isError: false,
-    isSuccess: false,
-    isFetching: false,
-    message: "null",
+
+    status: 'idle',
+    message: null,
     products: []
 }
 
@@ -79,9 +82,7 @@ export const shopSlice = createSlice({
     initialState,
     reducers: {
         clearState: (state) => {
-            state.isError = false;
-            state.isSuccess = false;
-            state.isFetching = false;
+            state.status = 'idle'
             return state
         }
     },
@@ -89,37 +90,35 @@ export const shopSlice = createSlice({
         // Get 
         [getProducts.pending]: (state) => {
   
-            state.isFetching = true
+            state.status = 'loading'
         },
 
         [getProducts.fulfilled]: (state, { payload} ) => {
-            state.isFetching = false
-            state.isSuccess = true
+            state.status = 'complete'
             state.products = payload.data
             console.log('payload', payload)
             
         },
         
         [getProducts.rejected]: (state, { payload} ) => {
-            state.isError = true
+            state.status = 'rejected'
             
             console.log('payload', payload)
         },
 
         // Add
         [addProduct.pending]: (state) => {
-            state.isFetching = true
+            state.status = 'loading'
         },
 
         [addProduct.fulfilled]: (state, {payload} ) => {
-            state.isFetching = false
-            state.isSuccess = true
+            state.status = 'complete'
             state.products = state.products.concat([payload.data])
             
         },
         
         [addProduct.rejected]: (state, { payload} ) => {
-            state.isError = true
+            state.status = 'rejected'
            
      
             console.log('payload', payload)
@@ -127,12 +126,11 @@ export const shopSlice = createSlice({
 
         // Update
         [updateProduct.pending]: (state) => {
-            state.isFetching = true
+            state.status = 'loading'
         },
 
         [updateProduct.fulfilled]: (state, { payload} ) => {
-            state.isFetching = false
-            state.isSuccess = true
+            state.status = 'complete'
             console.log(payload)
             const product = state.products.find(product => product.id === payload.data.id)
             product.attributes = payload.data.attributes
@@ -140,18 +138,17 @@ export const shopSlice = createSlice({
         },
         
         [updateProduct.rejected]: (state, { payload} ) => {
-            state.isError = true
+            state.status = 'rejected'
      
             console.log('payload', payload)
         },
 
         [deleteProduct.pending]: (state) => {
-            state.isFetching = true
+            state.status = 'loading'
         },
 
         [deleteProduct.fulfilled]: (state, { payload} ) => {
-            state.isFetching = false
-            state.isSuccess = true
+            state.status = 'complete'
             console.log("before", current(state))
             const product = state.products.find(product => product.id === payload.data.id)
             state.products -= product
@@ -160,7 +157,7 @@ export const shopSlice = createSlice({
         },
         
         [deleteProduct.rejected]: (state, { payload} ) => {
-            state.isError = true
+            state.status = 'rejected'
      
             console.log('payload', payload)
         },
