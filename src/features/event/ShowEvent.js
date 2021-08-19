@@ -11,11 +11,11 @@ import style from './Events.module.css'
 
 const ShowEvent = () => {
 
-    const {isFetching, isSuccess} = useSelector(eventSelector)
+    const {status, events} = useSelector(eventSelector)
     const {admin} = useSelector(userSelector)
     const params = useParams()
-    const events = useSelector(eventSelector).events
     const eventId = params.id
+    debugger
 
     const checkAdmin = () => {
         if (admin) {
@@ -32,11 +32,11 @@ const ShowEvent = () => {
         }    
     }
     
-    if (isFetching) {
-        return (
-            <Loading />
-            )
-        } else if(isSuccess){
+    if (status === "loading") {
+        return ( <Loading /> )
+    }
+    
+    if(status === "complete"){
             
         const event = events.find(event => event.id === eventId)
         const {ticket_link, name, date, venue_name, description, city, state, lineup} = event.attributes

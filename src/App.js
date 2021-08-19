@@ -39,15 +39,21 @@ function App() {
   
   
   const shopStatus = useSelector(shopSelector).status
-  // const eventStatus = useSelector(eventSelector).status
+  const eventStatus = useSelector(eventSelector).status
   const dispatch = useDispatch()
 
   useEffect(() => {
     if (shopStatus === 'idle') {
       dispatch(getProducts())
     }
-    // if
   }, [dispatch, shopStatus])
+  
+  useEffect(() => {
+    
+    if (eventStatus === 'idle') {
+      dispatch(getEvents())
+    }
+  }, [dispatch, eventStatus])
   
   return (
     <div className="app">

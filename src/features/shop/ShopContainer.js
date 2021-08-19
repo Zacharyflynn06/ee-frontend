@@ -13,16 +13,16 @@ const ShopContainer = () => {
     
     const dispatch = useDispatch()
     const products = useSelector(shopSelector).products
-    const {isSuccess, isFetching, isError} = useSelector(shopSelector)
+    const {status} = useSelector(shopSelector)
 
-    useEffect(() => {
-        return(
-            dispatch(clearState()),
-            console.log('shop is success', isSuccess)
-        )
-    }, [dispatch, isSuccess]);
+    // useEffect(() => {
+    //     return(
+    //         dispatch(clearState()),
+    //         console.log('shop is success', isSuccess)
+    //     )
+    // }, [dispatch, isSuccess]);
     
-    if (isFetching) {
+    if (status === 'loading') {
         
         return (
             <Loading />

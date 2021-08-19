@@ -9,31 +9,28 @@ import { NavLink } from 'react-router-dom';
 
 const EventContainer = () => {
     const {admin} = useSelector(userSelector)
-    const {events, isFetching, isSuccess } = useSelector(eventSelector)
-    
-    const checkAdmin = () => {
-        if (admin) {
-            return (
-                <div>
-                    <NavLink
-                        to={'/events/new'}
-                    >
-                    <input type="button" value="Add Event"/>  
-                    </NavLink>
+    const {status, events } = useSelector(eventSelector)
 
-                </div>
-            )
-        }    
-    }
-    
-    
-    if (isFetching) {
+    if (status === 'loading') {
 
-        return (
-            <Loading />
-        )
+        return ( <Loading />)
 
-    } else if (isSuccess){
+    } else {
+
+        const checkAdmin = () => {
+            if (admin) {
+                return (
+                    <div>
+                        <NavLink
+                            to={'/events/new'}
+                        >
+                        <input type="button" value="Add Event"/>  
+                        </NavLink>
+    
+                    </div>
+                )
+            }    
+        }
         
         return (
             <div className={style.eventsContainer}>
