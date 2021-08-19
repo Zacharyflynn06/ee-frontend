@@ -88,7 +88,9 @@ export const deleteEvent= createAsyncThunk(
 
 const initialState = {
     status: 'idle',
-    errorMessage: '',
+    addEventStatus: 'idle',
+    updateEventStatus: 'idle',
+    message: '',
     events: []
 }
 
@@ -96,10 +98,13 @@ export const EventSlice = createSlice({
     name: 'event',
     initialState,
     reducers: {
-        clearState: (state) => {
-            state.status = 'idle'
-            return state
-        }
+        clearAddEventStatus: (state) => {
+            state.addEventStatus = 'idle'
+        },
+        clearUpdateEventStatus: (state) => {
+            state.updateEventStatus = 'idle'
+        },
+
     },
     extraReducers: {
         [getEvents.pending]: (state) => {
@@ -113,31 +118,31 @@ export const EventSlice = createSlice({
         
         [getEvents.rejected]: (state, { payload} ) => {
             state.status = "rejected"
-            state.errorMessage = payload.status.message;
+            state.message = payload.status.message;
         },
 
         [addEvent.pending]: (state) => {
-            state.status = "loading"
+            state.addEventStatus = "loading"
         },
 
         [addEvent.fulfilled]: (state, { payload} ) => {
-            state.status = "complete"
+            state.addEventStatus = "complete"
             state.events = state.events.concat([payload.data])
             console.log('payload', payload)
         },
         
         [addEvent.rejected]: (state, { payload} ) => {
      
-            state.status = "rejected"
-            state.errorMessage = payload
+            state.addEventStatus = "rejected"
+            state.message = payload
         },
 
         [updateEvent.pending]: (state) => {
-            state.status = "loading"
+            state.updateEventStatus = "loading"
         },
 
         [updateEvent.fulfilled]: (state, { payload} ) => {
-            state.status = "complete"
+            state.updateEventStatus = "complete"
             const event = state.events.find(event => event.id === payload.data.id)
             event.attributes = payload.data.attributes
             
@@ -145,8 +150,8 @@ export const EventSlice = createSlice({
         
         [updateEvent.rejected]: (state, { payload} ) => {
 
-            state.status = "rejected"
-            state.errorMessage = payload.status.message;
+            state.updateEventStatus = "rejected"
+            state.message = payload.status.message;
         },
 
         [deleteEvent.pending]: (state) => {
@@ -163,13 +168,13 @@ export const EventSlice = createSlice({
         [deleteEvent.rejected]: (state, { payload} ) => {
 
             state.status = "rejected"
-            state.errorMessage = "there was a problem"
+            state.message = "there was a problem"
         },
     }
     
 })
 
-export const { clearState } = EventSlice.actions
+export const { clearState, clearAddEventStatus, clearUpdateEventStatus } = EventSlice.actions
 export const eventSelector = (state) => state.event
 
 export const selectEvents = (state) => state.event.events

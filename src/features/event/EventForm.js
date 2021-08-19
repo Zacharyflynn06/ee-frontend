@@ -2,7 +2,14 @@ import React, {useState, useEffect} from 'react'
 import NavBar from '../navbar/NavBar';
 import style from './Events.module.css'
 import { useDispatch, useSelector } from 'react-redux';
-import { addEvent, updateEvent, deleteEvent, selectEvents, eventSelector, clearState } from './EventSlice'
+import { 
+    addEvent, 
+    updateEvent, 
+    deleteEvent, 
+    eventSelector,
+    clearAddEventStatus,
+    clearUpdateEventStatus
+} from './EventSlice'
 import { useHistory, useParams } from 'react-router-dom';
 import toast from 'react-hot-toast'
 
@@ -11,12 +18,11 @@ const EventForm = () => {
     const history = useHistory()
     const params = useParams()
     const dispatch = useDispatch()
+    const { addEventStatus, updateEventStatus, events, message } = useSelector(eventSelector)
 
     const eventId = params.id
-    const events = useSelector(selectEvents)
     const eventObj = events.find(event => event.id === eventId)
 
-    const { status} = useSelector(eventSelector)
 
     const [eventData, setEventData] = useState({
         date: "",
@@ -71,31 +77,56 @@ const EventForm = () => {
         }
     }
 
-    // clear state on initial render
-    useEffect(() => {
-        return (
-            dispatch(clearState())
-        )
-    }, []);
+
 
     useEffect(() => {
-        if (status === "rejected") {
+        
+        if (addEventStatus === "rejected" ) {
         
             toast.error('there was a problem! try again')
-            dispatch(clearState())
+            dispatch(clearAddEventStatus())
         }
 
-        if (status === "complete") {
+        if (addEventStatus === "complete") {
             
-            toast.success('Success')
-            dispatch(clearState())
+            toast.success('Successfully added new event')
+            dispatch(clearAddEventStatus())
             history.push('/events')
         }
-    }, [status, dispatch, history])
+
+        if (updateEventStatus === "rejected") {
+            toast.error('there was a problem! try again')
+            dispatch(clearUpdateEventStatus())
+        }
+
+        if (updateEventStatus === "complete") {
+            
+            toast.success('Successfully updated event')
+            dispatch(clearUpdateEventStatus())
+            history.push('/events')
+        }
+
+    
+    }, [addEventStatus, updateEventStatus, dispatch, history])
+
+    const conditionallyDisplaySubmit = () => {
+        if(eventObj) {
+            return "Update Event"
+        } else {
+            return "Add Event"
+        }
+    }
+
+    const conditionallyDisplayDelete = () => {
+        if (eventObj) {
+            return(
+                <input type="button" value="Delete Event" onClick={handleDelete} />
+            )
+        }
+    }
 
     return ( 
         <div className={style.eventsContainer}>
-            <NavBar />
             <h1>Event Form</h1>
             <form className={style.eventForm} onSubmit={handleSubmit}>
                 <input type="text" name="date" placeholder="Date mon-day-year" value={eventData.date} onChange={handleChange}/>
@@ -106,9 +137,9 @@ const EventForm = () => {
                 <input type="text" name="name" placeholder="name" value={eventData.name} onChange={handleChange}/>
                 <textarea type="text" name="description" placeholder="description" value={eventData.description} onChange={handleChange}/>
                 <input type="text" name="lineup" placeholder="lineup" value={eventData.lineup} onChange={handleChange}/>
-                <input type="submit" />
+                <input type="submit" value={conditionallyDisplaySubmit()}/>
             </form>
-            <input type="button" value="Delete" onClick={handleDelete} />
+            {conditionallyDisplayDelete()}
         </div>
     );
 }
