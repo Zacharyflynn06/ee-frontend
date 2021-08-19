@@ -34,18 +34,20 @@ import ProductForm from './features/shop/ProductForm';
 import ShowProduct from './features/shop/ShowProduct';
 import NavBar from './features/navbar/NavBar';
 import { useSelector, useDispatch } from 'react-redux';
+import { getProducts, shopSelector } from './features/shop/ShopSlice';
 function App() {  
   
   
-  // const {isSuccess} = useSelector(eventSelector)
-  // const dispatch = useDispatch()
+  const shopStatus = useSelector(shopSelector).status
+  // const eventStatus = useSelector(eventSelector).status
+  const dispatch = useDispatch()
 
-  // useEffect(() => {
-  //   if (!isSuccess) {
-  //     dispatch(getEvents())
-  //   }
-  //   dispatch(clearState())
-  // }, [])
+  useEffect(() => {
+    if (shopStatus === 'idle') {
+      dispatch(getProducts())
+    }
+    // if
+  }, [dispatch, shopStatus])
   
   return (
     <div className="app">

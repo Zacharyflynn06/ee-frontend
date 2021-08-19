@@ -74,9 +74,7 @@ export const deleteEvent= createAsyncThunk(
 )
 
 const initialState = {
-    isFetching: false,
-    isSuccess: false,
-    isError: false,
+    status: 'idle',
     errorMessage: '',
     events: []
 }
@@ -86,56 +84,47 @@ export const EventSlice = createSlice({
     initialState,
     reducers: {
         clearState: (state) => {
-            state.isError = false;
-            state.isSuccess = false;
-            state.isFetching = false;
+            state.status = 'idle'
             return state
         }
     },
     extraReducers: {
         [getEvents.pending]: (state) => {
-            state.isFetching = true
-            
+            state.status = "loading"
         },
 
         [getEvents.fulfilled]: (state, { payload} ) => {
-            state.isFetching = false
-            state.isSuccess = true
+            state.status = "complete"
             state.events = payload.data
         },
         
         [getEvents.rejected]: (state, { payload} ) => {
-            state.isFetching = false;
-            state.isError = true;
+            state.status = "rejected"
             state.errorMessage = payload.status.message;
         },
 
         [addEvent.pending]: (state) => {
-            state.isFetching = true
+            state.status = "loading"
         },
 
         [addEvent.fulfilled]: (state, { payload} ) => {
-            state.isFetching = false
-            state.isSuccess = true
+            state.status = "complete"
             state.events = state.events.concat([payload.data])
             console.log('payload', payload)
         },
         
         [addEvent.rejected]: (state, { payload} ) => {
      
-            state.isFetching = false;
-            state.isError = true;
+            state.status = "rejected"
             state.errorMessage = payload
         },
 
         [updateEvent.pending]: (state) => {
-            state.isFetching = true
+            state.status = "loading"
         },
 
         [updateEvent.fulfilled]: (state, { payload} ) => {
-            debugger
-            state.isFetching = false
-            state.isSuccess = true
+            state.status = "complete"
             const event = state.events.find(event => event.id === payload.data.id)
             event.attributes = payload.data.attributes
             
@@ -143,27 +132,24 @@ export const EventSlice = createSlice({
         
         [updateEvent.rejected]: (state, { payload} ) => {
 
-            state.isFetching = false;
-            state.isError = true;
+            state.status = "rejected"
             state.errorMessage = payload.status.message;
         },
 
         [deleteEvent.pending]: (state) => {
-            state.isFetching = true
+            state.status = "loading"
         },
 
         [deleteEvent.fulfilled]: (state, { payload} ) => {
             
             const event = state.events.find(event => event.id === payload.data.id)
             state.events -= event
-            state.isFetching = false
-            state.isSuccess = true
+            state.status = "complete"
         },
         
         [deleteEvent.rejected]: (state, { payload} ) => {
 
-            state.isFetching = false;
-            state.isError = true;
+            state.status = "rejected"
             state.errorMessage = "there was a problem"
         },
     }
