@@ -90,6 +90,7 @@ const initialState = {
     status: 'idle',
     addEventStatus: 'idle',
     updateEventStatus: 'idle',
+    deleteEventStatus: 'idle',
     message: '',
     events: []
 }
@@ -101,10 +102,13 @@ export const EventSlice = createSlice({
         clearAddEventStatus: (state) => {
             state.addEventStatus = 'idle'
         },
+        
         clearUpdateEventStatus: (state) => {
             state.updateEventStatus = 'idle'
         },
-
+        clearDeleteEventStatus: (state) => {
+            state.deleteEventStatus = 'idle'
+        }
     },
     extraReducers: {
         [getEvents.pending]: (state) => {
@@ -142,6 +146,7 @@ export const EventSlice = createSlice({
         },
 
         [updateEvent.fulfilled]: (state, { payload} ) => {
+            debugger
             state.updateEventStatus = "complete"
             const event = state.events.find(event => event.id === payload.data.id)
             event.attributes = payload.data.attributes
@@ -155,26 +160,25 @@ export const EventSlice = createSlice({
         },
 
         [deleteEvent.pending]: (state) => {
-            state.status = "loading"
+            state.deleteEventStatus = "loading"
         },
 
-        [deleteEvent.fulfilled]: (state, { payload} ) => {
-            
-            const event = state.events.find(event => event.id === payload.data.id)
-            state.events -= event
-            state.status = "complete"
+        [deleteEvent.fulfilled]: (state, {payload}) => {
+            state.deleteEventStatus = "complete"
+            const newState = state.events.filter(event => event.id !== payload.data.id)
+            state.events = newState
         },
         
         [deleteEvent.rejected]: (state, { payload} ) => {
 
-            state.status = "rejected"
+            state.deleteEventStatus = "rejected"
             state.message = "there was a problem"
         },
     }
     
 })
 
-export const { clearState, clearAddEventStatus, clearUpdateEventStatus } = EventSlice.actions
+export const { clearState, clearAddEventStatus, clearUpdateEventStatus, clearDeleteEventStatus } = EventSlice.actions
 export const eventSelector = (state) => state.event
 
 export const selectEvents = (state) => state.event.events

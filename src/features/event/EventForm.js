@@ -7,8 +7,10 @@ import {
     updateEvent, 
     deleteEvent, 
     eventSelector,
+    removeEvent,
     clearAddEventStatus,
-    clearUpdateEventStatus
+    clearUpdateEventStatus,
+    clearDeleteEventStatus
 } from './EventSlice'
 import { useHistory, useParams } from 'react-router-dom';
 import toast from 'react-hot-toast'
@@ -18,7 +20,7 @@ const EventForm = () => {
     const history = useHistory()
     const params = useParams()
     const dispatch = useDispatch()
-    const { addEventStatus, updateEventStatus, events, message } = useSelector(eventSelector)
+    const { addEventStatus, updateEventStatus, deleteEventStatus, events, message } = useSelector(eventSelector)
 
     const eventId = params.id
     const eventObj = events.find(event => event.id === eventId)
@@ -70,11 +72,7 @@ const EventForm = () => {
     }
 
     const handleDelete = () => {
-        if(eventObj) {
-            dispatch(deleteEvent(eventObj))
-            toast.success('deleted')
-            history.push('/')
-        }
+        dispatch(deleteEvent(eventObj))
     }
 
 
@@ -106,8 +104,19 @@ const EventForm = () => {
             history.push('/events')
         }
 
+        if (deleteEventStatus === "rejected") {
+            toast.error('there was a problem! try again')
+            dispatch(clearUpdateEventStatus())
+        }
+
+        if (deleteEventStatus === "complete") {
+            toast.success('Successfully deleted event')
+            dispatch(clearDeleteEventStatus())
+            history.push('/events')
+        }
+
     
-    }, [addEventStatus, updateEventStatus, dispatch, history])
+    }, [addEventStatus, updateEventStatus, deleteEventStatus, dispatch, history])
 
     const conditionallyDisplaySubmit = () => {
         if(eventObj) {
