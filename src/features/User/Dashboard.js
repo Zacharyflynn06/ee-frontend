@@ -10,7 +10,7 @@ const Dashboard = () => {
     const history = useHistory()
     const dispatch = useDispatch()
 
-    const { isFetching, isError, isSuccess, message } = useSelector(userSelector);
+    const { status } = useSelector(userSelector);
 
 
     const {currentUser} = useSelector(userSelector)

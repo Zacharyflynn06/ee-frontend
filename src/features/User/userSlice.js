@@ -1,12 +1,12 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 
 
-function setToken(token) {
+export function setToken(token) {
     localStorage.setItem("token", token);
     localStorage.setItem("lastLoginTime", new Date(Date.now()).getTime());
 }
 
-function getToken() {
+export function getToken() {
     let now = new Date(Date.now()).getTime();
     let thirtyMinutes = 1000 * 60 * 30;
     let timeSinceLastLogin = now - localStorage.getItem("lastLoginTime");
@@ -110,6 +110,7 @@ export const checkAuth = createAsyncThunk(
       }
     )
     let data = await response.json()
+    
     if(response.ok) {
       return data
     } else {
@@ -134,10 +135,7 @@ export const userSlice = createSlice({
     initialState,
     reducers: {
       clearState: (state) => {
-        state.isError = false;
-        state.isSuccess = false;
-        state.isFetching = false;
-        
+        state.status = 'idle'
         return state
       },
 
@@ -234,9 +232,13 @@ export const userSlice = createSlice({
         state.status = "complete"
 
         state.authChecked = true
-        state.loggedIn = false
-        state.currentUser = {}
-        localStorage.removeItem('token')
+        state.loggedIn = true
+        
+        state.currentUser = payload.data
+        
+        if (payload.data.attributes.role === "admin") {
+          state.admin = true
+        }
       },
       
 

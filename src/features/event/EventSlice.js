@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { getToken } from "../User/userSlice";
+
 
 export const getEvents = createAsyncThunk(
     'event/getEvents',
@@ -23,6 +25,7 @@ export const addEvent = createAsyncThunk(
                 method: "POST",
                 headers: {
                     Accept: "application/json",
+                    Authorization: getToken()
                 },
                 body: eventData
             }

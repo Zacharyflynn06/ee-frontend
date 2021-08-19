@@ -5,22 +5,20 @@ import Login from './Login'
 import { useDispatch } from 'react-redux'
 import Loading from '../loading/Loading'
 import toast from 'react-hot-toast'
-import { useHistory } from 'react-router'
+
 
 function WithAuth(WrappedComponent) {
 
-    const dispatch = useDispatch()
-    const {authChecked, loggedIn} = useSelector(userSelector)
-    const history = useHistory()
+    const Wrapper = () => {
 
-    // useEffect(()=> {
-    //     dispatch(checkAuth())
-    // }, [])
-    
-    class Wrapper extends React.Component {
+        const dispatch = useDispatch()
+        const {authChecked, loggedIn} = useSelector(userSelector)
+        // const history = useHistory()
+
+            useEffect(()=> {
+                dispatch(checkAuth())
+            }, [dispatch])
         
-        render() {
-            
             if (!authChecked) {
                 return(
                     <p>You are not authorized to view this page</p>
@@ -36,9 +34,8 @@ function WithAuth(WrappedComponent) {
             } else {
                 return <WrappedComponent />
             }
-        }
+        
     }
-
     return (Wrapper)
 }
  

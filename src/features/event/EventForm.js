@@ -16,7 +16,7 @@ const EventForm = () => {
     const events = useSelector(selectEvents)
     const eventObj = events.find(event => event.id === eventId)
 
-    const { isSuccess, isError, errorMessage } = useSelector(eventSelector)
+    const { status} = useSelector(eventSelector)
 
     const [eventData, setEventData] = useState({
         date: "",
@@ -79,19 +79,19 @@ const EventForm = () => {
     }, []);
 
     useEffect(() => {
-        if (isError) {
+        if (status === "rejected") {
         
             toast.error('there was a problem! try again')
             dispatch(clearState())
         }
 
-        if (isSuccess) {
-            debugger
+        if (status === "complete") {
+            
             toast.success('Success')
             dispatch(clearState())
             history.push('/events')
         }
-    }, [isError, isSuccess])
+    }, [status, dispatch, history])
 
     return ( 
         <div className={style.eventsContainer}>

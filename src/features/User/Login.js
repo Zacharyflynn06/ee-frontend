@@ -5,12 +5,12 @@ import { loginUser, userSelector, clearState } from './userSlice';
 import { useHistory } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
-const Login = (props) => {
+const Login = () => {
 
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const { isSuccess, isError, message, loggedIn } = useSelector(userSelector)
+    const { status, message, loggedIn } = useSelector(userSelector)
 
     const [userData, setUserData] = useState({
         email: '',
@@ -29,25 +29,25 @@ const Login = (props) => {
         }))
     }
 
-    useEffect(() => {
-        return () => {
-          dispatch(clearState());
-          console.log('state was cleared')
-        };
-      }, []);
+    // useEffect(() => {
+    //     return () => {
+    //       dispatch(clearState());
+    //       console.log('state was cleared')
+    //     };
+    //   }, []);
 
     useEffect(() => {
-        if (isError) {
+        if (status === "rejected") {
             toast.error(message)
             dispatch(clearState())
         }
 
-        if (loggedIn) {
+        if (loggedIn && status === "complete") {
             dispatch(clearState())
             toast.success('Logged In')
             history.push('/dashboard')
         }
-    }, [isError, loggedIn])
+    }, [status, loggedIn, dispatch, history, message])
 
     return (
         <div className={style.formContainer}>
