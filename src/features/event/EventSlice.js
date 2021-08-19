@@ -3,9 +3,14 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const getEvents = createAsyncThunk(
     'event/getEvents',
-    async () => {
-        return fetch('http://localhost:3001/events')
-        .then(res => res.json())
+    async (thunkAPI) => {
+        const response = await fetch('http://localhost:3001/events')
+        const data = await response.json()
+        if(response.ok) {
+            return data
+        } else {
+            return thunkAPI.rejectWithValue(data)
+        }
     }
 )
 
@@ -34,10 +39,10 @@ export const addEvent = createAsyncThunk(
 
 export const updateEvent = createAsyncThunk(
     'event/updateEvent',
-    async (eventData) => {   
+    async (eventData, thunkAPI) => {   
              
         const parsedId = parseInt(eventData.id)
-        return fetch(
+        const response = await fetch(
             `http://localhost:3001/events/${parsedId}`, {
                 method: "PATCH",
                 headers: {
@@ -46,7 +51,12 @@ export const updateEvent = createAsyncThunk(
                 body: eventData.data
             }
         )
-        .then(res => res.json())
+        const data = await response.json()
+        if(response.ok) {
+            return data
+        } else {
+            return thunkAPI.rejectWithValue(data)
+        }
     }
 )
 
