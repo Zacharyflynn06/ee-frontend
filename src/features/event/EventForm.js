@@ -7,7 +7,6 @@ import {
     updateEvent, 
     deleteEvent, 
     eventSelector,
-    removeEvent,
     clearAddEventStatus,
     clearUpdateEventStatus,
     clearDeleteEventStatus
@@ -80,8 +79,8 @@ const EventForm = () => {
     useEffect(() => {
         
         if (addEventStatus === "rejected" ) {
-        
-            toast.error('there was a problem! try again')
+            debugger
+            message.forEach(err => toast.error(err))
             dispatch(clearAddEventStatus())
         }
 
@@ -93,7 +92,8 @@ const EventForm = () => {
         }
 
         if (updateEventStatus === "rejected") {
-            toast.error('there was a problem! try again')
+            
+            message.forEach(err => toast.error(err))
             dispatch(clearUpdateEventStatus())
         }
 

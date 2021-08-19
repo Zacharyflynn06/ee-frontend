@@ -136,7 +136,8 @@ export const EventSlice = createSlice({
         },
         
         [addEvent.rejected]: (state, { payload} ) => {
-     
+            
+            debugger
             state.addEventStatus = "rejected"
             state.message = payload
         },
@@ -146,7 +147,7 @@ export const EventSlice = createSlice({
         },
 
         [updateEvent.fulfilled]: (state, { payload} ) => {
-            debugger
+            
             state.updateEventStatus = "complete"
             const event = state.events.find(event => event.id === payload.data.id)
             event.attributes = payload.data.attributes
@@ -154,9 +155,9 @@ export const EventSlice = createSlice({
         },
         
         [updateEvent.rejected]: (state, { payload} ) => {
-
+            debugger
             state.updateEventStatus = "rejected"
-            state.message = payload.status.message;
+            state.message = payload
         },
 
         [deleteEvent.pending]: (state) => {
