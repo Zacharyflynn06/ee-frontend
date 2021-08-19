@@ -22,7 +22,6 @@ function WithAuth(WrappedComponent) {
             }
     
             if (logoutUserStatus === "complete") {
-                debugger
                 toast.success('Logged Out')
                 dispatch(clearLogoutUserStatus())
                 history.push('/')
