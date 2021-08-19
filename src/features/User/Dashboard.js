@@ -2,27 +2,16 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { logoutUser, userSelector } from './userSlice'
 import style from './User.module.css'
-import { useHistory } from 'react-router-dom'
-import toast from 'react-hot-toast'
-import { clearState } from '../event/EventSlice'
+
 
 const Dashboard = () => {
-    const history = useHistory()
     const dispatch = useDispatch()
-
-    const { status } = useSelector(userSelector);
-
-
     const {currentUser} = useSelector(userSelector)
 
     
     const handleLogout = (event) => {
         event.preventDefault()
         dispatch(logoutUser())
-        toast.success('Logged Out')
-        history.push('/')
-        dispatch(clearState())
-
     }
 
     return(

@@ -122,6 +122,9 @@ export const checkAuth = createAsyncThunk(
 
 const initialState = {
     status: 'idle',
+    logoutUserStatus: 'idle',
+
+
     authChecked: false,
     loggedIn: false,
     message: null,
@@ -136,8 +139,11 @@ export const userSlice = createSlice({
     reducers: {
       clearState: (state) => {
         state.status = 'idle'
-        return state
+        
       },
+      clearLogoutUserStatus: (state) => {
+        state.logoutUserStatus = 'idle'
+      }
 
     },
 
@@ -197,16 +203,15 @@ export const userSlice = createSlice({
 
       // Logout
       [logoutUser.pending]: (state) => {
-        state.status = "loading"
+        state.logoutUserStatus = "loading"
       },
 
-      [logoutUser.fulfilled]: (state, { payload }) => {
-        
-        state.status = "complete"
-
+      [logoutUser.fulfilled]: (state) => {
+       
+        state.logoutUserStatus = "complete"
         state.authChecked = false
         state.loggedIn = false
-        state.message = payload.message
+        
         state.currentUser = {}
         state.admin = false
         localStorage.removeItem('token')
@@ -216,13 +221,14 @@ export const userSlice = createSlice({
 
       [logoutUser.rejected]: (state, { payload }) => {
         
-        state.status= "rejected"
+        state.logoutUserStatus = "rejected"
 
         state.authChecked = true
         state.loggedIn = false
         state.admin = false
         
       },
+
       [checkAuth.pending]: (state) => {
         state.status = "loading"
       },
@@ -255,7 +261,7 @@ export const userSlice = createSlice({
     }
 })
 
-export const {clearState} = userSlice.actions
+export const {clearState, clearLogoutUserStatus} = userSlice.actions
 
 export const userSelector = (state) => state.user
 

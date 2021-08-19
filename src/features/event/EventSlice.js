@@ -155,7 +155,7 @@ export const EventSlice = createSlice({
         },
         
         [updateEvent.rejected]: (state, { payload} ) => {
-            debugger
+
             state.updateEventStatus = "rejected"
             state.message = payload
         },
@@ -170,7 +170,7 @@ export const EventSlice = createSlice({
             state.events = newState
         },
         
-        [deleteEvent.rejected]: (state, { payload} ) => {
+        [deleteEvent.rejected]: (state, ) => {
 
             state.deleteEventStatus = "rejected"
             state.message = "there was a problem"

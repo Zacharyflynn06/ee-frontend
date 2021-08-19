@@ -92,7 +92,7 @@ const EventForm = () => {
         }
 
         if (updateEventStatus === "rejected") {
-            
+
             message.forEach(err => toast.error(err))
             dispatch(clearUpdateEventStatus())
         }
@@ -116,7 +116,7 @@ const EventForm = () => {
         }
 
     
-    }, [addEventStatus, updateEventStatus, deleteEventStatus, dispatch, history])
+    }, [addEventStatus, updateEventStatus, deleteEventStatus, dispatch, history, message])
 
     const conditionallyDisplaySubmit = () => {
         if(eventObj) {
