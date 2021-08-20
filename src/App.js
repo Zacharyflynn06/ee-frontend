@@ -8,9 +8,9 @@ import './App.css';
 
 
 
-import { eventSelector, getEvents, clearState } from './features/event/EventSlice';
+import { eventSelector, getEvents } from './features/event/EventSlice';
 import WithAuth from './features/User/WithAuth';
-
+import AdminAuth from './features/User/AdminAuth';
 // Static
 import Home from './features/home/Home';
 import About from './features/about/About';
@@ -66,7 +66,7 @@ function App() {
           {/* Protected Routes */}
           <Route exact path="/shop/products/new" component={ProductForm}/>
           <Route exact path="/shop/products/:id/edit" component={ProductForm}/>
-          <Route exact path="/events/new" component={WithAuth(EventForm)}/>
+          <Route exact path="/events/new" component={AdminAuth(EventForm)}/>
 
           <Route exact path="/events/:id/edit" component={WithAuth(EventForm)}/>
 

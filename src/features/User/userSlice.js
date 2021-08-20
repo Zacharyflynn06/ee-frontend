@@ -124,6 +124,8 @@ const initialState = {
     status: 'idle',
     logoutUserStatus: 'idle',
     loginUserStatus: 'idle',
+    signupUserStatus: 'idle',
+    checkAuthStatus: 'idle',
 
     authChecked: false,
     loggedIn: false,
@@ -141,23 +143,28 @@ export const userSlice = createSlice({
         state.status = 'idle'
         
       },
+      clearSignupUserStatus: (state) => {
+        state.logoutUserStatus = 'idle'
+      },
       clearLoginUserStatus: (state) => {
         state.loginUserStatus = 'idle'
       },
       clearLogoutUserStatus: (state) => {
         state.logoutUserStatus = 'idle'
       },
-
+      clearCheckAuthStatus: (state) => {
+        state.logoutUserStatus = 'idle'
+      },
     },
 
     extraReducers: {
       // Sign Up
       [signupUser.pending]: (state) => {
-        state.status = "loading"
+        state.signupUserStatus = "loading"
       },
       [signupUser.fulfilled]: (state, { payload }) => {
         
-        state.status = "complete"
+        state.signupUserStatus = "complete"
         
         state.authChecked = true
         state.loggedIn = true
@@ -171,7 +178,7 @@ export const userSlice = createSlice({
 
       [signupUser.rejected]: (state, { payload }) => {
         
-        state.loginUserStatus= "rejected"
+        state.signupUserStatus= "rejected"
 
         state.authChecked = true
         state.loggedIn = false
@@ -233,12 +240,12 @@ export const userSlice = createSlice({
       },
 
       [checkAuth.pending]: (state) => {
-        state.status = "loading"
+        state.checkAuthStatus = "loading"
       },
 
       [checkAuth.fulfilled]: (state, { payload }) => {
 
-        state.status = "complete"
+        state.checkAuthStatus = "complete"
 
         state.authChecked = true
         state.loggedIn = true
@@ -253,7 +260,7 @@ export const userSlice = createSlice({
 
       [checkAuth.rejected]: (state, { payload }) => {
         
-        state.status= "rejected"
+        state.checkAuthStatus = "rejected"
 
         state.authChecked = true
         state.loggedIn = false
@@ -264,7 +271,13 @@ export const userSlice = createSlice({
     }
 })
 
-export const {clearState, clearLogoutUserStatus, clearLoginUserStatus} = userSlice.actions
+export const {
+  clearState, 
+  clearLogoutUserStatus, 
+  clearLoginUserStatus, 
+  clearSignupUserStatus, 
+  clearCheckAuthStatus
+} = userSlice.actions
 
 export const userSelector = (state) => state.user
 

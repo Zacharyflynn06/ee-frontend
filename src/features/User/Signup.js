@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from "react"
 import { useSelector, useDispatch } from "react-redux"
-import { userSelector, signupUser, clearState } from "./userSlice"
+import { 
+    userSelector, 
+    signupUser, 
+    clearSignupUserStatus, } from "./userSlice"
 import { useHistory } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import style from "./User.module.css"
@@ -10,7 +13,7 @@ const Signup = (props) => {
     const dispatch = useDispatch()
     const history = useHistory();
 
-    const { isSuccess, isError, errorMessage, loggedIn } = useSelector(userSelector);
+    const { signupUserStatus, loggedIn, message } = useSelector(userSelector);
 
     const [userData, setUserData] = useState({
         first_name: '',
@@ -20,24 +23,19 @@ const Signup = (props) => {
     })
 
     useEffect(() => {
-        return () => {
-          dispatch(clearState());
-        };
-    }, [dispatch]);
+   
+        if (signupUserStatus === "rejected") {
+            debugger
+            toast.error(message)
+            dispatch(clearSignupUserStatus())
+        }
+        if (signupUserStatus === "complete") {
+            toast.success('Successfully Signed Up')
+            dispatch(clearSignupUserStatus())
+            history.push('/dashboard')
+        }
 
-    useEffect(() => {
-    if (loggedIn && isSuccess) {
-        toast.success('Successfully Signed Up')
-        dispatch(clearState());
-        history.push('/dashboard');
-    }
-
-    if (isError) {
-        debugger
-        toast.error(errorMessage);
-        dispatch(clearState());
-    }
-    });
+    }, [signupUserStatus, dispatch, message, history]);
 
 
     const handleSubmit = (event) => {
@@ -64,7 +62,7 @@ const Signup = (props) => {
                         name="first_name" 
                         value={userData.first_name} 
                         onChange={handleChange}
-                        // placeholder="First Name"
+                        placeholder="First Name"
                     />
                     <h4>Last Name</h4>
 
