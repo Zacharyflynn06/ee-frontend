@@ -1,27 +1,41 @@
 import React from 'react';
-// import ErrorPage from './ErrorPage'
-import NavBar from '../navbar/NavBar';
+import { NavLink } from 'react-router-dom';
 import { shopSelector } from './ShopSlice';
 import { useSelector } from 'react-redux';
 import ProductCard from './ProductCard';
 import Loading from '../loading/Loading';
-
+import { userSelector } from '../User/userSlice';
 
 import style from './Shop.module.css'
 import { useParams } from 'react-router-dom';
 import ShowProduct from './ShowProduct';
 
 const ShopContainer = () => {
-    
+    const {admin} = useSelector(userSelector)
     const params = useParams()
     const products = useSelector(shopSelector).products
-    const {status} = useSelector(shopSelector)
+    const {getProductsStatus} = useSelector(shopSelector)
     
-    if (status === 'loading') {
+    if (getProductsStatus === 'loading') {
         
         return ( <Loading /> )
 
-    } else {
+    } else if (getProductsStatus === 'complete') {
+
+        const checkAdmin = () => {
+            if (admin) {
+                return (
+                    <div>
+                        <NavLink
+                            to={'/shop/products/new'}
+                        >
+                        <input type="button" value="Add Product"/>  
+                        </NavLink>
+    
+                    </div>
+                )
+            }    
+        }
          
         return(
             
@@ -37,6 +51,7 @@ const ShopContainer = () => {
                     )}
                         
                 </div>
+                {checkAdmin()}
             </div>     
         )    
     }
