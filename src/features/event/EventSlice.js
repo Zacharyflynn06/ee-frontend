@@ -87,7 +87,7 @@ export const deleteEvent= createAsyncThunk(
 )
 
 const initialState = {
-    status: 'idle',
+    getEventsStatus: 'idle',
     addEventStatus: 'idle',
     updateEventStatus: 'idle',
     deleteEventStatus: 'idle',
@@ -112,16 +112,16 @@ export const EventSlice = createSlice({
     },
     extraReducers: {
         [getEvents.pending]: (state) => {
-            state.status = "loading"
+            state.getEventsStatus = "loading"
         },
 
         [getEvents.fulfilled]: (state, { payload} ) => {
-            state.status = "complete"
+            state.getEventsStatus = "complete"
             state.events = payload.data
         },
         
         [getEvents.rejected]: (state, { payload} ) => {
-            state.status = "rejected"
+            state.getEventsStatus = "rejected"
             state.message = payload.status.message;
         },
 

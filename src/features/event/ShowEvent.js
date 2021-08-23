@@ -4,6 +4,7 @@ import { userSelector } from '../User/userSlice';
 import { useParams } from 'react-router';
 import { useSelector} from 'react-redux';
 import Loading from '../loading/Loading';
+import Error from '../error/Error';
 import { NavLink } from 'react-router-dom';
 import style from './Events.module.css'
 
@@ -11,17 +12,17 @@ import style from './Events.module.css'
 
 const ShowEvent = () => {
 
-    const {status, events} = useSelector(eventSelector)
+    const {getEventsStatus, events} = useSelector(eventSelector)
     const {admin} = useSelector(userSelector)
     const params = useParams()
-    const eventId = params.id
+    const eventObj = events.find(event => event.id === params.id)
 
     const checkAdmin = () => {
         if (admin) {
             return (
                 <div>
                     <NavLink
-                        to={`/events/${eventId}/edit`}
+                        to={`/events/${params.id}/edit`}
                     >
                     <input type="button" value="Edit Event"/>  
                     </NavLink>
@@ -30,15 +31,27 @@ const ShowEvent = () => {
             )
         }    
     }
-    
-    if (status === "loading") {
+
+    if(getEventsStatus === 'rejected' || !eventObj ) {
+
+        return ( <Error />)
+
+    } else if (getEventsStatus === 'loading') {
+
         return ( <Loading /> )
-    }
-    
-    if(status === "complete"){
+
+    } else if(getEventsStatus === 'complete'){
             
-        const event = events.find(event => event.id === eventId)
-        const {ticket_link, name, date, venue_name, description, city, state, lineup} = event.attributes
+        const {
+            ticket_link, 
+            name, 
+            date, 
+            venue_name, 
+            description, 
+            city, 
+            state, 
+            lineup
+        } = eventObj.attributes
 
         return ( 
             <div className={style.eventsContainer}>
