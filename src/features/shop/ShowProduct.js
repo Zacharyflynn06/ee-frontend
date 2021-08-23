@@ -1,8 +1,7 @@
-import React, {useEffect} from 'react'
-import NavBar from '../navbar/NavBar';
+import React from 'react'
 import { NavLink, useParams } from 'react-router-dom';
-import { shopSelector, getProducts } from './ShopSlice';
-import { useSelector, useDispatch } from 'react-redux';
+import { shopSelector } from './ShopSlice';
+import { useSelector } from 'react-redux';
 import Loading from '../loading/Loading';
 import style from './Shop.module.css'
 import { userSelector } from '../User/userSlice';

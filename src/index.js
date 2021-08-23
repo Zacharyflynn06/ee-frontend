@@ -25,7 +25,7 @@ ReactDOM.render(
     <Provider store={store}>
       <Toaster />
       <App />
-    </Provider>,
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -64,11 +64,10 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home}/>
           {/* Protected Routes */}
-          <Route exact path="/shop/products/new" component={ProductForm}/>
-          <Route exact path="/shop/products/:id/edit" component={ProductForm}/>
+          <Route exact path="/shop/products/new" component={AdminAuth(ProductForm)}/>
+          <Route exact path="/shop/products/:id/edit" component={AdminAuth(ProductForm)}/>
           <Route exact path="/events/new" component={AdminAuth(EventForm)}/>
-
-          <Route exact path="/events/:id/edit" component={WithAuth(EventForm)}/>
+          <Route exact path="/events/:id/edit" component={AdminAuth(EventForm)}/>
 
           {/* Static */}
           <Route exact path="/about" component={About}/>

@@ -11,8 +11,13 @@ function WithAuth(WrappedComponent) {
     const Wrapper = () => {
 
         const dispatch = useDispatch()
-        const {authChecked, loggedIn, logoutUserStatus, message} = useSelector(userSelector)
+        const {loggedIn, logoutUserStatus, message} = useSelector(userSelector)
         const history = useHistory()
+
+        const notLoggedIn = () => {
+            // toast.error("You need to log in to view this page")
+            history.push('/login')
+        }
 
         useEffect(() => {
             if (logoutUserStatus === "rejected") {
@@ -31,17 +36,11 @@ function WithAuth(WrappedComponent) {
             dispatch(checkAuth())
         }, [dispatch])
         
-        
-        if (!authChecked) {
-            return(
-                <p>You are not authorized to view this page</p>
-            )
-        } else if (!loggedIn) {
+        if (!loggedIn) {
             return (
-                <div>
-                    <Login />
-                    <p>You need to login to view this page.</p>
-                </div>
+                <>
+                    {notLoggedIn()}
+                </>
             )
         } else {
             return <WrappedComponent />

@@ -81,8 +81,11 @@ export const deleteProduct = createAsyncThunk(
 
 const initialState = {
 
-    status: 'idle',
-    message: null,
+    getProductsStatus: 'idle',
+    addProductStatus: 'idle',
+    updateProductStatus: 'idle',
+    deleteProductStatus: 'idle',
+    message: '',
     products: []
 }
 
@@ -91,44 +94,50 @@ export const shopSlice = createSlice({
     name: 'Shop',
     initialState,
     reducers: {
-        clearState: (state) => {
-            state.status = 'idle'
-            return state
+        clearAddProductStatus: (state) => {
+            state.addProductStatus = 'idle'
+        },
+        
+        clearUpdateProductStatus: (state) => {
+            state.updateProductStatus = 'idle'
+        },
+        clearDeleteProductStatus: (state) => {
+            state.deleteProductStatus = 'idle'
         }
     },
     extraReducers: {
         // Get 
         [getProducts.pending]: (state) => {
   
-            state.status = 'loading'
+            state.getProductsStatus = 'loading'
         },
 
         [getProducts.fulfilled]: (state, { payload} ) => {
-            state.status = 'complete'
+            state.getProductsStatus = 'complete'
             state.products = payload.data
             console.log('payload', payload)
             
         },
         
         [getProducts.rejected]: (state, { payload} ) => {
-            state.status = 'rejected'
+            state.getProductsStatus = 'rejected'
             
             console.log('payload', payload)
         },
 
         // Add
         [addProduct.pending]: (state) => {
-            state.status = 'loading'
+            state.addProductStatus = 'loading'
         },
 
         [addProduct.fulfilled]: (state, {payload} ) => {
-            state.status = 'complete'
+            state.addProductStatus = 'complete'
             state.products = state.products.concat([payload.data])
             
         },
         
         [addProduct.rejected]: (state, { payload} ) => {
-            state.status = 'rejected'
+            state.addProductStatus = 'rejected'
            
      
             console.log('payload', payload)
@@ -136,11 +145,11 @@ export const shopSlice = createSlice({
 
         // Update
         [updateProduct.pending]: (state) => {
-            state.status = 'loading'
+            state.updateProductStatus = 'loading'
         },
 
         [updateProduct.fulfilled]: (state, { payload} ) => {
-            state.status = 'complete'
+            state.updateProductStatus = 'complete'
             console.log(payload)
             const product = state.products.find(product => product.id === payload.data.id)
             product.attributes = payload.data.attributes
@@ -148,17 +157,17 @@ export const shopSlice = createSlice({
         },
         
         [updateProduct.rejected]: (state, { payload} ) => {
-            state.status = 'rejected'
+            state.updateProductStatus = 'rejected'
      
             console.log('payload', payload)
         },
 
         [deleteProduct.pending]: (state) => {
-            state.status = 'loading'
+            state.deleteProductStatus = 'loading'
         },
 
         [deleteProduct.fulfilled]: (state, { payload} ) => {
-            state.status = 'complete'
+            state.deleteProductStatus = 'complete'
             console.log("before", current(state))
             const product = state.products.find(product => product.id === payload.data.id)
             state.products -= product
@@ -167,7 +176,7 @@ export const shopSlice = createSlice({
         },
         
         [deleteProduct.rejected]: (state, { payload} ) => {
-            state.status = 'rejected'
+            state.deleteProductStatus = 'rejected'
      
             console.log('payload', payload)
         },
