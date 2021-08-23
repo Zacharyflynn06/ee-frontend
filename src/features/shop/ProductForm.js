@@ -120,6 +120,21 @@ const ProductForm = (props) => {
     
     }, [addProductStatus, updateProductStatus, deleteProductStatus, dispatch, history, message])
 
+    const conditionallyDisplaySubmit = () => {
+        if(productObj) {
+            return "Update Product"
+        } else {
+            return "Add Product"
+        }
+    }
+
+    const conditionallyDisplayDelete = () => {
+        if (productObj) {
+            return(
+                <input type="button" value="Delete Event" onClick={handleDelete} />
+            )
+        }
+    }
 
     return ( 
         
@@ -144,9 +159,9 @@ const ProductForm = (props) => {
                         <input type="file" name="image" id="" ref={imageFile} />
                     </div>
                     
-                    <input type="submit" value="Submit"/>
+                    <input type="submit" value={conditionallyDisplaySubmit()}/>
                 </form>
-                    <input type="button" value="Delete" onClick={handleDelete} />
+                    {conditionallyDisplayDelete()}
 
             </div>
         </div>
