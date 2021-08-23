@@ -1,6 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import NavBar from '../navbar/NavBar';
-import style from './Events.module.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { 
     addEvent, 
@@ -14,12 +12,20 @@ import {
 import { useHistory, useParams } from 'react-router-dom';
 import toast from 'react-hot-toast'
 
+import style from './Events.module.css'
+
 const EventForm = () => {
     
     const history = useHistory()
     const params = useParams()
     const dispatch = useDispatch()
-    const { addEventStatus, updateEventStatus, deleteEventStatus, events, message } = useSelector(eventSelector)
+    const { 
+        addEventStatus, 
+        updateEventStatus, 
+        deleteEventStatus, 
+        events, 
+        message 
+    } = useSelector(eventSelector)
 
     const eventId = params.id
     const eventObj = events.find(event => event.id === eventId)
@@ -71,7 +77,9 @@ const EventForm = () => {
     }
 
     const handleDelete = () => {
-        dispatch(deleteEvent(eventObj))
+        if(eventObj) {
+            dispatch(deleteEvent(eventObj))
+        }
     }
 
 

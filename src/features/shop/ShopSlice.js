@@ -183,7 +183,12 @@ export const shopSlice = createSlice({
     }
 })
 
-export const { clearState } = shopSlice.actions
+export const { 
+    clearState, 
+    clearAddProductStatus, 
+    clearUpdateProductStatus, 
+    clearDeleteProductStatus
+} = shopSlice.actions
 
 export const shopSelector = (state) => state.shop
 

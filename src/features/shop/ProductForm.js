@@ -1,19 +1,34 @@
 import React, {useState, useEffect} from 'react'
 import { useDispatch, useSelector  } from 'react-redux'
-import style from './Shop.module.css'
-import NavBar from '../navbar/NavBar'
-import {addProduct, updateProduct, deleteProduct, selectProducts} from './ShopSlice'
+import {
+    addProduct, 
+    updateProduct, 
+    deleteProduct, 
+    shopSelector,
+    clearAddProductStatus,
+    clearUpdateProductStatus,
+    clearDeleteProductStatus
+} from './ShopSlice'
 import { useHistory } from 'react-router'
 import { useParams } from 'react-router-dom'
+import toast from 'react-hot-toast'
+import style from './Shop.module.css'
 
 const ProductForm = (props) => {
 
     const history = useHistory()
-    const dispatch = useDispatch()
     const params = useParams()
+    const dispatch = useDispatch()
+    const { 
+        addProductStatus, 
+        updateProductStatus, 
+        deleteProductStatus, 
+        products, 
+        message 
+    } = useSelector(shopSelector)
 
-    const products = useSelector(selectProducts)
-    const product = products.find(product => product.id === params.id)
+    const productId = params.id
+    const productObj = products.find(product => product.id === params.id)
     
     const [productData, setProductData] = useState({
         name: "",
@@ -22,15 +37,15 @@ const ProductForm = (props) => {
     })
     
     useEffect(() => {
-        if (product) {
+        if (productObj) {
             setProductData({
-                name: product.attributes.name || "",
-                description: product.attributes.description || "",
-                price: product.attributes.price || ""
+                name: productObj.attributes.name || "",
+                description: productObj.attributes.description || "",
+                price: productObj.attributes.price || ""
     
             })
         }
-    }, [product])
+    }, [productObj])
     
     const imageFile = React.createRef()
 
@@ -38,9 +53,9 @@ const ProductForm = (props) => {
         event.preventDefault()
         const formData = new FormData(event.target)
         
-        if(product) {
-            dispatch(updateProduct({data: formData, id: product.id}))
-            history.push(`/shop/products/${product.id}`)
+        if(productObj) {
+            dispatch(updateProduct({data: formData, id: productObj.id}))
+            history.push(`/shop/products/${productObj.id}`)
 
         } else {
             dispatch(addProduct(formData))
@@ -57,11 +72,53 @@ const ProductForm = (props) => {
     }
 
     const handleDelete = () => {
-        if(product) {
-            dispatch(deleteProduct(product))
+        if(productObj) {
+            dispatch(deleteProduct(productObj))
             history.push('/shop')
         }
     }
+
+    useEffect(() => {
+        
+        if (addProductStatus === "rejected" ) {
+            debugger
+            message.forEach(err => toast.error(err))
+            dispatch(clearAddProductStatus())
+        }
+
+        if (addProductStatus === "complete") {
+            
+            toast.success('Successfully added new product')
+            dispatch(clearAddProductStatus())
+            history.push('/shop')
+        }
+
+        if (updateProductStatus === "rejected") {
+
+            message.forEach(err => toast.error(err))
+            dispatch(clearUpdateProductStatus())
+        }
+
+        if (updateProductStatus === "complete") {
+            
+            toast.success('Successfully updated product')
+            dispatch(clearUpdateProductStatus())
+            history.push('/shop')
+        }
+
+        if (deleteProductStatus === "rejected") {
+            toast.error('there was a problem! try again')
+            dispatch(clearDeleteProductStatus())
+        }
+
+        if (deleteProductStatus === "complete") {
+            toast.success('Successfully deleted product')
+            dispatch(clearDeleteProductStatus())
+            history.push('/shop')
+        }
+
+    
+    }, [addProductStatus, updateProductStatus, deleteProductStatus, dispatch, history, message])
 
 
     return ( 

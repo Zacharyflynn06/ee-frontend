@@ -1,18 +1,15 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { shopSelector } from './ShopSlice';
 import { useSelector } from 'react-redux';
 import ProductCard from './ProductCard';
 import Loading from '../loading/Loading';
+import { shopSelector } from './ShopSlice';
 import { userSelector } from '../User/userSlice';
 
 import style from './Shop.module.css'
-import { useParams } from 'react-router-dom';
-import ShowProduct from './ShowProduct';
 
 const ShopContainer = () => {
     const {admin} = useSelector(userSelector)
-    const params = useParams()
     const products = useSelector(shopSelector).products
     const {getProductsStatus} = useSelector(shopSelector)
     
@@ -40,7 +37,6 @@ const ShopContainer = () => {
         return(
             
             <div className={style.shopContainer}>
-                {/* <NavBar></NavBar> */}
                 <h1>Shop</h1>
                 <div className={style.productsContainer}>
                     {products.map(product => 
