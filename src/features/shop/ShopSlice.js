@@ -120,8 +120,9 @@ export const shopSlice = createSlice({
         },
         
         [getProducts.rejected]: (state, { payload} ) => {
-            state.getProductsStatus = 'rejected'
             
+            state.getProductsStatus = 'rejected'
+            state.message = payload.status.message;
             console.log('payload', payload)
         },
 
@@ -138,9 +139,7 @@ export const shopSlice = createSlice({
         
         [addProduct.rejected]: (state, { payload} ) => {
             state.addProductStatus = 'rejected'
-           
-     
-            console.log('payload', payload)
+            state.message = payload
         },
 
         // Update
