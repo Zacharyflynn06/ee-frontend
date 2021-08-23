@@ -5,8 +5,8 @@ import { useSelector } from 'react-redux';
 import Loading from '../loading/Loading';
 import style from './Shop.module.css'
 import { userSelector } from '../User/userSlice';
-
-
+import Error from '../error/Error'
+import toast from 'react-hot-toast';
 
 const ShowProduct = () => {
     
@@ -14,16 +14,21 @@ const ShowProduct = () => {
     const params = useParams()
     const {getProductsStatus, products} = useSelector(shopSelector)
     
-    if (getProductsStatus === "loading" ) {
+    const productObj = products.find(productObj => productObj.id === params.id)
+
+    if(getProductsStatus === 'rejected' || !productObj) {
+        toast.error('there was a problem')
+        return(<Error />)
+
+    } else if (getProductsStatus === "loading" ) {
         
         return ( <Loading />)
 
     } else if (getProductsStatus === "complete"){
         
-        const product = products.find(product => product.id === params.id)
         
         const formatImageUrl = () => {
-            return product.attributes.image_format ? product.attributes.image_format.url : process.env.PUBLIC_URL + "logo192.png"
+            return productObj.attributes.image_format ? productObj.attributes.image_format.url : process.env.PUBLIC_URL + "logo192.png"
         }
 
         const checkAdmin = () => {
@@ -53,12 +58,12 @@ const ShowProduct = () => {
                     </div>
                     <div className={style.showProductDetails}>
                         <div>
-                            <h2> {product.attributes.name}</h2>
+                            <h2> {productObj.attributes.name}</h2>
                             <span>
-                                ${product.attributes.price}
+                                ${productObj.attributes.price}
                             </span>
                             <div>
-                                {product.attributes.description}
+                                {productObj.attributes.description}
                             </div>
                             
                         </div>
@@ -66,7 +71,6 @@ const ShowProduct = () => {
 
                 </div>
                     {checkAdmin()}
-                
 
             </div>
         )

@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice, current } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 
 export const getProducts = createAsyncThunk(
@@ -108,22 +108,18 @@ export const shopSlice = createSlice({
     extraReducers: {
         // Get 
         [getProducts.pending]: (state) => {
-  
             state.getProductsStatus = 'loading'
         },
 
         [getProducts.fulfilled]: (state, { payload} ) => {
             state.getProductsStatus = 'complete'
-            state.products = payload.data
-            console.log('payload', payload)
-            
+            state.products = payload.data            
         },
         
         [getProducts.rejected]: (state, { payload} ) => {
             
             state.getProductsStatus = 'rejected'
             state.message = payload
-            console.log('payload', payload)
         },
 
         // Add
@@ -180,15 +176,12 @@ export const shopSlice = createSlice({
     }
 })
 
-export const { 
-    clearState, 
+export const {
     clearAddProductStatus, 
     clearUpdateProductStatus, 
     clearDeleteProductStatus
 } = shopSlice.actions
 
 export const shopSelector = (state) => state.shop
-
-export const selectProducts = (state) => state.shop.products
 
 export default shopSlice.reducer

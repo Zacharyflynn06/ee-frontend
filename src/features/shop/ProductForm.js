@@ -27,7 +27,6 @@ const ProductForm = (props) => {
         message 
     } = useSelector(shopSelector)
 
-    const productId = params.id
     const productObj = products.find(product => product.id === params.id)
     
     const [productData, setProductData] = useState({
