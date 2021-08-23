@@ -74,7 +74,6 @@ const ProductForm = (props) => {
     const handleDelete = () => {
         if(productObj) {
             dispatch(deleteProduct(productObj))
-            history.push('/shop')
         }
     }
 
@@ -131,7 +130,7 @@ const ProductForm = (props) => {
     const conditionallyDisplayDelete = () => {
         if (productObj) {
             return(
-                <input type="button" value="Delete Event" onClick={handleDelete} />
+                <input type="button" value="Delete Product" onClick={handleDelete} />
             )
         }
     }

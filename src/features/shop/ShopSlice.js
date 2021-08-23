@@ -122,7 +122,7 @@ export const shopSlice = createSlice({
         [getProducts.rejected]: (state, { payload} ) => {
             
             state.getProductsStatus = 'rejected'
-            state.message = payload.status.message;
+            state.message = payload
             console.log('payload', payload)
         },
 
@@ -157,7 +157,7 @@ export const shopSlice = createSlice({
         
         [updateProduct.rejected]: (state, { payload} ) => {
             state.updateProductStatus = 'rejected'
-     
+            state.message = payload
             console.log('payload', payload)
         },
 
@@ -166,18 +166,16 @@ export const shopSlice = createSlice({
         },
 
         [deleteProduct.fulfilled]: (state, { payload} ) => {
-            state.deleteProductStatus = 'complete'
-            console.log("before", current(state))
-            const product = state.products.find(product => product.id === payload.data.id)
-            state.products -= product
+            state.deleteProductStatus = "complete"
+            const newState = state.products.filter(product => product.id !== payload.data.id)
+            state.products = newState
             
 
         },
         
-        [deleteProduct.rejected]: (state, { payload} ) => {
+        [deleteProduct.rejected]: (state) => {
             state.deleteProductStatus = 'rejected'
-     
-            console.log('payload', payload)
+            state.message = "there was a problem"
         },
     }
 })

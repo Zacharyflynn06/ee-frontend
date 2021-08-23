@@ -12,13 +12,13 @@ const ShowProduct = () => {
     
     const {admin} = useSelector(userSelector)
     const params = useParams()
-    const {status, products} = useSelector(shopSelector)
+    const {getProductsStatus, products} = useSelector(shopSelector)
     
-    if (status === "loading" ) {
+    if (getProductsStatus === "loading" ) {
         
         return ( <Loading />)
 
-    } else if (status === "complete"){
+    } else if (getProductsStatus === "complete"){
         
         const product = products.find(product => product.id === params.id)
         
