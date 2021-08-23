@@ -1,7 +1,6 @@
-
+html, body { height: 100% }
 
 body {
-
     font-family: 'Montserrat', sans-serif;
     background-image: linear-gradient(to bottom right, #E8FFFF, #41AEA9);
     /* background-image: linear-gradient(to bottom right, #F8F1F1, #16C79A); */
@@ -13,48 +12,57 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     text-decoration: none;
-    width: 100vw;
-    height: 100vh
+
     
-  }
+}
+
+h1 {
+  font-size: 3em;
+  -webkit-filter: drop-shadow(5px 5px 5px #222222);
+  filter: drop-shadow(5px 5px 5px #222222);
+  font-weight: bold;
+}
+
+
+a:-webkit-any-link {
   
-  h1 {
-    font-size: 3em;
-    -webkit-filter: drop-shadow(5px 5px 5px #222222);
-    filter: drop-shadow(5px 5px 5px #222222);
-    font-weight: bold;
-  }
+  cursor: pointer;
+  text-decoration: none;
+}
+
+input[type="button"], input[type="submit"] {
+  color: black
+}
+
+input[type="button"], input[type="submit"]{
+  text-decoration: none;
+  display:inline-block;
+  padding:0.35em 1.2em;
+  border:0.1em solid #FFFFFF;
+  margin: 1em;
+  border-radius:0.12em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-weight:bold;
+  color: black;
+  text-align:center;
+  transition: all 0.2s;
+  background-color: rgba(0, 0, 0, 0.001);
   
-  
-  a:-webkit-any-link {
-   
-    cursor: pointer;
-    text-decoration: none;
-  }
+}
 
-  input[type="button"], input[type="submit"] {
-    color: black
-  }
+input[type="button"]:hover, input[type="submit"]:hover{
+  color:#000000;
+  background-color:#FFFFFF;
 
-  input[type="button"], input[type="submit"]{
-    text-decoration: none;
-    display:inline-block;
-    padding:0.35em 1.2em;
-    border:0.1em solid #FFFFFF;
-    margin: 1em;
-    border-radius:0.12em;
-    box-sizing: border-box;
-    text-decoration:none;
-    font-weight:bold;
-    color: black;
-    text-align:center;
-    transition: all 0.2s;
-    background-color: rgba(0, 0, 0, 0.001);
-    
-  }
+}
 
-  input[type="button"]:hover, input[type="submit"]:hover{
-    color:#000000;
-    background-color:#FFFFFF;
+.app-container{
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
 
-  }
+.app{
+  flex: 1;
+}

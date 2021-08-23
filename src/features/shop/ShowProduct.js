@@ -6,19 +6,38 @@ import Loading from '../loading/Loading';
 import style from './Shop.module.css'
 import { userSelector } from '../User/userSlice';
 import Error from '../error/Error'
-import toast from 'react-hot-toast';
 
 const ShowProduct = () => {
     
+    const {getProductsStatus, products} = useSelector(shopSelector)
     const {admin} = useSelector(userSelector)
     const params = useParams()
-    const {getProductsStatus, products} = useSelector(shopSelector)
-    
     const productObj = products.find(productObj => productObj.id === params.id)
 
-    if(getProductsStatus === 'rejected' || !productObj) {
-        toast.error('there was a problem')
-        return(<Error />)
+    const checkAdmin = () => {
+        
+        if (admin) {
+            return (
+                <div>
+                    <NavLink
+                        to={`/shop/products/${params.id}/edit`}
+                        exact
+                >
+                <input type="button" value="Edit Product" />
+                </NavLink>
+
+                </div>
+            )
+        }    
+    }
+
+    if(getProductsStatus === 'rejected' ) {
+
+        return(<Error message={'there was a problem loading the request'}/>)
+
+    } else if (!productObj) {
+
+        return(<Error message={'The product you are trying to view does not exist'}/>)
 
     } else if (getProductsStatus === "loading" ) {
         
@@ -26,26 +45,14 @@ const ShowProduct = () => {
 
     } else if (getProductsStatus === "complete"){
         
+        const {
+            name,
+            price,
+            description
+        } = productObj.attributes
         
         const formatImageUrl = () => {
             return productObj.attributes.image_format ? productObj.attributes.image_format.url : process.env.PUBLIC_URL + "logo192.png"
-        }
-
-        const checkAdmin = () => {
-        
-            if (admin) {
-                return (
-                    <div>
-                        <NavLink
-                            to={`/shop/products/${params.id}/edit`}
-                            exact
-                    >
-                    <input type="button" value="Edit Product" />
-                    </NavLink>
-    
-                    </div>
-                )
-            }    
         }
 
         return (
@@ -58,19 +65,20 @@ const ShowProduct = () => {
                     </div>
                     <div className={style.showProductDetails}>
                         <div>
-                            <h2> {productObj.attributes.name}</h2>
+                            <h2> {name}</h2>
                             <span>
-                                ${productObj.attributes.price}
+                                ${price}
                             </span>
                             <div>
-                                {productObj.attributes.description}
+                                {description}
                             </div>
                             
                         </div>
                     </div>
 
                 </div>
-                    {checkAdmin()}
+                
+                {checkAdmin()}
 
             </div>
         )

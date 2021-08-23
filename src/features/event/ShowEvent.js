@@ -32,9 +32,13 @@ const ShowEvent = () => {
         }    
     }
 
-    if(getEventsStatus === 'rejected' || !eventObj ) {
+    if(getEventsStatus === 'rejected') {
 
-        return ( <Error />)
+        return(<Error message={'there was a problem loading the request'}/>)
+
+    } else if (!eventObj) {
+
+        return(<Error message={'The event you are trying to view does not exist'}/>)
 
     } else if (getEventsStatus === 'loading') {
 
