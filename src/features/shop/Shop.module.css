@@ -13,8 +13,10 @@
     gap: 1rem;
     justify-content: center;
     width: 80%;
+    padding: 0 0 5%;
  
 }
+
 .productCard {
     display: flex;
     flex-grow: 1;
