@@ -16,7 +16,6 @@
 
 .logo{
     width: 40vw;
-    padding: 2rem 0;
     -webkit-filter: drop-shadow(5px 5px 5px #222222);
     filter: drop-shadow(5px 5px 5px #222222);
 }
@@ -27,4 +26,33 @@
     justify-content: space-around;
     text-align: center;
     width: 50%
+}
+
+.linkContainer div{
+    transition: all .2s ease-in-out;
+
+}
+.linkContainer div:hover{
+    transform: scale(1.2);
+}
+
+.instagram a:hover {
+    color:#E1306C
+}
+.facebook a:hover {
+    color: #4267B2
+}
+.twitter a:hover {
+    color: #1DA1F2
+}
+.youtube a:hover{
+    color: #FF0000;
+}
+
+.apple a:hover {
+    color:white
+}
+
+.spotify a:hover{
+    color: #1DB954;
 }
