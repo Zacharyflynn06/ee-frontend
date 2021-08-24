@@ -59,7 +59,7 @@ const ShowEvent = () => {
 
         return ( 
             <div className={style.eventsContainer}>
-
+                <h1>{venue_name}</h1>
                 <div className={style.showEventContainer}>
                     <div className={style.showEventTitle}>
                         {name} - {date}

@@ -59,28 +59,31 @@ const ShowProduct = () => {
 
             <div className={style.shopContainer}>
                 <h1>Shop</h1>
-                < div className={style.showProductCard}>
-                    <div className={style.showProductImageContainer}>
-                        <img className={style.showProductImage} src={formatImageUrl()} alt="" />
-                    </div>
-                    <div className={style.showProductDetails}>
-                        <div>
-                            <h2> {name}</h2>
-                            <span>
-                                ${price}
-                            </span>
-                            <div>
-                                {description}
-                            </div>
-                            
+                <div className={style.showProductContainer}>
+                    < div className={style.showProductCard}>
+                        <div className={style.showProductImageContainer}>
+                            <img className={style.showProductImage} src={formatImageUrl()} alt="" />
                         </div>
+                        <div className={style.showProductDetails}>
+                            <div>
+                                <h2> {name}</h2>
+                                <span>
+                                    ${price}
+                                </span>
+                                <div>
+                                    {description}
+                                </div>
+                                
+                            </div>
+                        </div>
+
                     </div>
+                    
+                    {checkAdmin()}
 
                 </div>
-                
-                {checkAdmin()}
 
-            </div>
+                </div>
         )
 
     }

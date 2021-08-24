@@ -61,7 +61,7 @@ function App() {
   return (
     <div className="app-container">
       <Router>
-        <div className="app">
+        <div className="App">
             <Menu />  
             <Switch>
               <Route exact path="/" component={Home}/>
