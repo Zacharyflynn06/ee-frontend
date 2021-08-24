@@ -22,17 +22,6 @@ const NavBar = (props) => {
     return (
         <div className={style.navContainer}>
             <div>
-                <NavLink
-                    to="/"
-                    exact
-                    className={style.navLink}
-                    activeClassName={style.active}
-                    onClick={handleToggle}
-                >
-                    Home
-                </NavLink>
-            </div>
-            <div>
             <NavLink
                 to="/shop"
                 exact
@@ -96,8 +85,8 @@ const NavBar = (props) => {
                 </NavLink>
             </div>
 
-            <div>
-                {loggedIn ? (
+            
+            {loggedIn ? (
                     <>
                         <NavLink
                             exact
@@ -111,6 +100,7 @@ const NavBar = (props) => {
                     </>
                 ) : (
                     <>
+                    <div>
                         <NavLink
                             exact
                             to='/signup'
@@ -121,6 +111,9 @@ const NavBar = (props) => {
                         >
                         Sign Up
                         </NavLink>
+                    </div>
+
+                    <div>
                         <NavLink
                             exact
                             to='/login'
@@ -130,10 +123,10 @@ const NavBar = (props) => {
                         >
                         Log In
                         </NavLink>
-                    </>
-
+                    </div>
+                </>
                 )}
-            </div>
+            
             
         </div>
     )

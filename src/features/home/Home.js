@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const Home = (props) => {
     return (
         <div className={style.homeContainer}>
-            <div className={style.title_container}>
+        
                 <img className={style.logo} src={logo} alt="logo" />
                 <NavBar toggleMenu={props.toggleMenu}/>
                 <div className={style.linkContainer}>
@@ -43,7 +43,7 @@ const Home = (props) => {
                         </a>
                     </div>
             </div>
-            </div>
+        
         </div>
     )
 }

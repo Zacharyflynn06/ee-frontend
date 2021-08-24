@@ -1,20 +1,37 @@
 .navContainer {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+    text-align: center;
     padding-top: 2em; 
     padding-bottom: 2em;
-    width: 100%;
+    width: 75%;
+}
+
+.navContainer div {
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .navLink {
+
     font-size: 2vw;
     text-decoration: none;
     color: black;
     -webkit-filter: drop-shadow(5px 5px 5px #222222);
     filter: drop-shadow(5px 5px 5px #222222);
-    padding-right: 1em;
+    
 }
 
 .active {
     color: #E8FFFF
+}
+
+.navContainer div{
+    transition: all .2s ease-in-out;
+
+}
+.navContainer div:hover{
+    transform: scale(1.2);
 }
