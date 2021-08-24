@@ -7,6 +7,7 @@ import { shopSelector } from './ShopSlice';
 import { userSelector } from '../User/userSlice';
 
 import style from './Shop.module.css'
+import Menu from '../menu/Menu';
 
 const ShopContainer = () => {
     const {admin} = useSelector(userSelector)
@@ -37,6 +38,7 @@ const ShopContainer = () => {
         return(
             
             <div className={style.shopContainer}>
+                <Menu />
                 <h1>Shop</h1>
                 <div className={style.productsContainer}>
                     {products.map(product => 

@@ -4,11 +4,21 @@ import {NavLink} from 'react-router-dom'
 import style from './NavBar.module.css'
 import { useSelector } from 'react-redux';
 import { userSelector } from '../User/userSlice';
-
+import { toggleIsActive } from '../menu/MenuSlice';
+import { useLocation } from 'react-router';
 
 const NavBar = (props) => {
+    const location = useLocation()
 
     const { loggedIn } = useSelector(userSelector)
+
+    const handleToggle = () => {
+        if(location.pathname === '/') {
+        
+        } else {
+            props.toggleMenu()
+        }
+    }
 
     return (
         <div className={style.navContainer}>
@@ -18,7 +28,7 @@ const NavBar = (props) => {
                     exact
                     className={style.navLink}
                     activeClassName={style.active}
-                    onClick={props.toggleMenu}
+                    onClick={handleToggle}
                 >
                     Home
                 </NavLink>
@@ -29,6 +39,7 @@ const NavBar = (props) => {
                 exact
                 className={style.navLink}
                 activeClassName={style.active}
+                onClick={handleToggle}
             >
                 Shop
             </NavLink>
@@ -40,6 +51,7 @@ const NavBar = (props) => {
                     exact
                     className={style.navLink}
                     activeClassName={style.active}
+                    onClick={handleToggle}
                     
                 >
                     Events
@@ -53,6 +65,7 @@ const NavBar = (props) => {
                     exact
                     className={style.navLink}
                     activeClassName={style.active}
+                    onClick={handleToggle}
                 >
                     About
                 </NavLink>
@@ -65,6 +78,7 @@ const NavBar = (props) => {
                     exact
                     className={style.navLink}
                     activeClassName={style.active}
+                    onClick={handleToggle}
                 >
                     Music
                 </NavLink>
@@ -77,6 +91,7 @@ const NavBar = (props) => {
                     exact
                     className={style.navLink}
                     activeClassName={style.active}
+                    onClick={handleToggle}
                 >
                     Contact
                 </NavLink>
@@ -90,6 +105,7 @@ const NavBar = (props) => {
                             to='/dashboard'
                             className={style.navLink}
                             activeClassName={style.active}
+                            onClick={handleToggle}
                         >
                         Dashboard
                         </NavLink>
@@ -101,6 +117,7 @@ const NavBar = (props) => {
                             to='/signup'
                             className={style.navLink}
                             activeClassName={style.active}
+                            onClick={handleToggle}
                         
                         >
                         Sign Up
@@ -110,6 +127,7 @@ const NavBar = (props) => {
                             to='/login'
                             className={style.navLink}
                             activeClassName={style.active}
+                            onClick={handleToggle}
                         >
                         Log In
                         </NavLink>

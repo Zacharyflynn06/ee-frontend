@@ -62,7 +62,7 @@ function App() {
     <div className="app-container">
       <Router>
         <div className="app">
-          <Menu />
+            <Menu />  
             <Switch>
               <Route exact path="/" component={Home}/>
               {/* Protected Routes */}

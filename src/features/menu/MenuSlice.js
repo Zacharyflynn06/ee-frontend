@@ -9,11 +9,17 @@ export const MenuSlice = createSlice({
     initialState,
     reducers: {
         toggleIsActive: (state) => {
-            state.isActive = !state.isActive
+            if(state.isActive === false) {
+                state.isActive = true
+            } else {
+                state.isActive = false
+            }
         }
     }
 })
 
-export const menuSelector = (state) => state.menu
+export const {toggleIsActive} = MenuSlice.actions
+
+export const isActive = MenuSlice.actions
 
 export default MenuSlice.reducer
