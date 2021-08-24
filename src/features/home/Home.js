@@ -9,7 +9,7 @@ const Home = (props) => {
             <div className={style.title_container}>
                 <img className={style.logo} src={logo} alt="logo" />
             </div>
-            <NavBar />
+            <NavBar toggleMenu={props.toggleMenu}/>
             
         </div>
     )

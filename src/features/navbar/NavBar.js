@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { userSelector } from '../User/userSlice';
 
 
-const NavBar = () => {
+const NavBar = (props) => {
 
     const { loggedIn } = useSelector(userSelector)
 
@@ -18,6 +18,7 @@ const NavBar = () => {
                     exact
                     className={style.navLink}
                     activeClassName={style.active}
+                    onClick={props.toggleMenu}
                 >
                     Home
                 </NavLink>
