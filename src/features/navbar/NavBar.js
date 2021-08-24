@@ -6,9 +6,9 @@ import { useSelector } from 'react-redux';
 import { userSelector } from '../User/userSlice';
 
 
-const NavBar = (props) => {
+const NavBar = () => {
 
-    const { loggedIn, authChecked, currentUser } = useSelector(userSelector)
+    const { loggedIn } = useSelector(userSelector)
 
     return (
         <div className={style.navContainer}>

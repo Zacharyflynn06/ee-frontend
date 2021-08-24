@@ -12,6 +12,7 @@ import { eventSelector, getEvents } from './features/event/EventSlice';
 import WithAuth from './features/User/WithAuth';
 import AdminAuth from './features/User/AdminAuth';
 // Static
+import Menu from './features/menu/Menu';
 import Home from './features/home/Home';
 import About from './features/about/About';
 import Contact from './features/contact/Contact';
@@ -61,7 +62,7 @@ function App() {
     <div className="app-container">
       <Router>
         <div className="app">
-          <NavBar />
+          <Menu />
             <Switch>
               <Route exact path="/" component={Home}/>
               {/* Protected Routes */}

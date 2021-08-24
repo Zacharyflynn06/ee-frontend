@@ -2,7 +2,8 @@
     display: flex;
     justify-content: center;
     padding-top: 2em; 
-    padding-bottom: 2em;  
+    padding-bottom: 2em;
+    width: 100%;
 }
 
 .navLink {

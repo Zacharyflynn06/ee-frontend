@@ -34,7 +34,7 @@ const Music = (props) => {
                     <a target="_blank" rel="noreferrer" href="https://music.amazon.com/artists/B018WC7HM6/eminence-ensemble?">
                         <FontAwesomeIcon icon={['fab', 'amazon']} size="4x"  />
                         <br />
-                        <span>AmazonMusic</span> 
+                        <span>Amazon Music</span> 
                     </a>
                     
                 </div>
