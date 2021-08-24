@@ -1,11 +1,10 @@
 import React, {useState} from 'react'
+import { useLocation } from 'react-router-dom';
 import Home from '../home/Home';
 import style from './Menu.module.css'
-// import { toggleIsActive } from './MenuSlice';
-import { useDispatch } from 'react-redux';
 
 const Menu = () => {
-
+    const location = useLocation()
     const [isActive, setActive] = useState(false)
 
     // const dispatch = useDispatch()
@@ -14,19 +13,25 @@ const Menu = () => {
         isActive ? setActive(false) : setActive(true)
     }
 
-    return ( 
-        <div className={style.menuWrap}>
-            <input type="button" id={style.toggler} className={isActive ? style.active : ""} onClick={toggleMenu}/>
-            <div className={style.hamburger}><div></div></div>
-            <div className={style.menu}>
-                <div>
+    if (location.pathname === '/') {
+        return ( <></>)
+    } else {
+        return ( 
+            <div className={style.menuWrap}>
+                <input type="button" id={style.toggler} className={isActive ? style.active : ""} onClick={toggleMenu}/>
+                <div className={style.hamburger}><div></div></div>
+                <div className={style.menu}>
                     <div>
-                        <Home toggleMenu={toggleMenu}/>
+                        <div>
+                            <Home toggleMenu={toggleMenu}/>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    );
+        );
+
+    }
+
 }
  
 export default Menu;

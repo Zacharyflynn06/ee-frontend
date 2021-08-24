@@ -84,7 +84,7 @@
 }
 
 .menu > div {
-    background: white;
+    background: rgba(255,255,255,.95);
     border-radius: 50%;
     width: 200vw;
     height: 200vw;

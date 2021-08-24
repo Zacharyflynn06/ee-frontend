@@ -4,7 +4,6 @@ import {NavLink} from 'react-router-dom'
 import style from './NavBar.module.css'
 import { useSelector } from 'react-redux';
 import { userSelector } from '../User/userSlice';
-import { toggleIsActive } from '../menu/MenuSlice';
 import { useLocation } from 'react-router';
 
 const NavBar = (props) => {

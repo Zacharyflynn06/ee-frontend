@@ -58,7 +58,7 @@ const ShowProduct = () => {
         return (
 
             <div className={style.shopContainer}>
-                
+                <h1>Shop</h1>
                 < div className={style.showProductCard}>
                     <div className={style.showProductImageContainer}>
                         <img className={style.showProductImage} src={formatImageUrl()} alt="" />

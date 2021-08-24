@@ -2,6 +2,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    max-height: 100%;
 }
 
 .productsContainer {
@@ -9,9 +11,9 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1rem;
-    padding: 5%
-    /* display: flex;
-    flex-wrap: wrap; */
+    padding: 5%;
+    justify-content: center;
+    width: 80%;
  
 }
 .productCard {
@@ -46,6 +48,8 @@
 
 .showProductCard {
     display:flex;
+    justify-content: center;
+    align-items: center;
     background-color: white;
     width: 60%;
     border:0.1em solid #FFFFFF;
