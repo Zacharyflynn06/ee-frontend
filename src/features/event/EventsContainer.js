@@ -1,4 +1,3 @@
-import React from 'react';
 import style from './Events.module.css'
 import Loading from '../loading/Loading'
 import { eventSelector } from './EventSlice';

@@ -1,4 +1,3 @@
-import React from 'react';
 import image from './image.jpg'
 import style from './About.module.css'
 import zac1 from './Gallery/zac1.jpg'

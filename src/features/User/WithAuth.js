@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react'
 import { useSelector } from 'react-redux'
 import { checkAuth, userSelector, clearLogoutUserStatus } from './userSlice'
-import Login from './Login'
 import { useDispatch } from 'react-redux'
 import toast from 'react-hot-toast'
 import { useHistory } from 'react-router'

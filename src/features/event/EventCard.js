@@ -1,4 +1,3 @@
-import React from 'react'
 import style from './Events.module.css'
 import { NavLink } from 'react-router-dom';
 const EventCard = (props) => {

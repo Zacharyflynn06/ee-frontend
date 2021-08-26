@@ -1,4 +1,3 @@
-import React from 'react';
 import style from './Music.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 

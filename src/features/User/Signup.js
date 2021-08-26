@@ -34,8 +34,11 @@ const Signup = (props) => {
             dispatch(clearSignupUserStatus())
             history.push('/dashboard')
         }
+        if (loggedIn) {
+            history.push('/dashboard')
+        }
 
-    }, [signupUserStatus, dispatch, message, history]);
+    }, [signupUserStatus, dispatch, message, history, loggedIn]);
 
 
     const handleSubmit = (event) => {

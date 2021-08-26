@@ -34,7 +34,6 @@ import Dashboard from './features/User/Dashboard';
 import ShopContainer from './features/shop/ShopContainer';
 import ProductForm from './features/shop/ProductForm';
 import ShowProduct from './features/shop/ShowProduct';
-import NavBar from './features/navbar/NavBar';
 import { useSelector, useDispatch } from 'react-redux';
 import { getProducts, shopSelector } from './features/shop/ShopSlice';
 function App() {  

@@ -1,4 +1,3 @@
-import React from 'react'
 import { eventSelector } from './EventSlice';
 import { userSelector } from '../User/userSlice';
 import { useParams } from 'react-router';

@@ -8,6 +8,8 @@ const Error = (props) => {
     useEffect(() => {
         if(props.message) {
             toast.error(props.message)
+        } else {
+            toast.error("the page you are trying to view doesn't exist!")
         }
     }, [props.message])
 
