@@ -68,21 +68,23 @@ const ShowEvent = () => {
                         {venue_name}
                     </div>
                     <div>
-                        Description: {description}
+                        {description}
                     </div>
                     <div>
                         {city}, {state}
                     </div>
                     <div >
-                       Lineup: {lineup}
+                       {lineup}
                     </div>
                     <div className={style.eventLink}>
-                        <a target="_blank" rel="noreferrer" href={ticket_link}>Tickets</a>
+                        <a target="_blank" rel="noreferrer" href={ticket_link}>Get Tickets</a>
                     </div>
+                </div>
+                    <NavLink to="/events" exact >
+                        <input type="button" value="Back to Events"/> 
+                    </NavLink>
     
                     {checkAdmin()}
-
-                </div>
             </div>
         );
 
