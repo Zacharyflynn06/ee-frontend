@@ -4,11 +4,12 @@ import { checkAuth, userSelector, clearLogoutUserStatus } from './userSlice'
 import { useDispatch } from 'react-redux'
 import toast from 'react-hot-toast'
 import { useHistory } from 'react-router'
+import { useLocation } from 'react-router-dom'
 
 function WithAuth(WrappedComponent) {
 
     const Wrapper = () => {
-
+        const location = useLocation()
         const dispatch = useDispatch()
         const {loggedIn, logoutUserStatus, message} = useSelector(userSelector)
         const history = useHistory()
@@ -35,7 +36,8 @@ function WithAuth(WrappedComponent) {
             dispatch(checkAuth())
         }, [dispatch])
         
-        if (!loggedIn) {
+        if (!loggedIn && location.pathname === '/dashboard') {
+            
             return (
                 <>
                     {notLoggedIn()}

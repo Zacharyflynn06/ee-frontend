@@ -34,7 +34,7 @@ const ShowProduct = () => {
 
         return(<Error message={'there was a problem loading the request'}/>)
 
-    } else if (!productObj) {
+    } else if (getProductsStatus === "complete" && !productObj) {
 
         return(<Error message={'The product you are trying to view does not exist'}/>)
 

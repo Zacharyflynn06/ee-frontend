@@ -63,7 +63,7 @@ function App() {
         <div className="App">
             <Menu />  
             <Switch>
-              <Route exact path="/" component={Home}/>
+              <Route exact path="/" component={WithAuth(Home)}/>
               {/* Protected Routes */}
               <Route exact path="/shop/products/new" component={AdminAuth(ProductForm)}/>
               <Route exact path="/shop/products/:id/edit" component={AdminAuth(ProductForm)}/>
@@ -71,25 +71,25 @@ function App() {
               <Route exact path="/events/:id/edit" component={AdminAuth(EventForm)}/>
   
               {/* Static */}
-              <Route exact path="/about" component={About}/>
-              <Route exact path="/contact" component={Contact}/>
-              <Route exact path="/music" component={Music}/>
+              <Route exact path="/about" component={WithAuth(About)}/>
+              <Route exact path="/contact" component={WithAuth(Contact)}/>
+              <Route exact path="/music" component={WithAuth(Music)}/>
   
               {/* Event */}
-              <Route exact path="/events" component={EventContainer}/>
-              <Route exact path="/events/:id" component={ShowEvent}/>
+              <Route exact path="/events" component={WithAuth(EventContainer)}/>
+              <Route exact path="/events/:id" component={WithAuth(ShowEvent)}/>
   
               {/* User */}
-              <Route exact path="/signup" component={Signup} />
-              <Route exact path="/login" component={Login} />
+              <Route exact path="/signup" component={WithAuth(Signup)} />
+              <Route exact path="/login" component={WithAuth(Login)} />
               <Route exact path="/dashboard" component={WithAuth(Dashboard)} />
   
               {/* Shop */}
-              <Route exact path="/shop" component={ShopContainer} />
-              <Route exact path="/shop/products/:id" component={ShowProduct} />
+              <Route exact path="/shop" component={WithAuth(ShopContainer)} />
+              <Route exact path="/shop/products/:id" component={WithAuth(ShowProduct)} />
               <Route component={Error} />
   
-            </Switch>
+            </Switch>()
           <Footer />
         
         </div>
