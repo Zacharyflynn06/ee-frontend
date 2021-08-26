@@ -35,7 +35,7 @@ export const addProduct = createAsyncThunk(
             return thunkAPI.rejectWithValue(data)
         }
     }
-)
+    )
 
 export const updateProduct = createAsyncThunk(
     'shop/updateProduct',
