@@ -22,6 +22,17 @@ const NavBar = (props) => {
     return (
         <div className={style.navContainer}>
             <div>
+                <NavLink
+                    to="/"
+                    exact
+                    className={style.navLink}
+                    activeClassName={style.active}
+                    onClick={handleToggle}
+                >
+                    Home
+                </NavLink>
+            </div>
+            <div>
             <NavLink
                 to="/shop"
                 exact

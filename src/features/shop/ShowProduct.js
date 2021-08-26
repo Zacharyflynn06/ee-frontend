@@ -65,25 +65,27 @@ const ShowProduct = () => {
                             <img className={style.showProductImage} src={formatImageUrl()} alt="" />
                         </div>
                         <div className={style.showProductDetails}>
-                            <div>
-                                <h2> {name}</h2>
-                                <span>
-                                    ${price}
-                                </span>
-                                <div>
-                                    {description}
-                                </div>
-                                
+                            <div className={style.showProductName}>
+                                {name}
                             </div>
+                            <div className={style.showProductDescription}>
+                                <p>{description}</p>
+                            </div>
+                            <div className={style.showProductPrice}>
+                                ${price}
+                            </div>
+                            
                         </div>
-
                     </div>
-                    
+                    <NavLink to="/shop" exact >
+                        <input type="button" value="Back to Products"/> 
+                    </NavLink>
                     {checkAdmin()}
+                    
 
                 </div>
 
-                </div>
+            </div>
         )
 
     }
