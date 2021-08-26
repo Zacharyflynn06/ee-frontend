@@ -1,5 +1,5 @@
 .footerContainer{
-    display: flex;
+    display: none;
     justify-content: center;
     text-align: center;
     margin-top: 1rem;
