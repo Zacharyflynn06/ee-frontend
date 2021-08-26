@@ -6,14 +6,6 @@
     justify-content: center;
 }
 
-.title_container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding-bottom: 5%;
-    width: 75%;
-}
 
 .logo{
     width: 40vw;
@@ -57,4 +49,10 @@
 
 .spotify a:hover{
     color: #1DB954;
+}
+
+@media only screen and (max-width: 600px) {
+
+
+
 }
