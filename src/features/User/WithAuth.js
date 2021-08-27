@@ -11,7 +11,7 @@ function WithAuth(WrappedComponent) {
     const Wrapper = () => {
         const location = useLocation()
         const dispatch = useDispatch()
-        const {loggedIn, logoutUserStatus, message} = useSelector(userSelector)
+        const {loggedIn, logoutUserStatus, message, currentUser} = useSelector(userSelector)
         const history = useHistory()
 
         const notLoggedIn = () => {
@@ -33,8 +33,11 @@ function WithAuth(WrappedComponent) {
         }, [logoutUserStatus, dispatch, message, history])
 
         useEffect(()=> {
-            dispatch(checkAuth())
-        }, [dispatch])
+            if (!loggedIn){
+
+                dispatch(checkAuth())
+            }
+        }, [dispatch, loggedIn])
         
         if (!loggedIn && location.pathname === '/dashboard') {
             
