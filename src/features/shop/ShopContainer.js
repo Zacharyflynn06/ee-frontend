@@ -1,3 +1,6 @@
+import React, { useState } from 'react'
+
+
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProductCard from './ProductCard';
@@ -12,6 +15,7 @@ const ShopContainer = () => {
     const {admin} = useSelector(userSelector)
     const products = useSelector(shopSelector).products
     const {getProductsStatus} = useSelector(shopSelector)
+
     
     if (getProductsStatus === 'loading') {
         
@@ -33,6 +37,7 @@ const ShopContainer = () => {
                 )
             }    
         }
+
          
         return(
             
@@ -43,10 +48,9 @@ const ShopContainer = () => {
                     {products.map(product => 
                         <ProductCard 
                             product={product} 
-                            key={product.id}
-                        />
+                            key={product.id}   
+                            />
                     )}
-                        
                 </div>
                 {checkAdmin()}
             </div>     

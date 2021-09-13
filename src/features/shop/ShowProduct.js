@@ -7,11 +7,13 @@ import { userSelector } from '../User/userSlice';
 import Error from '../error/Error'
 
 const ShowProduct = () => {
-    
+
     const {getProductsStatus, products} = useSelector(shopSelector)
     const {admin} = useSelector(userSelector)
     const params = useParams()
     const productObj = products.find(productObj => productObj.id === params.id)
+
+
 
     const checkAdmin = () => {
         
@@ -72,6 +74,7 @@ const ShowProduct = () => {
                             </div>
                             <div className={style.showProductPrice}>
                                 ${price}
+                                
                             </div>
                             
                         </div>
@@ -80,7 +83,6 @@ const ShowProduct = () => {
                         <input type="button" value="Back to Products"/> 
                     </NavLink>
                     {checkAdmin()}
-                    
 
                 </div>
 

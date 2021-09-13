@@ -11,11 +11,10 @@ function WithAuth(WrappedComponent) {
     const Wrapper = () => {
         const location = useLocation()
         const dispatch = useDispatch()
-        const {loggedIn, logoutUserStatus, message, currentUser} = useSelector(userSelector)
+        const {loggedIn, logoutUserStatus, message} = useSelector(userSelector)
         const history = useHistory()
 
         const notLoggedIn = () => {
-            // toast.error("You need to log in to view this page")
             history.push('/login')
         }
 

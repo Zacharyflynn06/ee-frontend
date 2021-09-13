@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom'
 
 export default function ProductCard(props) {
 
+
 const formatImageUrl = () => {
     return props.product.attributes.image_format ? props.product.attributes.image_format.url : process.env.PUBLIC_URL + "logo192.png"
 }

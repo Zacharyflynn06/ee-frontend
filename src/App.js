@@ -89,7 +89,7 @@ function App() {
               <Route exact path="/shop/products/:id" component={WithAuth(ShowProduct)} />
               <Route component={Error} />
   
-            </Switch>()
+            </Switch>
           <Footer />
         
         </div>

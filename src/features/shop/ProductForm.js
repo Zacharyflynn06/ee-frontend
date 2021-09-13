@@ -58,7 +58,6 @@ const ProductForm = (props) => {
 
         } else {
             dispatch(addProduct(formData))
-            
         }
             
     }
@@ -79,13 +78,12 @@ const ProductForm = (props) => {
     useEffect(() => {
         
         if (addProductStatus === "rejected" ) {
-            debugger
+            
             message.forEach(err => toast.error(err))
             dispatch(clearAddProductStatus())
         }
 
         if (addProductStatus === "complete") {
-            
             toast.success('Successfully added new product')
             dispatch(clearAddProductStatus())
             history.push('/shop')

@@ -18,7 +18,6 @@ export const getProducts = createAsyncThunk(
 export const addProduct = createAsyncThunk(
     'shop/addProduct',
     async (product, thunkAPI) => {
-        
         const response = await fetch(
             'http://localhost:3001/products', {
                 method: "POST",
@@ -27,10 +26,11 @@ export const addProduct = createAsyncThunk(
                 },
                 body: product
             }
-        )
+            )
         const data = await response.json()
         if (response.ok) {
             return data
+            
         } else {
             return thunkAPI.rejectWithValue(data)
         }
@@ -104,15 +104,18 @@ export const shopSlice = createSlice({
         },
         clearDeleteProductStatus: (state) => {
             state.deleteProductStatus = 'idle'
-        }
+        },
+  
     },
     extraReducers: {
         // Get 
         [getProducts.pending]: (state) => {
+            
             state.getProductsStatus = 'loading'
         },
 
         [getProducts.fulfilled]: (state, { payload} ) => {
+            
             state.getProductsStatus = 'complete'
             state.products = payload.data            
         },
