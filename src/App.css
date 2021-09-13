@@ -7,11 +7,13 @@
 body {
     font-family: 'Montserrat', sans-serif;
     /* background-image: linear-gradient(to bottom right, #E8FFFF, #41AEA9); */
-    background-image: linear-gradient(to bottom right, #F8F1F1, #16C79A);
+    /* teal */
+    /* background-image: linear-gradient(to bottom right, #F8F1F1, #16C79A); */
     /* background-image: linear-gradient(to bottom right, #F1F6F9, #14274E); */
     /* Favorite */
     /* background-image: linear-gradient(to bottom right, #EBA83A, #FFF8D9); */
     /* background-image: linear-gradient(to bottom right, #BD9354, #E3D18A); */
+    background: radial-gradient(circle, rgba(2,0,36,.4) 0%, rgba(9,9,121,.4) 35%, rgba(0,212,255,.4) 100%);
 
     background-repeat: no-repeat;
     background-attachment: fixed;

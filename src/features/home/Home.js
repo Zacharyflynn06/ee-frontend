@@ -1,13 +1,20 @@
 import NavBar from '../navbar/NavBar';
 import style from './Home.module.css'
 import logo from './logo.png'
+import white from './white.png'
+import video from './video.mp4'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Home = (props) => {
     return (
         <div className={style.homeContainer}>
+            <div className={style.videoOverlay}></div>
+            <video className={style.video} autoPlay loop muted>
+                <source src={video} type='video/mp4' />
+            </video>
         
-                <img className={style.logo} src={logo} alt="logo" />
+                <img className={style.logo} src={white} alt="logo" />
                 <NavBar toggleMenu={props.toggleMenu}/>
                     <div className={style.linkContainer}>
                         <div className={style.instagram}>
