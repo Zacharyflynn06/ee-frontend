@@ -6,19 +6,13 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    /* background-image: linear-gradient(to bottom right, #E8FFFF, #41AEA9); */
-    /* teal */
-    /* background-image: linear-gradient(to bottom right, #F8F1F1, #16C79A); */
-    /* background-image: linear-gradient(to bottom right, #F1F6F9, #14274E); */
-    /* Favorite */
-    /* background-image: linear-gradient(to bottom right, #EBA83A, #FFF8D9); */
-    /* background-image: linear-gradient(to bottom right, #BD9354, #E3D18A); */
     background: radial-gradient(circle, rgba(2,0,36,.4) 0%, rgba(9,9,121,.4) 35%, rgba(0,212,255,.4) 100%);
     /* background: radial-gradient(
       circle, 
-      rgba(34, 87, 122) 0%, 
-      rgba(56, 163, 165) 35%,
-      rgba(87, 204, 153) 100%); */
+      rgba(5, 55, 66, .4) 0%, 
+      rgba(57, 162, 219, .75) 35%,
+      rgba(162, 219, 250) 100%
+      ); */
 
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -33,7 +27,7 @@ body {
 }
 
 h1 {
-  font-size: 2em;
+  font-size: 3em;
   -webkit-filter: drop-shadow(5px 5px 5px #222222);
   filter: drop-shadow(5px 5px 5px #222222);
   font-weight: bold;
@@ -74,3 +68,9 @@ input[type="button"]:hover, input[type="submit"]:hover{
 
 }
 
+@media only screen and (max-width: 600px) {
+
+  h1{
+    font-size: 2em;
+  }
+}

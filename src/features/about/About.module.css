@@ -64,7 +64,6 @@
 @media only screen and (max-width: 600px) {
 
     .aboutContainer{
-        height: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;

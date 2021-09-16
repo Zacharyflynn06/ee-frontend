@@ -86,4 +86,17 @@
         filter: drop-shadow(5px 5px 5px #222222);
     }
 
+    .linkContainer{
+        width: 85%;
+    }
+
+    .linkContainer div{
+        transition: none
+    }
+    
+    .linkContainer div:hover{
+        transform: none
+    }
+
+
 }
