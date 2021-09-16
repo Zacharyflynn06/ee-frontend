@@ -20,7 +20,7 @@ const NavBar = (props) => {
 
     return (
         <div className={style.navContainer}>
-            <div>
+            {/* <div>
                 <NavLink
                     to="/"
                     exact
@@ -30,7 +30,7 @@ const NavBar = (props) => {
                 >
                     Home
                 </NavLink>
-            </div>
+            </div> */}
             <div>
             <NavLink
                 to="/shop"

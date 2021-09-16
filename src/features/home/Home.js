@@ -13,7 +13,7 @@ const Home = (props) => {
             <video className={style.video} autoPlay loop muted>
                 <source src={video} type='video/mp4' />
             </video>
-        
+                
                 <img className={style.logo} src={white} alt="logo" />
                 <NavBar toggleMenu={props.toggleMenu}/>
                     <div className={style.linkContainer}>
