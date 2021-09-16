@@ -65,6 +65,8 @@
 
 .active + .hamburger > div{
     transform: rotate(135deg);
+    background-color: white;
+
 }
 
 .active + .hamburger > div:before,
@@ -76,7 +78,6 @@
 
 .active:hover + .hamburger > div {
     transform: rotate(225deg);
-    background-color: white;
 }
 
 .menu {

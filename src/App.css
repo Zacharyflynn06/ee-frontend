@@ -28,7 +28,7 @@ body {
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 2em;
   -webkit-filter: drop-shadow(5px 5px 5px #222222);
   filter: drop-shadow(5px 5px 5px #222222);
   font-weight: bold;
