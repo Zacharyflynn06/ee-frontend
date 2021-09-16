@@ -17,7 +17,7 @@ const Menu = () => {
         return ( <></>)
     } else {
         return ( 
-            <div className={style.menuWrap}>
+            <div className={isActive ? style.activeMenuWrap : style.menuWrap}>
                 <input type="button" id={style.toggler} className={isActive ? style.active : ""} onClick={toggleMenu}/>
                 <div className={style.hamburger}><div></div></div>
                 <div className={style.menu}>

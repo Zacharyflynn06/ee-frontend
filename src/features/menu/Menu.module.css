@@ -5,6 +5,13 @@
     z-index: 1;
 }
 
+.activeMenuWrap{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
 #toggler {
     position: absolute;
     top: 0;
@@ -63,11 +70,13 @@
 .active + .hamburger > div:before,
 .active + .hamburger > div:after {
     top: 0;
-    transform: rotate(90deg)
+    transform: rotate(90deg);
+    background-color: white;
 }
 
 .active:hover + .hamburger > div {
     transform: rotate(225deg);
+    background-color: white;
 }
 
 .menu {
@@ -126,6 +135,8 @@
     .menuWrap{
         position: absolute;
     }
+
+
 
 
 }
