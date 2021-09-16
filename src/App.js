@@ -58,9 +58,8 @@ function App() {
   
   
   return (
-    <div className="app-container">
+    <div className="App">
       <Router>
-        <div className="App">
             <Menu />  
             <Switch>
               <Route exact path="/" component={WithAuth(Home)}/>
@@ -91,8 +90,6 @@ function App() {
   
             </Switch>
           <Footer />
-        
-        </div>
       </Router>
     </div>
   );

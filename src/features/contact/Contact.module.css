@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100%;
 }
 
 .contactWrapper {
@@ -27,6 +26,10 @@
 
 .contactDetails {
     padding: 5% 0;
+}
+
+.contactName {
+    font-weight: bold;
 }
 
 @media only screen and (max-width: 600px) {

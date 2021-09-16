@@ -21,6 +21,12 @@ body {
 
 }
 
+.App{
+  padding-bottom: 2.5rem;
+  min-height: 100vh;
+  position: relative;
+}
+
 h1 {
   font-size: 3em;
   -webkit-filter: drop-shadow(5px 5px 5px #222222);

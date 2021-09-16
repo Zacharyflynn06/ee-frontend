@@ -4,8 +4,8 @@ Fetch all Data [x]
 
 Home Page
 
-    get Logo working and looking good []
-    get social icons working and looking good []
+    get Logo working and looking good [x]
+    get social icons working and looking good [x]
 
 User
 
@@ -43,3 +43,6 @@ Style
     Add style (lol)
     fonts awesome icons
 
+MailChimp
+
+    Integrate Mailchimp []
