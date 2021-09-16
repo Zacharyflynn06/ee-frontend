@@ -118,5 +118,11 @@
     align-content: center;
     justify-content: center;
     text-align: center;
-    
+}
+
+@media only screen and (max-width: 600px) {
+    .shopContainer{
+        padding-top: 10%;
+    }
+
 }
