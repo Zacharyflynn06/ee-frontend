@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    height: 100%;
 }
 
 .contactWrapper {
@@ -15,7 +15,6 @@
     border-radius: .5em;
     background-color: rgba(0, 0, 0, 0.1);
     padding: 2em;
-    height: 30%;
     width: 40%;
     margin: 2.5%
 }
@@ -28,9 +27,7 @@
 @media only screen and (max-width: 600px) {
     .contactContainer{
         padding-top: 10%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+
     }
 
     .contactWrapper {
