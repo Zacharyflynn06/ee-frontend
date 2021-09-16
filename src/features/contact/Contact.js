@@ -20,11 +20,11 @@ const Contact = () => {
                     Management
                 </div>
                 <div>
-                    Tynan Conroy
-                </div>
-                <div>
                     Mind Warp Management
                 </div>
+                <div>Taylor Reed</div>
+                <div>Will Kertzman</div>
+                <div>Tynan Conroy</div>
 
             </div>
 
