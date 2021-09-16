@@ -122,7 +122,7 @@ export const EventSlice = createSlice({
         
         [getEvents.rejected]: (state, { payload} ) => {
             state.getEventsStatus = "rejected"
-            state.message = payload.status.message;
+            // state.message = payload.status.message;
         },
 
         [addEvent.pending]: (state) => {
