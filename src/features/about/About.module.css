@@ -65,6 +65,14 @@
 
 @media only screen and (max-width: 600px) {
 
+    .aboutContainer{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+    }
+
     .image{
         width: 85vw;
         -webkit-filter: drop-shadow(5px 5px 5px #222222);
@@ -76,6 +84,7 @@
         flex-direction: column;
         align-items: center;
         padding-top: 5%;
+        height: 100%;
     }
 
     .bioContainer{
@@ -99,10 +108,9 @@
 
     .galleryContainer { 
         width: 85%;
-        height: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+
         padding-bottom: 5%;
     }
     
