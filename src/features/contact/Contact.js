@@ -8,7 +8,7 @@ const Contact = () => {
                 <div className={style.contactTitle}>
                     Booking 
                 </div>
-                <div>
+                <div className={style.contactDetails}>
                     <div>Jordan Carriere</div>
                     <a href="mailto:jordan@alpine-partners.net">jordan@alpine-partners.net</a>  
                 </div>
@@ -17,22 +17,15 @@ const Contact = () => {
                 <div className={style.contactTitle}>
                     Management
                 </div>
-                <div>
-                    Mind Warp Management
-                </div>
-                <div>
+                <div className={style.contactDetails}>
                     <div>Taylor Reed</div>
                     <a href="tank@mindwarpmgmt.com">tank@mindwarpmgmt.com</a>
                 </div>
-                <div>
+                <div className={style.contactDetails}>
                     <div>Will Kertzman</div>
                     <a href="mailto:will@mindwarpmgmt.com">will@mindwarpmgmt.com</a>
                 </div>
-                
-                <div>Tynan Conroy</div>
-
             </div>
-
         </div>
     )
 }

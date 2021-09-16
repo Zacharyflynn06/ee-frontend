@@ -8,20 +8,25 @@
 .contactWrapper {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     text-align: center;
     border:0.1em solid #FFFFFF;
-    width: 85%;
-    border-radius: .5em;
     background-color: rgba(0, 0, 0, 0.1);
-    padding: 2em;
+   
     width: 40%;
-    margin: 2.5%
+    margin: 2.5%;
+    padding-bottom: 5%;
 }
 
 .contactTitle {
-    font-size: large;
-    font-weight: Bold;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: underline;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.contactDetails {
+    padding: 5% 0;
 }
 
 @media only screen and (max-width: 600px) {
