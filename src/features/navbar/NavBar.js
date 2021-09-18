@@ -45,14 +45,14 @@ const NavBar = (props) => {
             
             <div>
                 <NavLink
-                    to="/events"
+                    to="/tour"
                     exact
                     className={style.navLink}
                     activeClassName={style.active}
                     onClick={handleToggle}
                     
                 >
-                    Events
+                    Tour
                 </NavLink>
             </div>
             

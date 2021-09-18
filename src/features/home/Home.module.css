@@ -9,7 +9,7 @@
 
 
 .logo{
-    width: 40vw;
+    width: 35vw;
     -webkit-filter: drop-shadow(5px 5px 5px #222222);
     filter: drop-shadow(5px 5px 5px #222222);
     z-index: 2;
@@ -97,6 +97,4 @@
     .linkContainer div:hover{
         transform: none
     }
-
-
 }

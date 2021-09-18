@@ -66,8 +66,8 @@ function App() {
               {/* Protected Routes */}
               <Route exact path="/shop/products/new" component={AdminAuth(ProductForm)}/>
               <Route exact path="/shop/products/:id/edit" component={AdminAuth(ProductForm)}/>
-              <Route exact path="/events/new" component={AdminAuth(EventForm)}/>
-              <Route exact path="/events/:id/edit" component={AdminAuth(EventForm)}/>
+              <Route exact path="/tour/new" component={AdminAuth(EventForm)}/>
+              <Route exact path="/tour/:id/edit" component={AdminAuth(EventForm)}/>
   
               {/* Static */}
               <Route exact path="/about" component={WithAuth(About)}/>
@@ -75,8 +75,8 @@ function App() {
               <Route exact path="/music" component={WithAuth(Music)}/>
   
               {/* Event */}
-              <Route exact path="/events" component={WithAuth(EventContainer)}/>
-              <Route exact path="/events/:id" component={WithAuth(ShowEvent)}/>
+              <Route exact path="/tour" component={WithAuth(EventContainer)}/>
+              <Route exact path="/tour/:id" component={WithAuth(ShowEvent)}/>
   
               {/* User */}
               <Route exact path="/signup" component={WithAuth(Signup)} />
