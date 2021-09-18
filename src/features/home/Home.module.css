@@ -21,8 +21,16 @@
     justify-content: space-around;
     align-items: center;
     text-align: center;
-    width: 50%;
+    width: 75%;
     z-index: 2;
+}
+
+.linkContainer div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    font-weight: bold;
+    font-size: 100%; 
 }
 
 .linkContainer div{
@@ -32,6 +40,7 @@
 .linkContainer div:hover{
     transform: scale(1.2);
 }
+
 
 .linkContainer div a{
     color: white;
@@ -51,7 +60,7 @@
 }
 
 .apple a:hover {
-    color:white
+    color:black;
 }
 
 .spotify a:hover{

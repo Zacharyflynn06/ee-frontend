@@ -4,14 +4,14 @@
     text-align: center;
     padding-top: 2em; 
     padding-bottom: 2em;
-    width: 75%;
+    width: 85%;
     z-index: 2;
 }
 
 .navContainer div {
     display: flex;
     text-align: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
 }
 
