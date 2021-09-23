@@ -10,7 +10,7 @@ const EventCard = (props) => {
             <div className={style.eventDescription}>
                 <div className={style.eventDateCell}>
                     <NavLink
-                        to={`/events/${props.event.id}`}
+                        to={`/tour/events/${props.event.id}`}
                         exact
                     >{date}
                     </NavLink>

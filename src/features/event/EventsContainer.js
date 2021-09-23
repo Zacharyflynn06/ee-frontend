@@ -21,7 +21,7 @@ const EventContainer = () => {
                 return (
                     <div>
                         <NavLink
-                            to={'/events/new'}
+                            to={'/tour/events/new'}
                         >
                         <input type="button" value="Add Event"/>  
                         </NavLink>
