@@ -7,13 +7,10 @@
 
 .productsContainer {
 
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
+    display: inline-flex;
     justify-content: center;
-    width: 80%;
-    padding: 0 0 5%;
- 
+    width: 60%;
+    gap: 1rem;
 }
 
 .productCard {
@@ -122,6 +119,9 @@
 @media only screen and (max-width: 600px) {
     .shopContainer{
         padding-top: 10%;
+    }
+    .productsContainer{
+        flex-direction: column;
     }
     .showProductContainer{
         width: 100%;

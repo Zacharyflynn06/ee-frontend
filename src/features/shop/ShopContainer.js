@@ -49,7 +49,7 @@ const ShopContainer = () => {
                         <ProductCard 
                             product={product} 
                             key={product.id}   
-                            />
+                        />
                     )}
                 </div>
                 {checkAdmin()}
