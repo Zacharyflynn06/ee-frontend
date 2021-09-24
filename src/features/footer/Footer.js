@@ -3,12 +3,14 @@ import MailchimpSubscribe from "react-mailchimp-subscribe"
 import MailchimpForm from './MailchimpForm';
 
 const Footer = () => {
+
+    const url = process.env.REACT_APP_MAILCHIMP_URL
     return ( 
         <div className={style.footerContainer}>
 
             <div className={style.signupContainer}>
                 <MailchimpSubscribe 
-                    url={process.env.REACT_APP_MAILCHIMP_URL}
+                    url={url}
                     render={({ subscribe, status, message }) => (
                         <MailchimpForm
                             status={status} 

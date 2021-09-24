@@ -22,7 +22,7 @@ const MailchimpForm = ({ status, message, onValidated }) => {
         formData.lastName &&
         formData.email.indexOf("@") > -1 &&
         onValidated({
-            EMAIL: formData.email,
+            MERGE0: formData.email,
             MERGE1: formData.firstName,
             MERGE2: formData.lastName,
         });
@@ -54,7 +54,7 @@ const MailchimpForm = ({ status, message, onValidated }) => {
             </div>
             <div>
                 <input 
-                type="text"
+                type="email"
                 name="email"
                 onChange={handleChange} 
                 value={formData.email}
