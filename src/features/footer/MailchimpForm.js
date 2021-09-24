@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import toast from 'react-hot-toast'
 
 const MailchimpForm = ({ status, message, onValidated }) => {
 
@@ -17,23 +18,51 @@ const MailchimpForm = ({ status, message, onValidated }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        formData.email &&
-        formData.firstName &&
-        formData.lastName &&
-        formData.email.indexOf("@") > -1 &&
-        onValidated({
-            MERGE0: formData.email,
-            MERGE1: formData.firstName,
-            MERGE2: formData.lastName,
-        });
 
+        if(!formData.email) {
+            toast.error("Email is required")
+        }
+        if(!formData.firstName) {
+            toast.error("First Name is required")
+        }
+        if(!formData.lastName) {
+            toast.error("Last Name is required")
+        }
+        if(formData.email &&
+            formData.firstName &&
+            formData.lastName &&
+            formData.email.indexOf("@") > -1
+            ) {onValidated({
+                MERGE0: formData.email,
+                MERGE1: formData.firstName,
+                MERGE2: formData.lastName,
+            })
+        }
     }
+
+    const clearFields = () => {
+        setFormData({
+            firstName: '',
+            lastName: '',
+            email: ''
+        })
+      }
+
+    useEffect(() => {
+        if(status === "success"){
+            toast.success("Thanks for signing up")
+            clearFields()
+        }
+        if(status === "error") {
+            toast.error(message)
+        }
+    }, [status, message])
     
     return ( 
         <form
             onSubmit={handleSubmit}
         >
-            <h3>Join our newsletter!</h3>
+            <h3>Sign up to receive news and updates!</h3>
             <div>
                 <input 
                 type="text"
