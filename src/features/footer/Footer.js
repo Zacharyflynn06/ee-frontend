@@ -1,11 +1,6 @@
 import style from './Footer.module.css'
 import MailchimpSubscribe from "react-mailchimp-subscribe"
-
-
-const SignupForm = ({ status, message, onValidated}) => {
-
-
-}
+import MailchimpForm from './MailchimpForm';
 
 const Footer = () => {
     return ( 
@@ -15,7 +10,7 @@ const Footer = () => {
                 <MailchimpSubscribe 
                     url={process.env.REACT_APP_MAILCHIMP_URL}
                     render={({ subscribe, status, message }) => (
-                        <SignupForm
+                        <MailchimpForm
                             status={status} 
                             message={message}
                             onValidated={formData => subscribe(formData)}
