@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import toast from 'react-hot-toast'
+import style from './Footer.module.css'
 
 const MailchimpForm = ({ status, message, onValidated }) => {
 
@@ -59,43 +60,50 @@ const MailchimpForm = ({ status, message, onValidated }) => {
     }, [status, message])
     
     return ( 
-        <form
-            onSubmit={handleSubmit}
-        >
+        <>
             <h3>Sign up to receive news and updates!</h3>
-            <div>
-                <input 
-                type="text"
-                name="firstName"
-                onChange={handleChange} 
-                value={formData.firstName}
-                placeholder="First Name"
-                />
-            </div>
-            <div>
-                <input 
-                type="text"
-                name="lastName"
-                onChange={handleChange} 
-                value={formData.lastName}
-                placeholder="Last Name"
-                />
-            </div>
-            <div>
-                <input 
-                type="email"
-                name="email"
-                onChange={handleChange} 
-                value={formData.email}
-                placeholder="Email"
-                />
-            </div>
-            <input 
-                type="submit"
-                value="Sign Up" 
-            />
+            <form
+                onSubmit={handleSubmit}
+            >
+                <div className={style.inputContainer}>
+                    <div className={style.firstName}>
+                        <input 
+                        type="text"
+                        name="firstName"
+                        onChange={handleChange} 
+                        value={formData.firstName}
+                        placeholder="First Name"
+                        />
+                    </div>
+                    <div className={style.lastName}>
+                        <input 
+                        type="text"
+                        name="lastName"
+                        onChange={handleChange} 
+                        value={formData.lastName}
+                        placeholder="Last Name"
+                        />
+                    </div>
+                    <div className={style.Email}>
+                        <input 
+                        type="email"
+                        name="email"
+                        onChange={handleChange} 
+                        value={formData.email}
+                        placeholder="Email"
+                        />
+                    </div>
+                </div>
+                <div className={style.submitBtn}>
+                    <input 
+                        type="submit"
+                        value="Sign Up"
+                    />
+                </div>
 
-        </form>
+            </form>
+
+        </>
      );
 }
  
