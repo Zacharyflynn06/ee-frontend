@@ -66,25 +66,27 @@ const MailchimpForm = ({ status, message, onValidated }) => {
                 onSubmit={handleSubmit}
             >
                 <div className={style.inputContainer}>
-                    <div className={style.firstName}>
-                        <input 
-                        type="text"
-                        name="firstName"
-                        onChange={handleChange} 
-                        value={formData.firstName}
-                        placeholder="First Name"
-                        />
+                    <div className={style.nameContainer}>
+                        <div className={style.firstName}>
+                            <input 
+                            type="text"
+                            name="firstName"
+                            onChange={handleChange} 
+                            value={formData.firstName}
+                            placeholder="First Name"
+                            />
+                        </div>
+                        <div className={style.lastName}>
+                            <input 
+                            type="text"
+                            name="lastName"
+                            onChange={handleChange} 
+                            value={formData.lastName}
+                            placeholder="Last Name"
+                            />
+                        </div>
                     </div>
-                    <div className={style.lastName}>
-                        <input 
-                        type="text"
-                        name="lastName"
-                        onChange={handleChange} 
-                        value={formData.lastName}
-                        placeholder="Last Name"
-                        />
-                    </div>
-                    <div className={style.Email}>
+                    <div className={style.email}>
                         <input 
                         type="email"
                         name="email"
