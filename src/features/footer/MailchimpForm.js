@@ -96,10 +96,11 @@ const MailchimpForm = ({ status, message, onValidated }) => {
                         />
                     </div>
                 </div>
-                <div className={style.submitBtn}>
+                <div className={style.submitBtn} >
                     <input 
                         type="submit"
                         value="Sign Up"
+                        
                     />
                 </div>
 

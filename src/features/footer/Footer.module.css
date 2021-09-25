@@ -27,14 +27,11 @@
     display: flex;
 }
 
-
 .email input{
     display: flex;
     width: 100%;
 }
 
-
-.submitBtn{
-    display: none;
+.submitBtn input[type="submit"]{
     background-color: white;
 }
