@@ -18,8 +18,9 @@
 .contentContainer{
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
     padding-top: 5%;
-    height: 60%;
+    /* height: 60%; */
 }
 
 .bioContainer{
@@ -33,7 +34,7 @@
 }
 
 .bioContent{
-    width: 70%;
+    width: 85%;
     background-color: rgba(0, 0, 0, 0.1);
     border-radius: 1em;
     padding: 5%;
@@ -46,11 +47,11 @@
 
 .galleryContainer { 
     width: 50%;
-    height: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-gap: 1rem;
     justify-content: center;
+    padding-right: 2.5%;
     
 }
 .galleryContainer img {
