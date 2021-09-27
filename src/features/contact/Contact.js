@@ -12,8 +12,6 @@ const Contact = () => {
                     <div className={style.contactName}>Jordan Carriere</div>
                     <a href="mailto:jordan@alpine-partners.net">jordan@alpine-partners.net</a>  
                 </div>
-            </div>
-            <div className={style.contactWrapper}>
                 <div className={style.contactTitle}>
                     Management
                 </div>

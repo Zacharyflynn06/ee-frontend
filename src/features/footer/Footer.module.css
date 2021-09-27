@@ -1,6 +1,6 @@
 .footerContainer{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     position: absolute;
     margin-top: 1rem;
     padding: 1rem;
@@ -42,4 +42,12 @@
     display: flex;
     justify-content: center;
     align-items: end;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+}
+.contact a{
+    color: white;
 }

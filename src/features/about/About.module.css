@@ -20,6 +20,7 @@
     flex-direction: row;
     justify-content: space-around;
     padding-top: 5%;
+    padding-bottom: 5%;
     /* height: 60%; */
 }
 
@@ -29,15 +30,17 @@
     width: 50%;
     text-align: center; 
     align-items: center;
-    padding-bottom: 5%;
+    /* padding-bottom: 5%; */
+    
 
 }
 
 .bioContent{
     width: 85%;
     background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 1em;
+    
     padding: 5%;
+    
 }
 .bioTitle{
     font-size: 1.5rem;
