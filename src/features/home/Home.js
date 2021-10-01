@@ -1,6 +1,5 @@
 import NavBar from '../navbar/NavBar';
 import style from './Home.module.css'
-import logo from './logo.png'
 import white from './white.png'
 import video from './video.mp4'
 

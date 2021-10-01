@@ -1,6 +1,6 @@
 .footerContainer{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     position: absolute;
     margin-top: 1rem;
     padding: 1rem;
@@ -15,7 +15,7 @@
     display: flex;
     flex-direction: column;
     text-align: left;
-    /* width: 33%; */
+    font-size: .85rem;
 }
 
 .inputContainer{
@@ -41,12 +41,14 @@
 .copyright{
     display: flex;
     justify-content: center;
-    align-items: end;
+    align-items: flex-end
 }
 
 .contact {
     display: flex;
     flex-direction: column;
+    font-size: .85rem;
+    text-align: right;
 }
 .contact a{
     color: white;
