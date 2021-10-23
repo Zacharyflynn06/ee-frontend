@@ -33,6 +33,9 @@ const Footer = () => {
                 <a href="tank@mindwarpmgmt.com">
                     tank@mindwarpmgmt.com
                 </a>
+                <a href="mailto:tynan@mindwarpmgmt.com">
+                    tynan@mindwarpmgmt.com
+                </a>
                 <a href="mailto:will@mindwarpmgmt.com">
                     will@mindwarpmgmt.com
                 </a>

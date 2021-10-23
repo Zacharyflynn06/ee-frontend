@@ -9,11 +9,12 @@
     flex-direction: column;
     text-align: center;
     border:0.1em solid #FFFFFF;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, .8);
     border-radius: .5em;
     width: 40%;
     margin: 2.5%;
     padding-bottom: 5%;
+    box-shadow: 5px 5px 5px #222222
 }
 
 .contactTitle {

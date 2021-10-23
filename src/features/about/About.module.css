@@ -32,17 +32,22 @@
     text-align: center; 
     align-items: center;
     
-    
-
 }
 
 .bioContent{
+    display: flex;
+    flex-direction: column;
+    flex-direction: space-around;
     width: 85%;
-    background-color: white;
+    background-color: rgba(255, 255, 255, .8);
     border-radius: .5em;
     padding: 5%;
     box-shadow: 5px 5px 5px #222222
     
+}
+
+.bioContent p {
+    padding: 1rem;
 }
 .bioTitle{
     font-size: 1.5rem;
