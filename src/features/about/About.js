@@ -1,4 +1,3 @@
-import image from './image.jpg'
 import style from './About.module.css'
 import zac1 from './Gallery/zac1.jpg'
 import justinAndDylan from './Gallery/justinAndDylan.jpg'
@@ -15,7 +14,7 @@ const About = () => {
         <div className={style.aboutContainer}>
             <h1>About</h1>
             <div className={style.imageContainer}>
-                <img className={style.image} src={image} alt="press-shot" />
+                <img className={style.image} src={process.env.PUBLIC_URL + 'images/press-shot.jpg'}  alt="press-shot" />
             </div>
 
             <div className={style.contentContainer}>
