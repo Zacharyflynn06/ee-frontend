@@ -9,8 +9,8 @@ import './App.css';
 
 
 import { eventSelector, getEvents } from './features/event/EventSlice';
-import WithAuth from './features/User/WithAuth';
-import AdminAuth from './features/User/AdminAuth';
+// import from './features/User';
+// import AdminAuth from './features/User/AdminAuth';
 // Static
 import Menu from './features/menu/Menu';
 import Home from './features/home/Home';
@@ -57,35 +57,67 @@ function App() {
   }, [dispatch, eventStatus])
   
   
+  // return (
+  //   <div className="App">
+  //     <Router>
+  //           <Menu />  
+  //           <Switch>
+  //             <Route exact path="/" component=(Home)}/>
+  //             {/* Protected Routes */}
+  //             <Route exact path="/shop/products/new" component={AdminAuth(ProductForm)}/>
+  //             <Route exact path="/shop/products/:id/edit" component={AdminAuth(ProductForm)}/>
+  //             <Route exact path="/tour/events/new" component={AdminAuth(EventForm)}/>
+  //             <Route exact path="/tour/events/:id/edit" component={AdminAuth(EventForm)}/>
+  
+  //             {/* Static */}
+  //             <Route exact path="/about" component=(About)}/>
+  //             <Route exact path="/contact" component=(Contact)}/>
+  //             <Route exact path="/music" component=(Music)}/>
+  
+  //             {/* Event */}
+  //             <Route exact path="/tour" component=(EventContainer)}/>
+  //             <Route exact path="/tour/events/:id" component=(ShowEvent)}/>
+  
+  //             {/* User */}
+  //             <Route exact path="/signup" component=(Signup)} />
+  //             <Route exact path="/login" component=(Login)} />
+  //             <Route exact path="/dashboard" component=(Dashboard)} />
+  
+  //             {/* Shop */}
+  //             <Route exact path="/shop" component=(ShopContainer)} />
+  //             <Route exact path="/shop/products/:id" component=(ShowProduct)} />
+  //             <Route component={Error} />
+  
+  //           </Switch>
+  //         <Footer />
+  //     </Router>
+  //   </div>
+  // );
+
   return (
     <div className="App">
       <Router>
             <Menu />  
             <Switch>
-              <Route exact path="/" component={WithAuth(Home)}/>
+              <Route exact path="/" component={Home}/>
               {/* Protected Routes */}
-              <Route exact path="/shop/products/new" component={AdminAuth(ProductForm)}/>
-              <Route exact path="/shop/products/:id/edit" component={AdminAuth(ProductForm)}/>
-              <Route exact path="/tour/events/new" component={AdminAuth(EventForm)}/>
-              <Route exact path="/tour/events/:id/edit" component={AdminAuth(EventForm)}/>
+              {/* <Route exact path="/shop/products/new" component={AdminAuth(ProductForm}/>
+              <Route exact path="/shop/products/:id/edit" component={AdminAuth(ProductForm}/>
+              <Route exact path="/tour/events/new" component={AdminAuth(EventForm}/>
+              <Route exact path="/tour/events/:id/edit" component={AdminAuth(EventForm}/> */}
   
               {/* Static */}
-              <Route exact path="/about" component={WithAuth(About)}/>
-              <Route exact path="/contact" component={WithAuth(Contact)}/>
-              <Route exact path="/music" component={WithAuth(Music)}/>
+              <Route exact path="/about" component={About}/>
+              <Route exact path="/contact" component={Contact}/>
+              <Route exact path="/music" component={Music}/>
   
               {/* Event */}
-              <Route exact path="/tour" component={WithAuth(EventContainer)}/>
-              <Route exact path="/tour/events/:id" component={WithAuth(ShowEvent)}/>
-  
-              {/* User */}
-              <Route exact path="/signup" component={WithAuth(Signup)} />
-              <Route exact path="/login" component={WithAuth(Login)} />
-              <Route exact path="/dashboard" component={WithAuth(Dashboard)} />
+              <Route exact path="/tour" component={EventContainer}/>
+              <Route exact path="/tour/events/:id" component={ShowEvent}/>
   
               {/* Shop */}
-              <Route exact path="/shop" component={WithAuth(ShopContainer)} />
-              <Route exact path="/shop/products/:id" component={WithAuth(ShowProduct)} />
+              <Route exact path="/shop" component={ShopContainer} />
+              <Route exact path="/shop/products/:id" component={ShowProduct} />
               <Route component={Error} />
   
             </Switch>
@@ -93,6 +125,7 @@ function App() {
       </Router>
     </div>
   );
+
 
 }
 
