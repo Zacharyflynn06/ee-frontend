@@ -10,7 +10,7 @@
     text-align: center;
     border:0.1em solid #FFFFFF;
     background-color: rgba(0, 0, 0, 0.1);
-   
+    border-radius: .5em;
     width: 40%;
     margin: 2.5%;
     padding-bottom: 5%;
