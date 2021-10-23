@@ -100,11 +100,6 @@ function App() {
             <Menu />  
             <Switch>
               <Route exact path="/" component={Home}/>
-              {/* Protected Routes */}
-              {/* <Route exact path="/shop/products/new" component={AdminAuth(ProductForm}/>
-              <Route exact path="/shop/products/:id/edit" component={AdminAuth(ProductForm}/>
-              <Route exact path="/tour/events/new" component={AdminAuth(EventForm}/>
-              <Route exact path="/tour/events/:id/edit" component={AdminAuth(EventForm}/> */}
   
               {/* Static */}
               <Route exact path="/about" component={About}/>
