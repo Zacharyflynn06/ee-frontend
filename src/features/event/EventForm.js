@@ -96,7 +96,7 @@ const EventForm = () => {
             
             toast.success('Successfully added new event')
             dispatch(clearAddEventStatus())
-            history.push('/events')
+            history.push('/tour')
         }
 
         if (updateEventStatus === "rejected") {
@@ -109,7 +109,7 @@ const EventForm = () => {
             
             toast.success('Successfully updated event')
             dispatch(clearUpdateEventStatus())
-            history.push('/events')
+            history.push('/tour')
         }
 
         if (deleteEventStatus === "rejected") {
@@ -120,7 +120,7 @@ const EventForm = () => {
         if (deleteEventStatus === "complete") {
             toast.success('Successfully deleted event')
             dispatch(clearDeleteEventStatus())
-            history.push('/events')
+            history.push('/tour')
         }
 
     

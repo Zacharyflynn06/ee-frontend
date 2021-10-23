@@ -21,7 +21,7 @@ const ShowEvent = () => {
             return (
                 <div>
                     <NavLink
-                        to={`/events/${params.id}/edit`}
+                        to={`${params.id}/edit`}
                     >
                     <input type="button" value="Edit Event"/>  
                     </NavLink>
@@ -79,8 +79,8 @@ const ShowEvent = () => {
                         <a target="_blank" rel="noreferrer" href={ticket_link}>Get Tickets</a>
                     </div>
                 </div>
-                    <NavLink to="/events" exact >
-                        <input type="button" value="Back to Events"/> 
+                    <NavLink to="/tour" exact >
+                        <input type="button" value="Back to Tour"/> 
                     </NavLink>
     
                     {checkAdmin()}

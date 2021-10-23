@@ -45,6 +45,7 @@ const EventContainer = () => {
                     )}
                 </div>
                 {checkAdmin()}
+                
             </div>     
         );
     }

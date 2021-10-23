@@ -1,14 +1,14 @@
 import {NavLink} from 'react-router-dom'
 
 import style from './NavBar.module.css'
-// import { useSelector } from 'react-redux';
-// import { userSelector } from '../User/userSlice';
+import { useSelector } from 'react-redux';
+import { userSelector } from '../User/userSlice';
 import { useLocation } from 'react-router';
 
 const NavBar = (props) => {
     const location = useLocation()
 
-    // const { loggedIn } = useSelector(userSelector)
+    const { loggedIn } = useSelector(userSelector)
 
     const handleToggle = () => {
         if(location.pathname === '/') {
@@ -45,6 +45,7 @@ const NavBar = (props) => {
                     href="https://www.eminenceensemble.com/" 
                     target="_blank" 
                     rel="noopener noreferrer"
+                    className={style.navLink}
                 >
                     Shop
                 </a>
