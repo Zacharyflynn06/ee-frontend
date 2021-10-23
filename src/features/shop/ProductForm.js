@@ -1,167 +1,167 @@
-import React, {useState, useEffect} from 'react'
-import { useDispatch, useSelector  } from 'react-redux'
-import {
-    addProduct, 
-    updateProduct, 
-    deleteProduct, 
-    shopSelector,
-    clearAddProductStatus,
-    clearUpdateProductStatus,
-    clearDeleteProductStatus
-} from './ShopSlice'
-import { useHistory } from 'react-router'
-import { useParams } from 'react-router-dom'
-import toast from 'react-hot-toast'
-import style from './Shop.module.css'
+// import React, {useState, useEffect} from 'react'
+// import { useDispatch, useSelector  } from 'react-redux'
+// import {
+//     addProduct, 
+//     updateProduct, 
+//     deleteProduct, 
+//     shopSelector,
+//     clearAddProductStatus,
+//     clearUpdateProductStatus,
+//     clearDeleteProductStatus
+// } from './ShopSlice'
+// import { useHistory } from 'react-router'
+// import { useParams } from 'react-router-dom'
+// import toast from 'react-hot-toast'
+// import style from './Shop.module.css'
 
-const ProductForm = (props) => {
+// const ProductForm = (props) => {
 
-    const history = useHistory()
-    const params = useParams()
-    const dispatch = useDispatch()
-    const { 
-        addProductStatus, 
-        updateProductStatus, 
-        deleteProductStatus, 
-        products, 
-        message 
-    } = useSelector(shopSelector)
+//     const history = useHistory()
+//     const params = useParams()
+//     const dispatch = useDispatch()
+//     const { 
+//         addProductStatus, 
+//         updateProductStatus, 
+//         deleteProductStatus, 
+//         products, 
+//         message 
+//     } = useSelector(shopSelector)
 
-    const productObj = products.find(product => product.id === params.id)
+//     const productObj = products.find(product => product.id === params.id)
     
-    const [productData, setProductData] = useState({
-        name: "",
-        price: "",
-        description: ""
-    })
+//     const [productData, setProductData] = useState({
+//         name: "",
+//         price: "",
+//         description: ""
+//     })
     
-    useEffect(() => {
-        if (productObj) {
-            setProductData({
-                name: productObj.attributes.name || "",
-                description: productObj.attributes.description || "",
-                price: productObj.attributes.price || ""
+//     useEffect(() => {
+//         if (productObj) {
+//             setProductData({
+//                 name: productObj.attributes.name || "",
+//                 description: productObj.attributes.description || "",
+//                 price: productObj.attributes.price || ""
     
-            })
-        }
-    }, [productObj])
+//             })
+//         }
+//     }, [productObj])
     
-    const imageFile = React.createRef()
+//     const imageFile = React.createRef()
 
-    const handleSubmit = (event) => {
-        event.preventDefault()
-        const formData = new FormData(event.target)
+//     const handleSubmit = (event) => {
+//         event.preventDefault()
+//         const formData = new FormData(event.target)
         
-        if(productObj) {
-            dispatch(updateProduct({data: formData, id: productObj.id}))
+//         if(productObj) {
+//             dispatch(updateProduct({data: formData, id: productObj.id}))
            
 
-        } else {
-            dispatch(addProduct(formData))
-        }
+//         } else {
+//             dispatch(addProduct(formData))
+//         }
             
-    }
+//     }
 
-    const handleChange = (event) => {
-        setProductData((prevState) => ({
-            ...prevState,
-            [event.target.name]: event.target.value
-        }))
-    }
+//     const handleChange = (event) => {
+//         setProductData((prevState) => ({
+//             ...prevState,
+//             [event.target.name]: event.target.value
+//         }))
+//     }
 
-    const handleDelete = () => {
-        if(productObj) {
-            dispatch(deleteProduct(productObj))
-        }
-    }
+//     const handleDelete = () => {
+//         if(productObj) {
+//             dispatch(deleteProduct(productObj))
+//         }
+//     }
 
-    useEffect(() => {
+//     useEffect(() => {
         
-        if (addProductStatus === "rejected" ) {
+//         if (addProductStatus === "rejected" ) {
             
-            message.forEach(err => toast.error(err))
-            dispatch(clearAddProductStatus())
-        }
+//             message.forEach(err => toast.error(err))
+//             dispatch(clearAddProductStatus())
+//         }
 
-        if (addProductStatus === "complete") {
-            toast.success('Successfully added new product')
-            dispatch(clearAddProductStatus())
-            history.push('/shop')
-        }
+//         if (addProductStatus === "complete") {
+//             toast.success('Successfully added new product')
+//             dispatch(clearAddProductStatus())
+//             history.push('/shop')
+//         }
 
-        if (updateProductStatus === "rejected") {
+//         if (updateProductStatus === "rejected") {
 
-            message.forEach(err => toast.error(err))
-            dispatch(clearUpdateProductStatus())
-        }
+//             message.forEach(err => toast.error(err))
+//             dispatch(clearUpdateProductStatus())
+//         }
 
-        if (updateProductStatus === "complete") {
+//         if (updateProductStatus === "complete") {
             
-            toast.success('Successfully updated product')
-            dispatch(clearUpdateProductStatus())
-            history.push('/shop')
-        }
+//             toast.success('Successfully updated product')
+//             dispatch(clearUpdateProductStatus())
+//             history.push('/shop')
+//         }
 
-        if (deleteProductStatus === "rejected") {
-            toast.error('there was a problem! try again')
-            dispatch(clearDeleteProductStatus())
-        }
+//         if (deleteProductStatus === "rejected") {
+//             toast.error('there was a problem! try again')
+//             dispatch(clearDeleteProductStatus())
+//         }
 
-        if (deleteProductStatus === "complete") {
-            toast.success('Successfully deleted product')
-            dispatch(clearDeleteProductStatus())
-            history.push('/shop')
-        }
+//         if (deleteProductStatus === "complete") {
+//             toast.success('Successfully deleted product')
+//             dispatch(clearDeleteProductStatus())
+//             history.push('/shop')
+//         }
 
     
-    }, [addProductStatus, updateProductStatus, deleteProductStatus, dispatch, history, message])
+//     }, [addProductStatus, updateProductStatus, deleteProductStatus, dispatch, history, message])
 
-    const conditionallyDisplaySubmit = () => {
-        if(productObj) {
-            return "Update Product"
-        } else {
-            return "Add Product"
-        }
-    }
+//     const conditionallyDisplaySubmit = () => {
+//         if(productObj) {
+//             return "Update Product"
+//         } else {
+//             return "Add Product"
+//         }
+//     }
 
-    const conditionallyDisplayDelete = () => {
-        if (productObj) {
-            return(
-                <input type="button" value="Delete Product" onClick={handleDelete} />
-            )
-        }
-    }
+//     const conditionallyDisplayDelete = () => {
+//         if (productObj) {
+//             return(
+//                 <input type="button" value="Delete Product" onClick={handleDelete} />
+//             )
+//         }
+//     }
 
-    return ( 
+//     return ( 
         
-        <div className={style.shopContainer}>
+//         <div className={style.shopContainer}>
 
-            <h1>Product Form</h1>
-            <div className={style.productFormContainer}>
+//             <h1>Product Form</h1>
+//             <div className={style.productFormContainer}>
 
-                <form className={style.productForm} onSubmit={handleSubmit}>
-                    <div>
+//                 <form className={style.productForm} onSubmit={handleSubmit}>
+//                     <div>
                         
-                        <input type="text" name="name" placeholder="name" value={ productData.name} onChange={handleChange} />
-                    </div>
-                    <div>
-                        <input type="currency" name="price" min="0.00" max="200.00" placeholder="price" value={ productData.price} onChange={handleChange}/>
-                    </div>
-                    <div>
-                        <textarea type="text" name="description" id="" placeholder="description" value={ productData.description} onChange={handleChange}/>
-                    </div>
-                    <div>
+//                         <input type="text" name="name" placeholder="name" value={ productData.name} onChange={handleChange} />
+//                     </div>
+//                     <div>
+//                         <input type="currency" name="price" min="0.00" max="200.00" placeholder="price" value={ productData.price} onChange={handleChange}/>
+//                     </div>
+//                     <div>
+//                         <textarea type="text" name="description" id="" placeholder="description" value={ productData.description} onChange={handleChange}/>
+//                     </div>
+//                     <div>
                         
-                        <input type="file" name="image" id="" ref={imageFile} />
-                    </div>
+//                         <input type="file" name="image" id="" ref={imageFile} />
+//                     </div>
                     
-                    <input type="submit" value={conditionallyDisplaySubmit()}/>
-                </form>
-                    {conditionallyDisplayDelete()}
+//                     <input type="submit" value={conditionallyDisplaySubmit()}/>
+//                 </form>
+//                     {conditionallyDisplayDelete()}
 
-            </div>
-        </div>
-    );
-}
+//             </div>
+//         </div>
+//     );
+// }
  
-export default ProductForm;
+// export default ProductForm;

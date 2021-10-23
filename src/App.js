@@ -31,30 +31,30 @@ import Login from './features/User/Login';
 import Dashboard from './features/User/Dashboard';
 
 // Shop
-import ShopContainer from './features/shop/ShopContainer';
-import ProductForm from './features/shop/ProductForm';
-import ShowProduct from './features/shop/ShowProduct';
+// import ShopContainer from './features/shop/ShopContainer';
+// import ProductForm from './features/shop/ProductForm';
+// import ShowProduct from './features/shop/ShowProduct';
 import { useSelector, useDispatch } from 'react-redux';
-import { getProducts, shopSelector } from './features/shop/ShopSlice';
+// import { getProducts, shopSelector } from './features/shop/ShopSlice';
 function App() {  
   
   
-  const shopStatus = useSelector(shopSelector).status
-  const eventStatus = useSelector(eventSelector).status
-  const dispatch = useDispatch()
+  // const shopStatus = useSelector(shopSelector).status
+  // const eventStatus = useSelector(eventSelector).status
+  // const dispatch = useDispatch()
 
-  useEffect(() => {
-    if (shopStatus === 'idle') {
-      dispatch(getProducts())
-    }
-  }, [dispatch, shopStatus])
+  // useEffect(() => {
+  //   if (shopStatus === 'idle') {
+  //     dispatch(getProducts())
+  //   }
+  // }, [dispatch, shopStatus])
   
-  useEffect(() => {
+  // useEffect(() => {
     
-    if (eventStatus === 'idle') {
-      dispatch(getEvents())
-    }
-  }, [dispatch, eventStatus])
+  //   if (eventStatus === 'idle') {
+  //     dispatch(getEvents())
+  //   }
+  // }, [dispatch, eventStatus])
   
   
   // return (
@@ -111,8 +111,8 @@ function App() {
               <Route exact path="/tour/events/:id" component={ShowEvent}/>
   
               {/* Shop */}
-              <Route exact path="/shop" component={ShopContainer} />
-              <Route exact path="/shop/products/:id" component={ShowProduct} />
+              {/* <Route exact path="/shop" component={ShopContainer} />
+              <Route exact path="/shop/products/:id" component={ShowProduct} /> */}
               <Route component={Error} />
   
             </Switch>

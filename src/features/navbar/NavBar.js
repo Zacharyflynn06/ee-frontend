@@ -1,14 +1,14 @@
 import {NavLink} from 'react-router-dom'
 
 import style from './NavBar.module.css'
-import { useSelector } from 'react-redux';
-import { userSelector } from '../User/userSlice';
+// import { useSelector } from 'react-redux';
+// import { userSelector } from '../User/userSlice';
 import { useLocation } from 'react-router';
 
 const NavBar = (props) => {
     const location = useLocation()
 
-    const { loggedIn } = useSelector(userSelector)
+    // const { loggedIn } = useSelector(userSelector)
 
     const handleToggle = () => {
         if(location.pathname === '/') {
@@ -32,7 +32,7 @@ const NavBar = (props) => {
                 </NavLink>
             </div> */}
             <div>
-            <NavLink
+            {/* <NavLink
                 to="/shop"
                 exact
                 className={style.navLink}
@@ -40,7 +40,14 @@ const NavBar = (props) => {
                 onClick={handleToggle}
             >
                 Shop
-            </NavLink>
+            </NavLink> */}
+                <a 
+                    href="https://www.eminenceensemble.com/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                >
+                    Shop
+                </a>
             </div>
             
             <div>
@@ -96,7 +103,7 @@ const NavBar = (props) => {
             </div>
 
             
-            {loggedIn ? (
+            {/* {loggedIn ? (
                     <>
                         <NavLink
                             exact
@@ -135,7 +142,7 @@ const NavBar = (props) => {
                         </NavLink>
                     </div>
                 </>
-                )}
+                )} */}
             
             
         </div>

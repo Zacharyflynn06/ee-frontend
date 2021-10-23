@@ -1,32 +1,32 @@
-// import React from 'react'
-// import { useSelector, useDispatch } from 'react-redux'
-// import { logoutUser, userSelector } from './userSlice'
-// import style from './User.module.css'
+import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { logoutUser, userSelector } from './userSlice'
+import style from './User.module.css'
 
 
-// const Dashboard = () => {
-//     const dispatch = useDispatch()
-//     const {currentUser} = useSelector(userSelector)
+const Dashboard = () => {
+    const dispatch = useDispatch()
+    const {currentUser} = useSelector(userSelector)
 
     
-//     const handleLogout = (event) => {
-//         event.preventDefault()
-//         dispatch(logoutUser())
-//     }
+    const handleLogout = (event) => {
+        event.preventDefault()
+        dispatch(logoutUser())
+    }
 
-//     return(
-//         <div className={style.formContainer}>
-//             <h1>Dashboard</h1>
-//             <h2>Welcome Back {currentUser.attributes.first_name} {currentUser.attributes.last_name}</h2>
+    return(
+        <div className={style.formContainer}>
+            <h1>Dashboard</h1>
+            <h2>Welcome Back {currentUser.attributes.first_name} {currentUser.attributes.last_name}</h2>
             
-//             <form onSubmit={handleLogout}>
-//                 <input type="submit" value="Logout" />
-//             </form>
+            <form onSubmit={handleLogout}>
+                <input type="submit" value="Logout" />
+            </form>
 
-//         </div>
+        </div>
 
-//     )
-// }
+    )
+}
 
-// export default Dashboard
+export default Dashboard
 
