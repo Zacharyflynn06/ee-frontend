@@ -3,8 +3,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    
+    height: 100vh;
 }
 
 .linkContainer{
@@ -14,7 +13,7 @@
     border-radius: .5em;
     background-color: rgba(255, 255, 255, .8);
     padding: 5%;
-
+    box-shadow: 5px 5px 5px #222222
 }
 .links {
     display: flex;
@@ -69,3 +68,17 @@
 }
 
 
+@media only screen and (max-width: 600px) {
+    .links div{
+        font-size: 50%; 
+    }
+
+    .linkContainer{
+        width: 95%;
+    }
+
+    .linkTitle{
+        font-size: 1rem;
+    }
+
+}
