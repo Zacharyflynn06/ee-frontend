@@ -72,7 +72,7 @@ input[type="button"]:hover, input[type="submit"]:hover{
 @media only screen and (max-width: 600px) {
 
   .App{
-    padding-bottom: 14rem;
+    padding-bottom: 10rem;
     min-height: 100vh;
     position: relative;
   }
