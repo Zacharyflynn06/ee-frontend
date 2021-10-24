@@ -6,14 +6,7 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background: radial-gradient(circle, rgba(2,0,36,.4) 0%, rgba(9,9,121,.4) 35%, rgba(0,212,255,.4) 100%);
-    /* background: radial-gradient(
-      circle, 
-      rgba(5, 55, 66, .4) 0%, 
-      rgba(57, 162, 219, .75) 35%,
-      rgba(162, 219, 250) 100%
-      ); */
-
+    background-image: radial-gradient(farthest-corner at 40px 40px,#75D5FD 0%, #43e 100%);
     background-repeat: no-repeat;
     background-attachment: fixed;
     text-decoration: none;
@@ -24,6 +17,7 @@ body {
   padding-bottom: 7.5rem;
   min-height: 100vh;
   position: relative;
+  
 }
 
 h1 {

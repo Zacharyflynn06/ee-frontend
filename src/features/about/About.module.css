@@ -11,8 +11,7 @@
 
 .image{
     width: 50vw;
-    -webkit-filter: drop-shadow(5px 5px 5px #222222);
-    filter: drop-shadow(5px 5px 5px #222222);
+    box-shadow: 5px 5px 5px #222222;
     border-radius: .5em;
 }
 
@@ -66,8 +65,7 @@
 }
 .galleryContainer img {
    
-    -webkit-filter: drop-shadow(5px 5px 5px #222222);
-    filter: drop-shadow(5px 5px 5px #222222);
+    box-shadow: 5px 5px 5px #222222;
     max-width: 100%;
     max-height: 100%;
     border-radius: .5em;

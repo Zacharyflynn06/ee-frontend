@@ -34,7 +34,7 @@ const EventContainer = () => {
         return (
             <div className={style.eventsContainer}>
                 
-                <h1>Tour</h1>
+                <h1>Tour Dates</h1>
                 <div className={style.eventsTable}>
                     {events.map(event => 
     
