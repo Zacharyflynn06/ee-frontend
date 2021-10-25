@@ -8,22 +8,27 @@ const Footer = () => {
     const url = process.env.REACT_APP_MAILCHIMP_URL
     return ( 
         <div className={style.footerContainer}>
+            <div className={style.col}>
+                <div className={style.signupContainer}>
+                    <MailchimpSubscribe 
+                        url={url}
+                        render={({ subscribe, status, message }) => (
+                            <MailchimpForm
+                                status={status}
+                                message={message}
+                                onValidated={formData => subscribe(formData)}
+                            /> 
+                        )}
+                    />
+                </div>
+            </div>
+            <div className={style.col}>
+                <div className={style.copyright}>
+                    <h4>&copy; Zac Flynn 2021</h4>
+                </div>
 
-            <div className={style.signupContainer}>
-                <MailchimpSubscribe 
-                    url={url}
-                    render={({ subscribe, status, message }) => (
-                        <MailchimpForm
-                            status={status}
-                            message={message}
-                            onValidated={formData => subscribe(formData)}
-                        /> 
-                    )}
-                />
             </div>
-            <div className={style.copyright}>
-                <h4>&copy; Zac Flynn 2021</h4>
-            </div>
+            <div className={style.col}>
             <div className={style.contact}>
                 booking: 
                 <a href="mailto:jordan@alpine-partners.net">
@@ -41,6 +46,10 @@ const Footer = () => {
                 </a>
 
             </div>
+            </div>
+
+
+
 
         </div>
     );
