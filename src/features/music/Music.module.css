@@ -1,84 +1,80 @@
-.musicContainer{
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
+.musicContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
 }
 
-.linkContainer{
-    text-align: center;
-    width: 75%;
-    border:0.1em solid #FFFFFF;
-    border-radius: .5em;
-    background-color: rgba(255, 255, 255, .8);
-    padding: 5%;
-    box-shadow: 5px 5px 5px #222222
+.linkContainer {
+  text-align: center;
+  width: 75%;
+  border: 0.1em solid #ffffff;
+  border-radius: 0.5em;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 5%;
+  box-shadow: 5px 5px 5px #222222;
 }
 .links {
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
 }
 
 .linkTitle {
-    font-size: 2rem;
-    padding-bottom: 5%;
-    font-weight: bold;
-
+  font-size: 2rem;
+  padding-bottom: 5%;
+  font-weight: bold;
 }
 
-.links div{
-    display: flex;
-    flex-direction: column;
-    align-items: center;  
-    font-weight: bold;
-    font-size: 100%; 
+.links div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bold;
+  font-size: 100%;
 }
 
-.links div{
-    transition: all .2s ease-in-out;
-
+.links div {
+  transition: all 0.2s ease-in-out;
 }
-.links div:hover{
-    transform: scale(1.2);
+.links div:hover {
+  transform: scale(1.2);
 }
 
 .apple a:hover {
-    color:white
+  color: white;
 }
 
-.spotify a:hover{
-    color: #1DB954;
+.spotify a:hover {
+  color: #1db954;
 }
 
-.amazon a:hover{
-    color: #FF9900;
+.amazon a:hover {
+  color: #ff9900;
 }
 
-.deezer a:hover{
-    color: #FF0092;
+.deezer a:hover {
+  color: #ff0092;
 }
-.bandcamp a:hover{
-    color: blue;
+.bandcamp a:hover {
+  color: blue;
 }
-.youtube a:hover{
-    color: #FF0000;
+.youtube a:hover {
+  color: #ff0000;
 }
-
 
 @media only screen and (max-width: 600px) {
-    .links div{
-        font-size: 50%; 
-    }
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
 
-    .linkContainer{
-        width: 95%;
-    }
+  .linkContainer {
+    width: 95%;
+  }
 
-    .linkTitle{
-        font-size: 1rem;
-    }
-
+  .linkTitle {
+    font-size: 2rem;
+  }
 }
