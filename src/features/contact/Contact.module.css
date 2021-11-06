@@ -1,44 +1,40 @@
-.contactContainer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
+.contactContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
 }
 
 .contactWrapper {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    border:0.1em solid #FFFFFF;
-    background-color: rgba(255, 255, 255, .8);
-    border-radius: .5em;
-    width: 40%;
-    margin: 2.5%;
-    padding-bottom: 5%;
-    box-shadow: 5px 5px 5px #222222
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: 0.1em solid #ffffff;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 0.5em;
+  width: 40%;
+  margin: 2.5%;
+  padding-bottom: 5%;
+  box-shadow: 5px 5px 5px #222222;
 }
 
 .contactTitle {
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-decoration: underline;
-    padding-top: 5%;
-    padding-bottom: 5%;
-    
+  font-weight: bold;
+  text-decoration: underline;
+  padding-top: 5%;
+  padding-bottom: 5%;
 }
 
 .contactDetails {
-    padding: 5% 0;
+  padding: 5% 0;
 }
 
 .contactName {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 @media only screen and (max-width: 600px) {
-
-    .contactWrapper {
-        width: 90%;
-    }
-
+  .contactWrapper {
+    width: 90%;
+  }
 }
