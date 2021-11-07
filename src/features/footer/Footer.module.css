@@ -76,12 +76,11 @@
 
 .contactContainer {
   display: flex;
-  font-size: 1rem;
-  text-align: right;
+  font-size: 0.8rem;
   height: 100%;
-  align-items: end;
+  align-items: center;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: space-evenly;
 }
 
 .contactContainer a {
@@ -97,7 +96,7 @@
     padding: 1rem;
     bottom: 0;
     width: 100%;
-    height: 10rem;
+    height: 15rem;
     background-color: black;
     color: white;
   }
@@ -112,5 +111,10 @@
 
   input {
     width: 100%;
+  }
+
+  .copyright {
+    margin-top: 1rem;
+    font-size: 0.75rem;
   }
 }

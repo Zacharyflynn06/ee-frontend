@@ -40,8 +40,8 @@ const EventContainer = () => {
       return (
         <div className={style.eventsContainer}>
           <h1>Tour Dates</h1>
-          <div>
-            <h2>Check back soon for more tour dates!</h2>
+          <div className={style.noEvents}>
+            Check back soon for more tour dates!
           </div>
         </div>
       );

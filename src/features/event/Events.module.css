@@ -1,111 +1,114 @@
-.eventsContainer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
+.eventsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
 }
 
-.eventsTable{
-    display: block;
-    width: 75%;
-    border:0.1em solid #FFFFFF;
-    width: 85%;
-    border-radius: .5em;
-    background-color: rgba(0, 0, 0, 0.1);
+.eventsTable {
+  display: block;
+  width: 75%;
+  border: 0.1em solid #ffffff;
+  width: 85%;
+  border-radius: 0.5em;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .eventCard {
-    display: flex;
-    padding: 2rem;
-    justify-content: space-evenly;
+  display: flex;
+  padding: 2rem;
+  justify-content: space-evenly;
 }
 
 .eventDescription {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    width: 50%;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 50%;
 }
 
-.eventDateCell{
-    text-transform: uppercase;
-    font-weight: bold;
+.eventDateCell {
+  text-transform: uppercase;
+  font-weight: bold;
 }
 .eventVenueCell {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .eventVenueName {
-    display: flex,
-
+  display: flex;
 }
 
 .eventVenueLocation {
-    display: flex;
+  display: flex;
 }
 
 a {
-    color: black
+  color: black;
 }
 
 .eventLink {
-    text-decoration: none;
-    display:inline-block;
-    padding:0.35em 1.2em;
-    border:0.1em solid #FFFFFF;
-    margin:0 0.3em 0.3em 0;
-    border-radius:0.12em;
-    box-sizing: border-box;
-    text-decoration:none;
-    font-weight:bold;
-    color: black;
-    text-align:center;
-    transition: all 0.2s;
-    
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid #ffffff;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  transition: all 0.2s;
 }
 
-.eventLink:hover{
-    color:#000000;
-    background-color:#FFFFFF;
+.eventLink:hover {
+  color: #000000;
+  background-color: #ffffff;
 }
 
 .eventForm {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .showEventContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 50%;
-    height: 60%;
-    border:0.1em solid #FFFFFF;
-    border-radius: .5em;
-    background-color: rgba(0, 0, 0, 0.1);
-    padding: 5%
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 50%;
+  height: 60%;
+  border: 0.1em solid #ffffff;
+  border-radius: 0.5em;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 5%;
 }
 
 .showEventTitle {
-    font-weight: bold;
-    margin: 5%;
-    
+  font-weight: bold;
+  margin: 5%;
+}
+
+.noEvents {
+  display: flex;
+  justify-content: center;
+  width: 95%;
+  text-align: center;
 }
 
 @media only screen and (max-width: 600px) {
-    .eventCard {
-        flex-direction: column;
-        
-    }
+  .eventCard {
+    flex-direction: column;
+  }
 
-    .eventLink {
-        background-color: white;
-        width: 50%;
-    }
+  .eventLink {
+    background-color: white;
+    width: 50%;
+  }
 
-
-
-} 
+  .noEvents {
+    width: 90%;
+  }
+}
