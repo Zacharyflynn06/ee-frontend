@@ -9,7 +9,7 @@ const Home = (props) => {
   return (
     <div className={style.homeContainer}>
       <div className={style.videoOverlay}></div>
-      <video inline className={style.video} autoPlay loop muted>
+      <video playsInline className={style.video} autoPlay loop muted>
         <source src={video} type="video/mp4" />
       </video>
 
