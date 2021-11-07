@@ -1,24 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import store from './app/store';
-import './index.css';
-import App from './App';
-import { Provider } from 'react-redux';
-import * as serviceWorker from './serviceWorker';
-import { Toaster } from 'react-hot-toast'
+import React from "react";
+import ReactDOM from "react-dom";
+import store from "./app/store";
+import "./index.css";
+import App from "./App";
+import { Provider } from "react-redux";
+import * as serviceWorker from "./serviceWorker";
+import { Toaster } from "react-hot-toast";
 // import { getProducts } from './features/shop/ShopSlice';
-import { getEvents } from './features/event/EventSlice';
+// import { getEvents } from './features/event/EventSlice';
 
-import { library }  from '@fortawesome/fontawesome-svg-core'
-import { fab } from '@fortawesome/free-brands-svg-icons'
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
 
-library.add(fab)
-
+library.add(fab);
 
 // store.dispatch(getProducts())
-store.dispatch(getEvents())
-
-
+// store.dispatch(getEvents())
 
 ReactDOM.render(
   <React.StrictMode>
@@ -27,7 +24,7 @@ ReactDOM.render(
       <App />
     </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change

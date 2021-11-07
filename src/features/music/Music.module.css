@@ -70,11 +70,39 @@
     justify-content: space-around;
   }
 
+  .links div {
+    font-size: 90%;
+    margin: 1.5rem;
+  }
+
   .linkContainer {
     width: 95%;
   }
 
   .linkTitle {
-    font-size: 2rem;
+    font-size: 7vw;
+  }
+
+  .apple a {
+    color: black;
+  }
+
+  .spotify a {
+    color: #1db954;
+  }
+
+  .amazon a {
+    color: #ff9900;
+    font-size: small;
+  }
+
+  .deezer a {
+    color: #ff0092;
+  }
+  .bandcamp a {
+    color: blue;
+  }
+  .youtube a {
+    color: #ff0000;
   }
 }

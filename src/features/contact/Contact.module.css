@@ -18,8 +18,8 @@
   box-shadow: 5px 5px 5px #222222;
 }
 
-.contactTitle {
-  font-weight: bold;
+.contactTitle h2 {
+  font-weight: 800;
   text-decoration: underline;
   padding-top: 5%;
   padding-bottom: 5%;

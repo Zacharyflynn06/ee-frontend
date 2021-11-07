@@ -1,90 +1,94 @@
-.footerContainer{
+.footerContainer {
+  display: flex;
+  /* justify-content: space-between; */
+  position: absolute;
+  margin-top: 1rem;
+  padding: 1rem;
+  bottom: 0;
+  width: 100%;
+  height: 10rem;
+  background-color: rgba(0, 0, 0, 1);
+  color: white;
+  border-top: 1px solid white;
+}
+
+.col {
+  flex: 1;
+}
+
+.signupContainer {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-size: 0.85rem;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* .nameContainer {
+  display: flex;
+  flex-direction: column;
+} */
+
+input {
+  width: 100%;
+}
+
+.submitBtn {
+  width: 50%;
+}
+.signupContainer form {
+  display: flex;
+  flex-direction: column;
+}
+
+.submitBtn input[type="submit"] {
+  background-color: white;
+}
+
+.copyright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85rem;
+  text-align: right;
+}
+.contact a {
+  color: white;
+}
+
+@media only screen and (max-width: 600px) {
+  .footerContainer {
     display: flex;
-    /* justify-content: space-between; */
+    flex-direction: column;
     position: absolute;
     margin-top: 1rem;
     padding: 1rem;
     bottom: 0;
     width: 100%;
     height: 10rem;
-    background-color: rgba(0,0,0,1);
+    background-color: black;
     color: white;
-    border-top: 1px solid white;
-    
-}
-
-.col{
-    flex: 1;
-}
-
-.signupContainer{
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    font-size: .85rem;
-}
-
-.inputContainer{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    
-}
-
-.nameContainer{
-    display: flex;
-    flex-direction: column;
-    
-}
-
-.email input{
-    display: flex;
-    
-}
-
-.submitBtn input[type="submit"]{
-    background-color: white;
-}
-
-.copyright{
-    display: flex;
+  }
+  .signupContainer {
     justify-content: center;
-    align-items: center;
+    font-size: 1rem;
+  }
 
-}
+  .contact {
+    display: none;
+  }
 
-.contact {
-    display: flex;
-    flex-direction: column;
-    font-size: .85rem;
-    text-align: right;
-}
-.contact a{
-    color: white;
-}
-
-@media only screen and (max-width: 600px) {
-    .footerContainer{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        position: absolute;
-        margin-top: 1rem;
-        padding: 1rem;
-        bottom: 0;
-        width: 100%;
-        height: 10rem;
-        background-color: black;
-        color: white;
-    }
-    .signupContainer{
-        text-align: center;
-    }
-
-    .contact {
-        display: none;
-    }
-
-
-
+  input {
+    width: 100%;
+  }
 }
