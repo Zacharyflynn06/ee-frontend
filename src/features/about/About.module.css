@@ -1,125 +1,116 @@
-.aboutContainer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.aboutContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.imageContainer{
-    display: flex;
-    flex-wrap: wrap;
+.imageContainer {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.image{
-    width: 50vw;
-    box-shadow: 5px 5px 5px #222222;
-    border-radius: .5em;
+.image {
+  width: 50vw;
+  box-shadow: 5px 5px 5px #222222;
+  border-radius: 0.5em;
 }
 
-.contentContainer{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    padding-top: 5%;
-    padding-bottom: 5%;
-    /* height: 60%; */
+.contentContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  /* height: 60%; */
 }
 
-.bioContainer{
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    text-align: center; 
-    align-items: center;
-    
+.bioContainer {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  text-align: center;
+  align-items: center;
 }
 
-.bioContent{
-    display: flex;
-    flex-direction: column;
-    flex-direction: space-around;
-    width: 85%;
-    background-color: rgba(255, 255, 255, .8);
-    border-radius: .5em;
-    padding: 5%;
-    box-shadow: 5px 5px 5px #222222
-    
+.bioContent {
+  display: flex;
+  flex-direction: column;
+  flex-direction: space-around;
+  width: 85%;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 0.5em;
+  padding: 5%;
+  box-shadow: 5px 5px 5px #222222;
 }
 
 .bioContent p {
-    padding: 1rem;
+  padding: 1rem;
 }
-.bioTitle{
-    font-size: 1.5rem;
-    padding-bottom: 2.5%;
-    font-weight: bold;
+.bioTitle {
+  font-size: 1.5rem;
+  padding-bottom: 2.5%;
+  font-weight: bold;
 }
 
-.galleryContainer { 
-    width: 50%;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-gap: 1rem;
-    justify-content: center;
-    padding-right: 2.5%;
-    
+.galleryContainer {
+  width: 50%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 1rem;
+  justify-content: center;
+  padding-right: 2.5%;
 }
 .galleryContainer img {
-   
-    box-shadow: 5px 5px 5px #222222;
-    max-width: 100%;
-    max-height: 100%;
-    border-radius: .5em;
-  }
+  box-shadow: 5px 5px 5px #222222;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 0.5em;
+}
 
 @media only screen and (max-width: 600px) {
+  .aboutContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .aboutContainer{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        
-    }
+  .image {
+    width: 85vw;
+    -webkit-filter: drop-shadow(5px 5px 5px #222222);
+    filter: drop-shadow(5px 5px 5px #222222);
+  }
 
-    .image{
-        width: 85vw;
-        -webkit-filter: drop-shadow(5px 5px 5px #222222);
-        filter: drop-shadow(5px 5px 5px #222222);
-    }
+  .contentContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5%;
+    height: 100%;
+  }
 
-    .contentContainer{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding-top: 5%;
-        height: 100%;
-    }
+  .bioContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 85%;
+    text-align: center;
 
-    .bioContainer{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 85%;
-        text-align: center; 
+    align-items: center;
+    padding-bottom: 5%;
+  }
 
-        align-items: center;
-        padding-bottom: 5%;
-    
-    }
+  .bioContent {
+    width: 100%;
 
-    .bioContent{
-        width: 100%;
+    border-radius: 1em;
+    padding: 5%;
+  }
 
-        border-radius: 1em;
-        padding: 5%;
-    }
+  .galleryContainer {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
 
-    .galleryContainer { 
-        width: 85%;
-        display: flex;
-        flex-direction: column;
-
-        padding-bottom: 5%;
-    }
-    
-    
+    padding-bottom: 5%;
+  }
 }

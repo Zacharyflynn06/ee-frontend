@@ -22,12 +22,12 @@ const Footer = () => {
         </div>
       </div>
       <div className={style.col}>
-        <div className={style.copyright}>
-          <h4>&copy; Zac Flynn 2021</h4>
+        <div className={style.copyrightContainer}>
+          <div className={style.copyright}>&copy; Zac Flynn 2021</div>
         </div>
       </div>
       <div className={style.col}>
-        <div className={style.contact}>
+        <div className={style.contactContainer}>
           booking:
           <a href="mailto:jordan@alpine-partners.net">
             jordan@alpine-partners.net

@@ -5,19 +5,21 @@
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
-    background-image: radial-gradient(farthest-corner at 40px 40px,#75D5FD 0%, #43e 100%);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    text-decoration: none;
-
+  font-family: "Montserrat", sans-serif;
+  background-image: radial-gradient(
+    farthest-corner at 40px 40px,
+    #75d5fd 0%,
+    #43e 100%
+  );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  text-decoration: none;
 }
 
-.App{
-  padding-bottom: 10rem;
+.App {
+  padding-bottom: 15rem;
   min-height: 100vh;
   position: relative;
-  
 }
 
 h1 {
@@ -26,53 +28,51 @@ h1 {
   filter: drop-shadow(5px 5px 5px #222222);
   font-weight: bold;
   padding: 2.5%;
-  padding: 5%
+  padding: 5%;
 }
 
-
 a:-webkit-any-link {
-  
   cursor: pointer;
   text-decoration: none;
 }
 
-input[type="button"], input[type="submit"] {
-  color: black
+input[type="button"],
+input[type="submit"] {
+  color: black;
 }
 
-input[type="button"], input[type="submit"]{
+input[type="button"],
+input[type="submit"] {
   text-decoration: none;
-  display:inline-block;
-  padding:0.45rem 1.5rem;
-  border:0.1em solid #FFFFFF;
+  display: inline-block;
+  padding: 0.45rem 1.5rem;
+  border: 0.1em solid #ffffff;
   margin-top: 1rem;
-  border-radius:0.12em;
+  border-radius: 0.12em;
   box-sizing: border-box;
-  text-decoration:none;
-  font-weight:bold;
+  text-decoration: none;
+  font-weight: bold;
   color: black;
-  text-align:center;
+  text-align: center;
   transition: all 0.2s;
   background-color: rgba(0, 0, 0, 0.001);
-  
 }
 
-input[type="button"]:hover, input[type="submit"]:hover{
-  color:#000000;
-  background-color:#FFFFFF;
-
+input[type="button"]:hover,
+input[type="submit"]:hover {
+  color: #000000;
+  background-color: #ffffff;
 }
 
 @media only screen and (max-width: 600px) {
-
-  .App{
+  .App {
     padding-bottom: 10rem;
     min-height: 100vh;
     position: relative;
   }
 
-  h1{
+  h1 {
     font-size: 2em;
-    margin: 5%
+    margin: 5%;
   }
 }

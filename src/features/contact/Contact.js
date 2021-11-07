@@ -8,8 +8,8 @@ const Contact = () => {
         {/* <div className={style.contactTitle}>
                     Booking 
                 </div> */}
-        <div className={style.contactTitle}>
-          <h2>Booking</h2>
+        <div>
+          <h2 className={style.contactTitle}>Booking</h2>
         </div>
 
         <div className={style.contactDetails}>
