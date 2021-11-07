@@ -1,26 +1,25 @@
-import {NavLink} from 'react-router-dom'
+import { NavLink } from "react-router-dom";
 
-import style from './NavBar.module.css'
-import { useSelector } from 'react-redux';
-import { userSelector } from '../User/userSlice';
-import { useLocation } from 'react-router';
+import style from "./NavBar.module.css";
+// import { useSelector } from "react-redux";
+// import { userSelector } from "../User/userSlice";
+import { useLocation } from "react-router";
 
 const NavBar = (props) => {
-    const location = useLocation()
+  const location = useLocation();
 
-    const { loggedIn } = useSelector(userSelector)
+  // const { loggedIn } = useSelector(userSelector)
 
-    const handleToggle = () => {
-        if(location.pathname === '/') {
-        
-        } else {
-            props.toggleMenu()
-        }
+  const handleToggle = () => {
+    if (location.pathname === "/") {
+    } else {
+      props.toggleMenu();
     }
+  };
 
-    return (
-        <div className={style.navContainer}>
-            {/* <div>
+  return (
+    <div className={style.navContainer}>
+      {/* <div>
                 <NavLink
                     to="/"
                     exact
@@ -31,8 +30,8 @@ const NavBar = (props) => {
                     Home
                 </NavLink>
             </div> */}
-            <div>
-            {/* <NavLink
+      <div>
+        {/* <NavLink
                 to="/shop"
                 exact
                 className={style.navLink}
@@ -41,70 +40,65 @@ const NavBar = (props) => {
             >
                 Shop
             </NavLink> */}
-                <a 
-                    href="https://www.eminenceensemble.com/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className={style.navLink}
-                >
-                    Shop
-                </a>
-            </div>
-            
-            <div>
-                <NavLink
-                    to="/tour"
-                    exact
-                    className={style.navLink}
-                    activeClassName={style.active}
-                    onClick={handleToggle}
-                    
-                >
-                    Tour
-                </NavLink>
-            </div>
-            
-            <div>
+        <a
+          href="https://www.eminenceensemble.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={style.navLink}
+        >
+          Shop
+        </a>
+      </div>
 
-                <NavLink
-                    to="/about"
-                    exact
-                    className={style.navLink}
-                    activeClassName={style.active}
-                    onClick={handleToggle}
-                >
-                    About
-                </NavLink>
-            </div>
+      <div>
+        <NavLink
+          to="/tour"
+          exact
+          className={style.navLink}
+          activeClassName={style.active}
+          onClick={handleToggle}
+        >
+          Tour
+        </NavLink>
+      </div>
 
-            <div>
+      <div>
+        <NavLink
+          to="/about"
+          exact
+          className={style.navLink}
+          activeClassName={style.active}
+          onClick={handleToggle}
+        >
+          About
+        </NavLink>
+      </div>
 
-                <NavLink
-                    to="/music"
-                    exact
-                    className={style.navLink}
-                    activeClassName={style.active}
-                    onClick={handleToggle}
-                >
-                    Music
-                </NavLink>
-            </div>
+      <div>
+        <NavLink
+          to="/music"
+          exact
+          className={style.navLink}
+          activeClassName={style.active}
+          onClick={handleToggle}
+        >
+          Music
+        </NavLink>
+      </div>
 
-            <div>
+      <div>
+        <NavLink
+          to="/contact"
+          exact
+          className={style.navLink}
+          activeClassName={style.active}
+          onClick={handleToggle}
+        >
+          Contact
+        </NavLink>
+      </div>
 
-                <NavLink
-                    to="/contact"
-                    exact
-                    className={style.navLink}
-                    activeClassName={style.active}
-                    onClick={handleToggle}
-                >
-                    Contact
-                </NavLink>
-            </div>
-
-            
-            {/* {loggedIn ? (
+      {/* {loggedIn ? (
                     <>
                         <NavLink
                             exact
@@ -144,10 +138,8 @@ const NavBar = (props) => {
                     </div>
                 </>
                 )} */}
-            
-            
-        </div>
-    )
-}
+    </div>
+  );
+};
 
-export default NavBar
+export default NavBar;

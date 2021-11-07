@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 
-import { eventSelector, getEvents } from "./features/event/EventSlice";
-import WithAuth from "./features/User/WithAuth";
-import AdminAuth from "./features/User/AdminAuth";
+// import { eventSelector, getEvents } from "./features/event/EventSlice";
+// import WithAuth from "./features/User/WithAuth";
+// import AdminAuth from "./features/User/AdminAuth";
 // Static
 import Menu from "./features/menu/Menu";
 import Home from "./features/home/Home";
@@ -16,19 +16,19 @@ import Footer from "./features/footer/Footer";
 
 // Event
 import EventContainer from "./features/event/EventsContainer";
-import EventForm from "./features/event/EventForm";
+// import EventForm from "./features/event/EventForm";
 import ShowEvent from "./features/event/ShowEvent";
 // User
 
-import Signup from "./features/User/Signup";
-import Login from "./features/User/Login";
-import Dashboard from "./features/User/Dashboard";
+// import Signup from "./features/User/Signup";
+// import Login from "./features/User/Login";
+// import Dashboard from "./features/User/Dashboard";
 
 // Shop
 // import ShopContainer from './features/shop/ShopContainer';
 // import ProductForm from './features/shop/ProductForm';
 // import ShowProduct from './features/shop/ShowProduct';
-import { useSelector, useDispatch } from "react-redux";
+// import { useSelector, useDispatch } from "react-redux";
 // import { getProducts, shopSelector } from './features/shop/ShopSlice';
 function App() {
   // const shopStatus = useSelector(shopSelector).status
@@ -62,13 +62,6 @@ function App() {
           {/* Event */}
           <Route exact path="/tour" component={EventContainer} />
           <Route exact path="/tour/events/:id" component={ShowEvent} />
-          {/* User */}
-          <Route exact path="/signup" component={Signup} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/dashboard" component={Dashboard} />
-          {/* Shop */}
-          {/* Protected Routes */}
-          {/* Static */}
           <Route exact path="/about" component={About} />
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/music" component={Music} />
