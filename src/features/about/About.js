@@ -62,14 +62,78 @@ const About = () => {
           </div>
         </div>
         <div className={style.galleryContainer}>
-          <img src={process.env.PUBLIC_URL + "images/gallery/1.jpg"} alt="1" />
-          <img src={process.env.PUBLIC_URL + "images/gallery/2.jpg"} alt="2" />
-          <img src={process.env.PUBLIC_URL + "images/gallery/3.jpg"} alt="3" />
-          <img src={process.env.PUBLIC_URL + "images/gallery/4.jpg"} alt="4" />
-          <img src={process.env.PUBLIC_URL + "images/gallery/5.jpg"} alt="5" />
-          <img src={process.env.PUBLIC_URL + "images/gallery/6.jpg"} alt="6" />
-          <img src={process.env.PUBLIC_URL + "images/gallery/7.jpg"} alt="7" />
-          <img src={process.env.PUBLIC_URL + "images/gallery/8.jpg"} alt="8" />
+          <a
+            href={process.env.PUBLIC_URL + "images/gallery/1.jpg"}
+            target="new"
+          >
+            <img
+              src={process.env.PUBLIC_URL + "images/gallery/1.jpg"}
+              alt="1"
+            />
+          </a>
+          <a
+            href={process.env.PUBLIC_URL + "images/gallery/2.jpg"}
+            target="new"
+          >
+            <img
+              src={process.env.PUBLIC_URL + "images/gallery/2.jpg"}
+              alt="2"
+            />
+          </a>
+          <a
+            href={process.env.PUBLIC_URL + "images/gallery/3.jpg"}
+            target="new"
+          >
+            <img
+              src={process.env.PUBLIC_URL + "images/gallery/3.jpg"}
+              alt="3"
+            />
+          </a>
+          <a
+            href={process.env.PUBLIC_URL + "images/gallery/4.jpg"}
+            target="new"
+          >
+            <img
+              src={process.env.PUBLIC_URL + "images/gallery/4.jpg"}
+              alt="4"
+            />
+          </a>
+          <a
+            href={process.env.PUBLIC_URL + "images/gallery/5.jpg"}
+            target="new"
+          >
+            <img
+              src={process.env.PUBLIC_URL + "images/gallery/5.jpg"}
+              alt="5"
+            />
+          </a>
+          <a
+            href={process.env.PUBLIC_URL + "images/gallery/6.jpg"}
+            target="new"
+          >
+            <img
+              src={process.env.PUBLIC_URL + "images/gallery/6.jpg"}
+              alt="6"
+            />
+          </a>
+          <a
+            href={process.env.PUBLIC_URL + "images/gallery/7.jpg"}
+            target="new"
+          >
+            <img
+              src={process.env.PUBLIC_URL + "images/gallery/7.jpg"}
+              alt="7"
+            />
+          </a>
+          <a
+            href={process.env.PUBLIC_URL + "images/gallery/8.jpg"}
+            target="new"
+          >
+            <img
+              src={process.env.PUBLIC_URL + "images/gallery/8.jpg"}
+              alt="8"
+            />
+          </a>
         </div>
       </div>
     </div>
