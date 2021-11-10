@@ -55,7 +55,7 @@
 .galleryContainer {
   width: 50%;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: 49% 49%;
   grid-gap: 1rem;
   justify-content: center;
   padding-right: 2.5%;
