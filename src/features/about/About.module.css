@@ -106,6 +106,10 @@
     padding: 5%;
   }
 
+  .bioContent p {
+    font-size: 0.6rem;
+  }
+
   .galleryContainer {
     width: 85%;
     display: flex;
