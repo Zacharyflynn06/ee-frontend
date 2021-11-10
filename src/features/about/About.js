@@ -5,11 +5,13 @@ const About = () => {
     <div className={style.aboutContainer}>
       <h1>About</h1>
       <div className={style.imageContainer}>
-        <img
-          className={style.image}
-          src={process.env.PUBLIC_URL + "images/press-shot.jpg"}
-          alt="press-shot"
-        />
+        <a href={process.env.PUBLIC_URL + "images/press-shot.jpg"} target="new">
+          <img
+            className={style.image}
+            src={process.env.PUBLIC_URL + "images/press-shot.jpg"}
+            alt="press-shot"
+          />
+        </a>
       </div>
 
       <div className={style.contentContainer}>
