@@ -44,7 +44,7 @@ const NavBar = (props) => {
           href="https://www.eminenceensemblestore.com/"
           className={style.navLink}
         >
-          Shop
+          Store
         </a>
       </div>
 
