@@ -10,9 +10,9 @@ const Home = (props) => {
     <div className={style.homeContainer}>
       <div className={style.videoOverlay}></div>
       <video
-        preload="metadata"
-        playsInline="playsinline"
-        autoPlay="autoplay"
+        preload="auto"
+        playsInline
+        autoPlay
         muted="muted"
         loop="loop"
         className={style.video}
