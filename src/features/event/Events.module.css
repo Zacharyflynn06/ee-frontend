@@ -7,11 +7,16 @@
 
 .eventsTable {
   display: block;
-  width: 75%;
+  /* width: 75%;
   border: 0.1em solid #ffffff;
   width: 85%;
   border-radius: 0.5em;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.1); */
+  width: 75%;
+  border-radius: 0.5em;
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 5%;
+  box-shadow: 5px 5px 5px #222222;
 }
 
 .eventCard {
@@ -28,7 +33,6 @@
 }
 
 .eventDateCell {
-  text-transform: uppercase;
   font-weight: bold;
 }
 .eventVenueCell {
@@ -61,6 +65,7 @@ a {
   color: black;
   text-align: center;
   transition: all 0.2s;
+  background-color: white;
 }
 
 .eventLink:hover {
@@ -101,10 +106,38 @@ a {
 @media only screen and (max-width: 600px) {
   .eventCard {
     flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+  }
+
+  .eventsTable {
+    width: 85%;
+  }
+
+  .eventDescription {
+    width: 100%;
+    padding-bottom: 0.5rem;
+  }
+
+  .eventDateCell {
+    text-align: center;
+    padding-bottom: 0.5rem;
+  }
+  .eventVenueName {
+    text-align: center;
+    justify-content: center;
+  }
+  .eventVenueCell {
+    text-align: center;
+    flex-direction: column;
+  }
+  .eventVenueLocation {
+    justify-content: center;
+    text-align: center;
   }
 
   .eventLink {
-    background-color: white;
     width: 50%;
   }
 

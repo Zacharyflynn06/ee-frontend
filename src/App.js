@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 
-// import { eventSelector, getEvents } from "./features/event/EventSlice";
+import { eventSelector, getEvents } from "./features/event/EventSlice";
 // import WithAuth from "./features/User/WithAuth";
 // import AdminAuth from "./features/User/AdminAuth";
 // Static
@@ -28,12 +28,12 @@ import ShowEvent from "./features/event/ShowEvent";
 // import ShopContainer from './features/shop/ShopContainer';
 // import ProductForm from './features/shop/ProductForm';
 // import ShowProduct from './features/shop/ShowProduct';
-// import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 // import { getProducts, shopSelector } from './features/shop/ShopSlice';
 function App() {
   // const shopStatus = useSelector(shopSelector).status
-  // const eventStatus = useSelector(eventSelector).status;
-  // const dispatch = useDispatch();
+  const eventStatus = useSelector(eventSelector).status;
+  const dispatch = useDispatch();
 
   // useEffect(() => {
   //   if (shopStatus === 'idle') {
@@ -41,12 +41,11 @@ function App() {
   //   }
   // }, [dispatch, shopStatus])
 
-  // useEffect(() => {
-
-  //   if (eventStatus === 'idle') {
-  //     dispatch(getEvents())
-  //   }
-  // }, [dispatch, eventStatus])
+  useEffect(() => {
+    if (eventStatus === "idle") {
+      dispatch(getEvents());
+    }
+  }, [dispatch, eventStatus]);
 
   return (
     <div className="App">
