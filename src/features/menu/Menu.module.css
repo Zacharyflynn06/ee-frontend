@@ -1,141 +1,131 @@
-.menuWrap{
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
+.menuWrap {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1;
 }
 
-.activeMenuWrap{
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
+.activeMenuWrap {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1;
 }
 
 #toggler {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    cursor: pointer;
-    width: 50px;
-    height: 50px;
-    opacity: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  cursor: pointer;
+  width: 70px;
+  height: 70px;
+  opacity: 0;
 }
 
 .hamburger {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    width: 60px;
-    height: 60px;
-    padding: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  width: 75px;
+  height: 75px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.hamburger > div{
-    position: relative;
-    width: 100%;
-    height: 5px;
-    background-color: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.5s ease;
+.hamburger > div {
+  position: relative;
+  width: 100%;
+  height: 5px;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease;
 }
 
 .hamburger > div:before,
 .hamburger > div:after {
-    content: '';
-    position: absolute;
-    z-index: 1;
-    top: -10px;
-    width: 100%;
-    height: 5px;
-    background: inherit;
-
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: -12px;
+  width: 100%;
+  height: 5px;
+  background: inherit;
 }
 
 .hamburger > div:after {
-    top: 10px;
+  top: 12px;
 }
 
-.active + .hamburger > div{
-    transform: rotate(135deg);
-    background-color: white;
-
+.active + .hamburger > div {
+  transform: rotate(135deg);
+  background-color: white;
 }
 
 .active + .hamburger > div:before,
 .active + .hamburger > div:after {
-    top: 0;
-    transform: rotate(90deg);
-    background-color: white;
+  top: 0;
+  transform: rotate(90deg);
+  background-color: white;
 }
 
 .active:hover + .hamburger > div {
-    transform: rotate(225deg);
+  transform: rotate(225deg);
 }
 
 .menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    visibility: hidden;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .menu > div {
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 50%;
-    width: 200vw;
-    height: 200vw;
-    display: flex;
-    flex: none;
-    align-items: center;
-    justify-content: center;
-    transform: scale(0);
-    transition: all 0.2s ease;
-
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  width: 200vw;
+  height: 200vw;
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0);
+  transition: all 0.2s ease;
 }
 
 .menu > div > div {
-    border-radius: 50%;
-    text-align: center;
-    width: 100vw;
-    max-height: 100vh;
-    opacity: 0;
-    transition: all 0.4s ease;
-    
+  border-radius: 50%;
+  text-align: center;
+  width: 100vw;
+  max-height: 100vh;
+  opacity: 0;
+  transition: all 0.4s ease;
 }
 
 .active ~ .menu {
-    visibility: visible;
+  visibility: visible;
 }
 
-
-.active ~ .menu > div{
-    transform: scale(1);
-    transition-duration: .75s;
+.active ~ .menu > div {
+  transform: scale(1);
+  transition-duration: 0.75s;
 }
 
-.active ~ .menu > div > div{
-    opacity: 1;
-    transition: opacity 0.4s ease;
+.active ~ .menu > div > div {
+  opacity: 1;
+  transition: opacity 0.4s ease;
 }
 
 @media only screen and (max-width: 600px) {
-    
-
-
-
-
 }
