@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { getToken } from "../User/userSlice";
 
 export const getEvents = createAsyncThunk(
   "event/getEvents",
@@ -115,7 +114,7 @@ export const EventSlice = createSlice({
 
     [getEvents.rejected]: (state, { payload }) => {
       state.getEventsStatus = "rejected";
-      // state.message = payload.status.message;
+      state.message = payload.status.message;
     },
 
     // [addEvent.pending]: (state) => {

@@ -17,18 +17,22 @@
 }
 
 .contactTitle {
-  font-size: 1.5rem;
+  text-decoration: underline;
   font-weight: bold;
   padding-top: 5%;
   padding-bottom: 5%;
 }
 
 .contactDetails {
-  padding: 5% 0;
+  padding-bottom: 2%;
 }
 
 .contactName {
   font-weight: bold;
+}
+
+.contactDetails a {
+  font-size: small;
 }
 
 @media only screen and (max-width: 600px) {

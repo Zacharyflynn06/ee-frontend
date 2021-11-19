@@ -54,23 +54,10 @@ function App() {
 
         <Switch>
           <Route exact path="/" component={Home} />
-          {/* Static */}
           <Route exact path="/about" component={About} />
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/music" component={Music} />
-          {/* Event */}
           <Route exact path="/tour" component={EventContainer} />
-          <Route exact path="/tour/events/:id" component={ShowEvent} />
-          <Route exact path="/about" component={About} />
-          <Route exact path="/contact" component={Contact} />
-          <Route exact path="/music" component={Music} />
-          {/* Event */}
-          <Route exact path="/tour" component={EventContainer} />
-          <Route exact path="/tour/events/:id" component={ShowEvent} />
-          {/* User */}
-          {/* Shop */}
-          {/* <Route exact path="/shop" component={WithAuth(ShopContainer)} />
-              <Route exact path="/shop/products/:id" component={WithAuth(ShowProduct)} /> */}
           <Route component={Error} />
         </Switch>
         <Footer />
