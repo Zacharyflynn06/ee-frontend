@@ -17,7 +17,7 @@ import Footer from "./features/footer/Footer";
 // Event
 import EventContainer from "./features/event/EventsContainer";
 // import EventForm from "./features/event/EventForm";
-import ShowEvent from "./features/event/ShowEvent";
+// import ShowEvent from "./features/event/ShowEvent";
 // User
 
 // import Signup from "./features/User/Signup";

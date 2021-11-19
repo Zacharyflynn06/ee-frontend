@@ -1,9 +1,9 @@
 import style from "./Events.module.css";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 
 const EventCard = (props) => {
   // debugger;
-  const { datetime, lineup, offers, id, venue } = props.event;
+  const { datetime, offers, venue } = props.event;
 
   const dateObj = new Date(datetime).toLocaleDateString("en-us", {
     year: "numeric",
