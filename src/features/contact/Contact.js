@@ -36,6 +36,14 @@ const Contact = () => {
           <div className={style.contactName}>Tynan Conroy</div>
           <a href="mailto:tynan@mindwarpmgmt.com">tynan@mindwarpmgmt.com</a>
         </div>
+
+        <div className={style.contactTitle}>
+          <h2>Business Manager</h2>
+        </div>
+        <div className={style.contactDetails}>
+          <div className={style.contactName}>Jason Morris</div>
+          <a href="jason@eminenceensemble.com">jason@eminenceensemble.com</a>
+        </div>
       </div>
     </div>
   );
