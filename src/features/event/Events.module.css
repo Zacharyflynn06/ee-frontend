@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .eventsTable {
@@ -17,17 +17,17 @@
   background-color: rgba(255, 255, 255, 0.4);
   padding: 2%;
   box-shadow: 5px 5px 5px #222222;
+  margin-bottom: 10%;
 }
 
 .eventCard {
   display: flex;
-  padding: 2rem;
+  padding: 1.5rem;
   justify-content: space-evenly;
 }
 
 .eventCard:hover {
   background-color: rgba(0, 0, 0, 0.25);
-  border-radius: 0.5em;
 }
 
 .eventDescription {
@@ -110,7 +110,7 @@ a {
   text-align: center;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1000px) {
   .eventCard {
     flex-direction: column;
     justify-content: space-between;

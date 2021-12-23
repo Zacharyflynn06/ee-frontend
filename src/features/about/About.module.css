@@ -67,7 +67,7 @@
   border-radius: 0.5em;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1000px) {
   .aboutContainer {
     display: flex;
     flex-direction: column;

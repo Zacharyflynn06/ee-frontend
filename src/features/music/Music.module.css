@@ -66,7 +66,7 @@
   color: #ff0000;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1000px) {
   .links {
     display: flex;
     flex-wrap: wrap;
