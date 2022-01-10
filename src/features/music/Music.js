@@ -7,9 +7,7 @@ const Music = (props) => {
       <h1>Music</h1>
 
       <div className={style.linkContainer}>
-        <h2 className={style.linkTitle}>
-          New EP Available: "Dont Hold Your Breath"
-        </h2>
+        <h2 className={style.linkTitle}>"Dont Hold Your Breath" EP Out Now!</h2>
 
         <div className={style.links}>
           <div className={style.bandcamp}>

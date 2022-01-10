@@ -1,7 +1,7 @@
 import NavBar from "../navbar/NavBar";
 import style from "./Home.module.css";
 import white from "./white.png";
-import video from "./video.mp4";
+import newVideo from "./newVideo.mp4";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -17,7 +17,7 @@ const Home = (props) => {
         loop="loop"
         className={style.video}
       >
-        <source src={video} type="video/mp4" />
+        <source src={newVideo} type="video/mp4" />
         <p>your browser doesn't support this video</p>
       </video>
 
