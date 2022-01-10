@@ -7,17 +7,20 @@
 
 .eventsTable {
   display: block;
-  /* width: 75%;
-  border: 0.1em solid #ffffff;
-  width: 85%;
-  border-radius: 0.5em;
-  background-color: rgba(0, 0, 0, 0.1); */
+
   width: 75%;
   border-radius: 0.5em;
   background-color: rgba(255, 255, 255, 0.4);
   padding: 2%;
   box-shadow: 5px 5px 5px #222222;
   margin-bottom: 10%;
+}
+
+.image {
+  width: 60%;
+  box-shadow: 5px 5px 5px #222222;
+  border-radius: 0.5em;
+  margin-bottom: 5%;
 }
 
 .eventCard {
@@ -150,5 +153,8 @@ a {
 
   .noEvents {
     width: 90%;
+  }
+  .image {
+    width: 75%;
   }
 }

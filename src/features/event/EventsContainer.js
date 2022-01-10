@@ -4,8 +4,7 @@ import { eventSelector } from "./EventSlice";
 import { userSelector } from "../User/userSlice";
 import { useSelector } from "react-redux";
 import EventCard from "./EventCard";
-import { NavLink } from "react-router-dom";
-
+// import { NavLink } from "react-router-dom";
 const EventContainer = () => {
   const { admin } = useSelector(userSelector);
   const { status, events } = useSelector(eventSelector);
@@ -13,27 +12,33 @@ const EventContainer = () => {
   if (status === "loading") {
     return <Loading />;
   } else {
-    const checkAdmin = () => {
-      if (admin) {
-        return (
-          <div>
-            <NavLink to={"/tour/events/new"}>
-              <input type="button" value="Add Event" />
-            </NavLink>
-          </div>
-        );
-      }
-    };
+    // const checkAdmin = () => {
+    //   if (admin) {
+    //     return (
+    //       <div>
+    //         <NavLink to={"/tour/events/new"}>
+    //           <input type="button" value="Add Event" />
+    //         </NavLink>
+    //       </div>
+    //     );
+    //   }
+    // };
     if (events.length >= 1) {
       return (
         <div className={style.eventsContainer}>
           <h1>Tour Dates</h1>
+          <img
+            className={style.image}
+            src={process.env.PUBLIC_URL + "images/tourDates.png"}
+            alt="press-shot"
+          />
           <div className={style.eventsTable}>
             {events.map((event) => (
               <EventCard event={event} key={event.id} />
             ))}
           </div>
-          {checkAdmin()}
+
+          {/* {checkAdmin()} */}
         </div>
       );
     } else {

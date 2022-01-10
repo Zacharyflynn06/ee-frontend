@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  margin-bottom: 10%;
 }
 
 .linkContainer {
@@ -24,7 +24,7 @@
 }
 
 .linkTitle {
-  font-size: 2rem;
+  font-size: 1.5rem;
   padding-bottom: 5%;
   font-weight: bold;
 }
@@ -65,6 +65,13 @@
 .youtube a:hover {
   color: #ff0000;
 }
+.image {
+  width: 60%;
+  box-shadow: 5px 5px 5px #222222;
+  border-radius: 0.5em;
+
+  margin-top: 5%;
+}
 
 @media only screen and (max-width: 1000px) {
   .links {
@@ -84,10 +91,6 @@
 
   .linkContainer {
     width: 95%;
-  }
-
-  .linkTitle {
-    font-size: 7vw;
   }
 
   /* .apple a {

@@ -22,11 +22,14 @@ const EventCard = (props) => {
         </div>
         {/* </NavLink> */}
       </div>
-      <div className={style.eventLink}>
-        <a target="_blank" rel="noreferrer" href={offers[0].url}>
-          Tickets
-        </a>
-      </div>
+      <a
+        className={style.eventLink}
+        target="_blank"
+        rel="noreferrer"
+        href={offers[0].url}
+      >
+        Tickets
+      </a>
     </div>
   );
 };

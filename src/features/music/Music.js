@@ -5,10 +5,12 @@ const Music = (props) => {
   return (
     <div className={style.musicContainer}>
       <h1>Music</h1>
+
       <div className={style.linkContainer}>
-        <div className={style.linkTitle}>
-          <h2>Listen Now!</h2>
-        </div>
+        <h2 className={style.linkTitle}>
+          New EP Available: "Dont Hold Your Breath"
+        </h2>
+
         <div className={style.links}>
           <div className={style.bandcamp}>
             <a
@@ -77,6 +79,11 @@ const Music = (props) => {
             </a>
           </div>
         </div>
+        <img
+          className={style.image}
+          src={process.env.PUBLIC_URL + "images/album.jpg"}
+          alt="press-shot"
+        />
       </div>
     </div>
   );
