@@ -71,7 +71,7 @@
 
 .copyright {
   font-weight: bold;
-  font-size: 1.3rem;
+  font-size: .75rem;
 }
 
 .contactContainer {
@@ -80,7 +80,7 @@
   height: 100%;
   align-items: center;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 .contactContainer a {

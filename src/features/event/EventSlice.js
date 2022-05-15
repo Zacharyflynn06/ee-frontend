@@ -109,7 +109,6 @@ export const EventSlice = createSlice({
     [getEvents.fulfilled]: (state, { payload }) => {
       state.getEventsStatus = "complete";
       state.events = payload;
-      console.log(state.events);
     },
 
     [getEvents.rejected]: (state, { payload }) => {
