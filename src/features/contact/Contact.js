@@ -24,7 +24,7 @@ const Contact = () => {
         <div className={style.contactTitle}>
           <h2>Management</h2>
         </div>
-        <div className={style.contactDetails}>
+        {/* <div className={style.contactDetails}>
           <div className={style.contactName}>Taylor Reed</div>
           <a href="tank@mindwarpmgmt.com">tank@mindwarpmgmt.com</a>
         </div>
@@ -35,11 +35,11 @@ const Contact = () => {
         <div className={style.contactDetails}>
           <div className={style.contactName}>Tynan Conroy</div>
           <a href="mailto:tynan@mindwarpmgmt.com">tynan@mindwarpmgmt.com</a>
-        </div>
+        </div> */}
 
-        <div className={style.contactTitle}>
+        {/* <div className={style.contactTitle}>
           <h2>Business Manager</h2>
-        </div>
+        </div> */}
         <div className={style.contactDetails}>
           <div className={style.contactName}>Jason Morris</div>
           <a href="jason@eminenceensemble.com">jason@eminenceensemble.com</a>
