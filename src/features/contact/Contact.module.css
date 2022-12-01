@@ -33,6 +33,7 @@
 
 .contactDetails a {
   font-size: small;
+  text-decoration: underline;
 }
 
 @media only screen and (max-width: 1000px) {

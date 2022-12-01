@@ -49,29 +49,43 @@
   height: 66px;
 }
 .nugs a:hover{
-  color:#ff0000
+  color:#ff0000;
+  transition: ease-in-out;
+  transition-duration: 200ms;
 }
 
 .apple a:hover {
   color: white;
+  transition: ease-in-out;
+  transition-duration: 200ms;
 }
 
 .spotify a:hover {
   color: #1db954;
+  transition: ease-in-out;
+  transition-duration: 200ms;
 }
 
 .amazon a:hover {
   color: #ff9900;
+  transition: ease-in-out;
+  transition-duration: 200ms;
 }
 
 .deezer a:hover {
   color: #ff0092;
+  transition: ease-in-out;
+  transition-duration: 200ms;
 }
 .bandcamp a:hover {
   color: blue;
+  transition: ease-in-out;
+  transition-duration: 200ms;
 }
 .youtube a:hover {
   color: #ff0000;
+  transition: ease-in-out;
+  transition-duration: 200ms;
 }
 .image {
   width: 60%;
