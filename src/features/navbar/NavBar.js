@@ -30,6 +30,15 @@ const NavBar = (props) => {
                     Home
                 </NavLink>
             </div> */}
+
+      <div>
+        <a
+          href="https://www.nugs.net/eminence-ensemble-concerts-live-downloads-in-mp3-flac-or-online-music-streaming/"
+          className={style.navLink}
+        >
+          Live Recordings
+        </a>
+      </div>
       <div>
         {/* <NavLink
                 to="/shop"
