@@ -7,9 +7,25 @@ const Music = (props) => {
       <h1>Music</h1>
 
       <div className={style.linkContainer}>
-        <h2 className={style.linkTitle}>"Dont Hold Your Breath" EP Out Now!</h2>
+        {/* <h2 className={style.linkTitle}>"Dont Hold Your Breath" EP Out Now!</h2> */}
 
         <div className={style.links}>
+          <div className={style.nugs}>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://www.nugs.net/eminence-ensemble-concerts-live-downloads-in-mp3-flac-or-online-music-streaming/"
+            >
+              <img
+                className={style.nugs}
+                src={process.env.PUBLIC_URL + "images/nugs.png"}
+                alt="press-shot"
+              />
+
+              <br />
+              <span>Nugs</span>
+            </a>
+          </div>
           <div className={style.bandcamp}>
             <a
               target="_blank"
@@ -77,11 +93,11 @@ const Music = (props) => {
             </a>
           </div>
         </div>
-        <img
+        {/* <img
           className={style.image}
           src={process.env.PUBLIC_URL + "images/album.jpg"}
           alt="press-shot"
-        />
+        /> */}
       </div>
     </div>
   );

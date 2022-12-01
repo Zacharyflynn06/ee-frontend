@@ -34,7 +34,7 @@
 
 }
 .navContainer div:hover{
-    transform: scale(1.2);
+    transform: scale(102.5%);
 }
 
 @media only screen and (max-width: 600px) {

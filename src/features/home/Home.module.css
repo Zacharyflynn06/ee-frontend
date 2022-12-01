@@ -37,11 +37,17 @@
 }
 
 .linkContainer div:hover {
-  transform: scale(1.2);
+  transform: scale(102.5%);
 }
 
 .linkContainer div a {
   color: white;
+}
+
+.nugs {
+  height: 32px;
+  -webkit-filter: drop-shadow(1px 1px 1px #222222);
+  filter: drop-shadow(1px 1px 1px #222222);
 }
 
 .instagram a:hover {
