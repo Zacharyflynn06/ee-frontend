@@ -6,26 +6,22 @@
 
 body {
   font-family: "Montserrat", sans-serif;
-  background-image: radial-gradient(
-    farthest-corner at 40px 40px,
-    #75d5fd 0%,
-    #43e 100%
-  );
-  background-repeat: no-repeat;
+  background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,209,67,1) 0%, rgba(255,145,83,1) 90% );  background-repeat: no-repeat;
   background-attachment: fixed;
   text-decoration: none;
 }
 
 .App {
   padding-bottom: 15rem;
-  min-height: 100vh;
   position: relative;
+  min-height: 100vh;
+
 }
 
 h1 {
   font-size: 3em;
-  -webkit-filter: drop-shadow(5px 5px 5px #222222);
-  filter: drop-shadow(5px 5px 5px #222222);
+  /* -webkit-filter: drop-shadow(5px 5px 5px #222222);
+  filter: drop-shadow(5px 5px 5px #222222); */
   font-weight: bold;
   padding: 2.5%;
   padding: 5%;

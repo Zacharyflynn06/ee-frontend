@@ -23,7 +23,7 @@ const Footer = () => {
       </div>
       <div className={style.col}>
         <div className={style.copyrightContainer}>
-          <div className={style.copyright}>&copy; Zac Flynn 2022</div>
+          <div className={style.copyright}>&copy; Zac Flynn 2023</div>
         </div>
       </div>
       <div className={style.col}>

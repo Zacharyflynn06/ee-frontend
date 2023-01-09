@@ -10,8 +10,9 @@ const Music = (props) => {
         {/* <h2 className={style.linkTitle}>"Dont Hold Your Breath" EP Out Now!</h2> */}
 
         <div className={style.links}>
-          <div className={style.nugs}>
+          <div >
             <a
+            className={style.nugs}
               target="_blank"
               rel="noreferrer"
               href="https://www.nugs.net/eminence-ensemble-concerts-live-downloads-in-mp3-flac-or-online-music-streaming/"
@@ -21,9 +22,7 @@ const Music = (props) => {
                 src={process.env.PUBLIC_URL + "images/nugs.png"}
                 alt="press-shot"
               />
-
-              <br />
-              <span>Nugs</span>
+              <div>Nugs</div>
             </a>
           </div>
           <div className={style.bandcamp}>
@@ -34,7 +33,7 @@ const Music = (props) => {
             >
               <FontAwesomeIcon icon={["fab", "bandcamp"]} size="4x" />
               <br />
-              <span>Bandcamp</span>
+              <div>Bandcamp</div>
             </a>
           </div>
           <div className={style.apple}>
@@ -45,7 +44,7 @@ const Music = (props) => {
             >
               <FontAwesomeIcon icon={["fab", "apple"]} size="4x" />
               <br />
-              <span>Apple Music</span>
+              <div>Apple Music</div>
             </a>
           </div>
           <div className={style.spotify}>
@@ -56,7 +55,7 @@ const Music = (props) => {
             >
               <FontAwesomeIcon icon={["fab", "spotify"]} size="4x" />
               <br />
-              <span>Spotify</span>
+              <div>Spotify</div>
             </a>
           </div>
           <div className={style.youtube}>
@@ -67,7 +66,7 @@ const Music = (props) => {
             >
               <FontAwesomeIcon icon={["fab", "youtube"]} size="4x" />
               <br />
-              <span>Youtube</span>
+              <div>Youtube</div>
             </a>
           </div>
           <div className={style.amazon}>
@@ -78,7 +77,7 @@ const Music = (props) => {
             >
               <FontAwesomeIcon icon={["fab", "amazon"]} size="4x" />
               <br />
-              <span>Amazon Music</span>
+              <div>Amazon Music</div>
             </a>
           </div>
           <div className={style.deezer}>
@@ -88,16 +87,19 @@ const Music = (props) => {
               href="https://www.deezer.com/en/artist/9422360"
             >
               <FontAwesomeIcon icon={["fab", "deezer"]} size="4x" />
-              <br />
-              <span>Deezer</span>
+              <div>Deezer</div>
             </a>
           </div>
         </div>
-        {/* <img
-          className={style.image}
-          src={process.env.PUBLIC_URL + "images/album.jpg"}
-          alt="press-shot"
-        /> */}
+        <div className={style.featureContainer}>
+          <h2>New Release!</h2>
+          <div>Live From Shakedown Bar</div>
+          <img
+            className={style.image}
+            src={process.env.PUBLIC_URL + "images/emen221216_Album_Art.jpg"}
+            alt="press-shot"
+          />
+        </div>
       </div>
     </div>
   );

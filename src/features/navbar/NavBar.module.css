@@ -17,11 +17,10 @@
 
 .navLink {
 
-    font-size: 3vw;
-    text-decoration: none;
+    font-size: 2rem;
     color: white;
-    -webkit-filter: drop-shadow(5px 5px 5px #222222);
-    filter: drop-shadow(5px 5px 5px #222222);
+    /* -webkit-filter: drop-shadow(5px 5px 5px #222222);
+    filter: drop-shadow(5px 5px 5px #222222); */
     
 }
 
@@ -34,12 +33,12 @@
 
 }
 .navContainer div:hover{
-    transform: scale(102.5%);
+    transform: scale(110%);
     transition: ease-in-out;
     transition-duration: 200ms;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 850px) {
 
     .navContainer {
         display: flex;
@@ -47,19 +46,15 @@
         justify-content: space-evenly;
         text-align: center;
         align-items: center;
-        padding-top: 2em; 
-        padding-bottom: 2em;
-        width: 75%;
-        height: 50%;
+
     }
 
     .navLink {
 
-        font-size: 7.5vw;
-        text-decoration: none;
+        font-size: 2rem;
         color: white;
-        -webkit-filter: drop-shadow(5px 5px 5px #222222);
-        filter: drop-shadow(5px 5px 5px #222222);
+
+        margin-bottom: 2rem;
         
     }
 

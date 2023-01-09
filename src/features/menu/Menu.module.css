@@ -1,14 +1,14 @@
 .menuWrap {
   position: fixed;
-  top: 0;
-  right: 0;
+  top: 2rem;
+  right: 2rem;
   z-index: 1;
 }
 
 .activeMenuWrap {
   position: fixed;
-  top: 0;
-  right: 0;
+  top: 2rem;
+  right: 2rem;
   z-index: 1;
 }
 
@@ -127,5 +127,19 @@
   transition: opacity 0.4s ease;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 750px) {
+  .menuWrap {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1;
+  }
+  
+  .activeMenuWrap {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1;
+  }
+
 }

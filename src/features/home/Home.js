@@ -20,7 +20,7 @@ const Home = (props) => {
         <source src={newVideo} type="video/mp4" />
         <p>your browser doesn't support this video</p>
       </video>
-
+<div className={style.contentContainer}>
       <img className={style.logo} src={white} alt="logo" />
       <NavBar toggleMenu={props.toggleMenu} />
       <div className={style.linkContainer}>
@@ -43,7 +43,7 @@ const Home = (props) => {
             rel="noreferrer"
             href="https://www.instagram.com/eminenceensemble/?hl=en"
           >
-            <FontAwesomeIcon icon={["fab", "instagram"]} size="2x" />
+            <FontAwesomeIcon icon={["fab", "instagram"]} size="3x" />
           </a>
         </div>
         <div className={style.facebook}>
@@ -52,7 +52,7 @@ const Home = (props) => {
             rel="noreferrer"
             href="https://www.facebook.com/EminenceEnsemble"
           >
-            <FontAwesomeIcon icon={["fab", "facebook"]} size="2x" />
+            <FontAwesomeIcon icon={["fab", "facebook"]} size="3x" />
           </a>
         </div>
         <div className={style.twitter}>
@@ -61,7 +61,7 @@ const Home = (props) => {
             rel="noreferrer"
             href="https://twitter.com/eminencerock?lang=en"
           >
-            <FontAwesomeIcon icon={["fab", "twitter"]} size="2x" />
+            <FontAwesomeIcon icon={["fab", "twitter"]} size="3x" />
           </a>
         </div>
         <div className={style.youtube}>
@@ -70,7 +70,7 @@ const Home = (props) => {
             rel="noreferrer"
             href="https://www.youtube.com/channel/UCzGhe6JMn99ZGR9IDNEL4SA"
           >
-            <FontAwesomeIcon icon={["fab", "youtube"]} size="2x" />
+            <FontAwesomeIcon icon={["fab", "youtube"]} size="3x" />
           </a>
         </div>
         <div className={style.spotify}>
@@ -79,7 +79,7 @@ const Home = (props) => {
             rel="noreferrer"
             href="https://open.spotify.com/artist/2gxgPqq1J8gV07X2Q1cIzv"
           >
-            <FontAwesomeIcon icon={["fab", "spotify"]} size="2x" />
+            <FontAwesomeIcon icon={["fab", "spotify"]} size="3x" />
           </a>
         </div>
         <div className={style.apple}>
@@ -88,10 +88,11 @@ const Home = (props) => {
             rel="noreferrer"
             href="https://music.apple.com/us/artist/eminence-ensemble/980075367"
           >
-            <FontAwesomeIcon icon={["fab", "apple"]} size="2x" />
+            <FontAwesomeIcon icon={["fab", "apple"]} size="3x" />
           </a>
         </div>
       </div>
+    </div>
     </div>
   );
 };
