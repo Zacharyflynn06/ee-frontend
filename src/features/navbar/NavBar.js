@@ -39,23 +39,15 @@ const NavBar = (props) => {
           Live Recordings
         </a>
       </div>
-      <div>
-        {/* <NavLink
-                to="/shop"
-                exact
-                className={style.navLink}
-                activeClassName={style.active}
-                onClick={handleToggle}
-            >
-                Shop
-            </NavLink> */}
+      {/* <div>
+
         <a
           href="https://www.eminenceensemblestore.com/"
           className={style.navLink}
         >
           Store
         </a>
-      </div>
+      </div> */}
 
       <div>
         <NavLink

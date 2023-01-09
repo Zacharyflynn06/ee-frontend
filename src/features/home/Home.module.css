@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   position: relative;
 }
 
@@ -118,10 +119,14 @@
 }
 
 @media only screen and (max-width: 850px) {
+  .homeContainer {
+    justify-content: start;
+
+  }
   .logo {
     display: flex;
     width: 15rem;
-
+    
   }
 
   .linkContainer {
