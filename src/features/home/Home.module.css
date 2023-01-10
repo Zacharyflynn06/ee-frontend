@@ -122,11 +122,12 @@
   .homeContainer {
     justify-content: start;
 
+    
   }
   .logo {
     display: flex;
     width: 15rem;
-    
+    margin-top: 5rem;
   }
 
   .linkContainer {
