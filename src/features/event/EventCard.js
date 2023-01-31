@@ -15,11 +15,11 @@ const EventCard = (props) => {
     <div className={style.eventCard}>
       <div className={style.eventDescription}>
         {/* <NavLink to={`/tour/events/${id}`} exact> */}
-        <div className={style.eventDateCell}>{dateObj}</div>
+        <div className={style.eventDateCell}>{dateObj} - {venue.location}</div>
         <div className={style.eventVenueCell}>
           <div className={style.eventVenueName}>{venue.name}</div>
-          <div className={style.eventVenueLocation}>{venue.location}</div>
         </div>
+        <div className={style.eventVenueLocation}></div>
         {/* </NavLink> */}
       </div>
       <a
@@ -30,6 +30,7 @@ const EventCard = (props) => {
       >
         Tickets
       </a>
+      
     </div>
   );
 };
