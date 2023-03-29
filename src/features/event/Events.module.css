@@ -2,15 +2,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
   max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .eventsTable {
-  display: block;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 75%;
   border-radius: 0.5em;
   background-color: rgba(255, 255, 255, 0.4);
@@ -33,15 +33,15 @@
 }
 
 .eventCard:hover {
-  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: 0.5em;
+
+  background-color: rgba(0, 0, 0, 0.05);
   transition: ease-in-out;
   transition-duration: 200ms;
 }
 
 .eventDescription {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  align-items: center;
   width: 80%;
 }
 
@@ -73,26 +73,38 @@ a {
 }
 
 .eventLink {
+  border-radius: 0.5em;
+  height: 4rem;
+  width: 8rem;
   text-decoration: none;
-  display: inline-block;
-  padding: 0.35em 1.2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .5rem ;
   border: 0.1em solid #ffffff;
-  margin: 0 0.3em 0.3em 0;
-  border-radius: 0.12em;
-  box-sizing: border-box;
   text-decoration: none;
   font-weight: bold;
   color: black;
   text-align: center;
   transition: all 0.2s;
+  font-size: larger;
+  font-weight: bolder;
   background-color: white;
   cursor: pointer;
-  height: 2rem;
+  margin-top: auto;
+  margin-bottom: auto;
+
 }
 
 .eventLink:hover {
   color: #000000;
   background-color: #ffffff;
+  scale: 105%;
+}
+.eventLink:active {
+  color: #000000;
+  background-color: #ffffff;
+  scale: 95%;
 }
 
 .eventForm {
