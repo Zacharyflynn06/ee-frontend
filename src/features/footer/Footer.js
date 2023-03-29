@@ -28,9 +28,9 @@ const Footer = () => {
       </div>
       <div className={style.col}>
         <div className={style.contactContainer}>
-          <span>booking:</span>
+          <span>Booking:</span>
           <a href="mailto:Tanner@worldmusicdevelopment.org">
-          Tanner@worldmusicdevelopment.org
+          tanner@worldmusicdevelopment.org
           </a>
         </div>
       </div>
