@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-
+const url= process.env.BIT_SECRET
 export const getEvents = createAsyncThunk(
   "event/getEvents",
   async (thunkAPI) => {
     const response = await fetch(
-      "https://rest.bandsintown.com/artists/eminence%20ensemble/events?app_id=f9e36dae2f212d6716a41f0ca73effe9&date=upcoming"
+      `https://rest.bandsintown.com/artists/eminence%20ensemble/events?app_id=${url}&date=upcoming`
     );
     const data = await response.json();
     if (response.ok) {
