@@ -30,7 +30,18 @@ const NavBar = (props) => {
                     Home
                 </NavLink>
             </div> */}
-
+      <div>
+        <NavLink
+          to="/tour"
+          exact
+          className={style.navLink}
+          activeClassName={style.active}
+          onClick={handleToggle}
+        >
+          Tour
+        </NavLink>
+      </div>
+      
       <div>
         <a
           href="https://www.nugs.net/eminence-ensemble-concerts-live-downloads-in-mp3-flac-or-online-music-streaming/"
@@ -49,17 +60,7 @@ const NavBar = (props) => {
         </a>
       </div> */}
 
-      <div>
-        <NavLink
-          to="/tour"
-          exact
-          className={style.navLink}
-          activeClassName={style.active}
-          onClick={handleToggle}
-        >
-          Tour
-        </NavLink>
-      </div>
+
 
       <div>
         <NavLink
@@ -85,7 +86,7 @@ const NavBar = (props) => {
         </NavLink>
       </div>
 
-      <div>
+      {/* <div>
         <NavLink
           to="/contact"
           exact
@@ -95,7 +96,7 @@ const NavBar = (props) => {
         >
           Contact
         </NavLink>
-      </div>
+      </div> */}
 
       {/* {loggedIn ? (
                     <>
