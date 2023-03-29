@@ -85,6 +85,7 @@
 
 .contactContainer a {
   color: white;
+  margin-bottom: 1rem;
 }
 
 @media only screen and (max-width: 1000px) {

@@ -32,6 +32,10 @@ const Footer = () => {
           <a href="mailto:Tanner@worldmusicdevelopment.org">
           tanner@worldmusicdevelopment.org
           </a>
+          <span>Management:</span>
+          <a href="mailto:Tanner@worldmusicdevelopment.org">
+          kayleigh@eminenceensemble.com
+          </a>
         </div>
       </div>
     </div>
