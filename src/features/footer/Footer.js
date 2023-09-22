@@ -29,6 +29,7 @@ const Footer = () => {
       <div className={style.col}>
         <div className={style.contactContainer}>
           <span>Booking:</span>
+
           <a href="mailto:justin@looseleaftalentagency.com">
             justin@looseleaftalentagency.com
           </a>
