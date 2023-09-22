@@ -29,12 +29,13 @@ const Footer = () => {
       <div className={style.col}>
         <div className={style.contactContainer}>
           <span>Booking:</span>
-          <a href="mailto:Tanner@worldmusicdevelopment.org">
-          tanner@worldmusicdevelopment.org
+
+          <a href="mailto:justin@looseleaftalentagency.com">
+            justin@looseleaftalentagency.com
           </a>
           <span>Management:</span>
-          <a href="mailto:Tanner@worldmusicdevelopment.org">
-          kayleigh@eminenceensemble.com
+          <a href="mailto:kayleigh@eminenceensemble.com">
+            kayleigh@eminenceensemble.com
           </a>
         </div>
       </div>
