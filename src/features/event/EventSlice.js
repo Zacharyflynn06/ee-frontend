@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-const url = process.env.BIT_SECRET;
+// const url = process.env.BIT_SECRET;
 export const getEvents = createAsyncThunk(
   "event/getEvents",
   async (thunkAPI) => {
