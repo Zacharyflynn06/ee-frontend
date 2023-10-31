@@ -46,7 +46,7 @@
 }
 
 .eventDateCell {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 800;
   margin-bottom: 1rem;
 }
@@ -80,7 +80,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: .5rem ;
+  padding: 0.5rem;
   border: 0.1em solid #ffffff;
   text-decoration: none;
   font-weight: bold;
@@ -93,7 +93,6 @@ a {
   cursor: pointer;
   margin-top: auto;
   margin-bottom: auto;
-
 }
 
 .eventLink:hover {
@@ -139,7 +138,6 @@ a {
   background-color: rgba(255, 255, 255, 0.4);
   padding: 5%;
   box-shadow: 5px 5px 5px #222222;
-  
 }
 
 @media only screen and (max-width: 1000px) {
