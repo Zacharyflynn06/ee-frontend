@@ -39,5 +39,8 @@
     "not dead",
     "> 1%",
     "IE 10"
-  ]
+  ],
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  }
 }
