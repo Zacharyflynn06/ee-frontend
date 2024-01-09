@@ -30,6 +30,19 @@ const NavBar = (props) => {
                     Home
                 </NavLink>
             </div> */}
+
+      <div>
+        <NavLink
+          to="/music"
+          exact
+          className={style.navLink}
+          activeClassName={style.active}
+          onClick={handleToggle}
+        >
+          Music
+        </NavLink>
+      </div>
+
       <div>
         <NavLink
           to="/tour"
@@ -69,18 +82,6 @@ const NavBar = (props) => {
           onClick={handleToggle}
         >
           About
-        </NavLink>
-      </div>
-
-      <div>
-        <NavLink
-          to="/music"
-          exact
-          className={style.navLink}
-          activeClassName={style.active}
-          onClick={handleToggle}
-        >
-          Music
         </NavLink>
       </div>
 
