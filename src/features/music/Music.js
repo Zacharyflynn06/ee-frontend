@@ -92,7 +92,12 @@ const Music = (props) => {
             </a>
           </div>
         </div>
-        <div className={style.featureContainer}>
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://open.spotify.com/track/75gCRm1oaUm8MoeNReGY8O?si=ad75326723b94fa0"
+          className={style.featureContainer}
+        >
           <h2>New Release!</h2>
           <div>Flipside</div>
           <img
@@ -100,7 +105,7 @@ const Music = (props) => {
             src={process.env.PUBLIC_URL + "images/Flipside.png"}
             alt="Flipside album art"
           />
-        </div>
+        </a>
       </div>
     </div>
   );
