@@ -1,9 +1,9 @@
 import { NavLink } from "react-router-dom";
 
 import style from "./NavBar.module.css";
+import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 // import { useSelector } from "react-redux";
 // import { userSelector } from "../User/userSlice";
-import { useLocation } from "react-router";
 
 const NavBar = (props) => {
   const location = useLocation();
@@ -41,7 +41,7 @@ const NavBar = (props) => {
           Tour
         </NavLink>
       </div>
-      
+
       <div>
         <a
           href="https://www.nugs.net/eminence-ensemble-concerts-live-downloads-in-mp3-flac-or-online-music-streaming/"
@@ -59,8 +59,6 @@ const NavBar = (props) => {
           Store
         </a>
       </div> */}
-
-
 
       <div>
         <NavLink

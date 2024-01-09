@@ -28,13 +28,12 @@
   margin-top: 5rem;
 }
 
-.featureContainer h2 { 
+.featureContainer h2 {
   font-size: 1.5rem;
 }
 .featureContainer div {
   margin-top: 1rem;
 }
-
 
 .links {
   display: flex;
@@ -56,46 +55,37 @@
   font-size: 100%;
 }
 
-
 .links div:hover {
   transform: scale(102.5%);
-  
 }
 
 .nugs {
   height: 66px;
 }
-.nugs a:hover{
-  color:#ff0000;
-
-}
-
-.apple a:hover {
-  color: white;
-
-}
-
-.spotify a:hover {
-  color: #1db954;
-
-}
-
-.amazon a:hover {
-  color: #ff9900;
-
-}
-
-.deezer a:hover {
-  color: #ff0092;
-
-}
-.bandcamp a:hover {
-  color: blue;
-
-}
-.youtube a:hover {
+.nugs a {
   color: #ff0000;
+}
 
+.apple a {
+  color: white;
+}
+
+.spotify a {
+  color: #1db954;
+}
+
+.amazon a {
+  color: #ff9900;
+}
+
+.deezer a {
+  color: #ff0092;
+}
+.bandcamp a {
+  color: blue;
+}
+.youtube a {
+  color: #ff0000;
 }
 .image {
   width: 60%;
@@ -106,13 +96,9 @@
 }
 
 @media only screen and (max-width: 750px) {
-
-
   .linkContainer {
     width: 95%;
     flex-direction: column-reverse;
-   
-
   }
 
   .featureContainer {
@@ -121,7 +107,6 @@
   }
   .links {
     flex-direction: column;
-    
   }
 
   .links div {
@@ -129,7 +114,6 @@
     margin-top: auto;
     margin-bottom: auto;
   }
-
 
   .links div a {
     display: flex;

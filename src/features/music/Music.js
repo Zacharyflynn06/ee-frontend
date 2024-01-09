@@ -10,9 +10,20 @@ const Music = (props) => {
         {/* <h2 className={style.linkTitle}>"Dont Hold Your Breath" EP Out Now!</h2> */}
 
         <div className={style.links}>
-          <div >
+          <div className={style.spotify}>
             <a
-            className={style.nugs}
+              target="_blank"
+              rel="noreferrer"
+              href="https://open.spotify.com/track/75gCRm1oaUm8MoeNReGY8O?si=ad75326723b94fa0"
+            >
+              <FontAwesomeIcon icon={["fab", "spotify"]} size="4x" />
+              <br />
+              <div>Spotify</div>
+            </a>
+          </div>
+          <div>
+            <a
+              className={style.nugs}
               target="_blank"
               rel="noreferrer"
               href="https://www.nugs.net/eminence-ensemble-concerts-live-downloads-in-mp3-flac-or-online-music-streaming/"
@@ -47,17 +58,7 @@ const Music = (props) => {
               <div>Apple Music</div>
             </a>
           </div>
-          <div className={style.spotify}>
-            <a
-              target="_blank"
-              rel="noreferrer"
-              href="https://open.spotify.com/artist/2gxgPqq1J8gV07X2Q1cIzv"
-            >
-              <FontAwesomeIcon icon={["fab", "spotify"]} size="4x" />
-              <br />
-              <div>Spotify</div>
-            </a>
-          </div>
+
           <div className={style.youtube}>
             <a
               target="_blank"
@@ -93,11 +94,11 @@ const Music = (props) => {
         </div>
         <div className={style.featureContainer}>
           <h2>New Release!</h2>
-          <div>Live From Shakedown Bar</div>
+          <div>Flipside</div>
           <img
             className={style.image}
-            src={process.env.PUBLIC_URL + "images/emen221216_Album_Art.jpg"}
-            alt="press-shot"
+            src={process.env.PUBLIC_URL + "images/Flipside.png"}
+            alt="Flipside album art"
           />
         </div>
       </div>
