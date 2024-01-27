@@ -64,6 +64,11 @@
   transition: ease-in-out;
   transition-duration: 200ms;
 }
+.tiktok a:hover {
+  color: #00f2ea;
+  transition: ease-in-out;
+  transition-duration: 200ms;
+}
 .facebook a:hover {
   color: #4267b2;
   transition: ease-in-out;

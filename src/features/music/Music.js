@@ -21,9 +21,8 @@ const Music = (props) => {
               <div>Spotify</div>
             </a>
           </div>
-          <div>
+          <div className={style.nugs}>
             <a
-              className={style.nugs}
               target="_blank"
               rel="noreferrer"
               href="https://www.nugs.net/eminence-ensemble-concerts-live-downloads-in-mp3-flac-or-online-music-streaming/"

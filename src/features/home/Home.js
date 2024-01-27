@@ -33,6 +33,15 @@ const Home = (props) => {
               <FontAwesomeIcon icon={["fab", "instagram"]} size="3x" />
             </a>
           </div>
+          <div className={style.tiktok}>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://www.tiktok.com/@eminenceensemble"
+            >
+              <FontAwesomeIcon icon={["fab", "tiktok"]} size="3x" />
+            </a>
+          </div>
           <div className={style.facebook}>
             <a
               target="_blank"
@@ -60,6 +69,7 @@ const Home = (props) => {
               <FontAwesomeIcon icon={["fab", "youtube"]} size="3x" />
             </a>
           </div>
+
           <div className={style.spotify}>
             <a
               target="_blank"
