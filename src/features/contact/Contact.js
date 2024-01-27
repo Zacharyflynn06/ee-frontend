@@ -10,6 +10,7 @@ const Contact = () => {
         </div>
 
         <div className={style.contactDetails}>
+          <div className={style.contactName}>Justin Long</div>
           <a href="mailto:justin@looseleaftalentagency.com">
             Justin@looseleaftalentagency.com
           </a>

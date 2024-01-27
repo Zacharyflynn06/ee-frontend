@@ -27,11 +27,7 @@ const EventContainer = () => {
       return (
         <div className={style.eventsContainer}>
           <h1>Tour Dates</h1>
-          {/* <img
-            className={style.image}
-            src={process.env.PUBLIC_URL + "images/tourDates.png"}
-            alt="press-shot"
-          /> */}
+
           <div className={style.eventsTable}>
             {events.map((event) => (
               <EventCard event={event} key={event.id} />

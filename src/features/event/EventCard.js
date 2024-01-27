@@ -16,9 +16,8 @@ const EventCard = (props) => {
     <div className={style.eventCard}>
       <div className={style.eventDescription}>
         {/* <NavLink to={`/tour/events/${id}`} exact> */}
-        <div className={style.eventDateCell}>
-          {venue.location} - {dateObj}
-        </div>
+        <div className={style.eventDateCell}>{venue.location}</div>
+        <div className={style.eventDateCell}>{dateObj}</div>
         <div className={style.eventVenueCell}>
           <div className={style.eventVenueName}>{venue.name}</div>
         </div>
@@ -36,7 +35,14 @@ const EventCard = (props) => {
           Tickets
         </a>
       ) : (
-        <div className={style.eventLink}>Free</div>
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href={offers[0].url}
+          className={style.eventLink}
+        >
+          Free Show
+        </a>
       )}
     </div>
   );

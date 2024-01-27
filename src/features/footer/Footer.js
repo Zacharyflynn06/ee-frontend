@@ -34,8 +34,8 @@ const Footer = () => {
             justin@looseleaftalentagency.com
           </a>
           <span>Management:</span>
-          <a href="mailto:kayleigh@eminenceensemble.com">
-            kayleigh@eminenceensemble.com
+          <a href="mailto:jason@eminenceensemble.com">
+            jason@eminenceensemble.com
           </a>
         </div>
       </div>
