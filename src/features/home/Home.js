@@ -24,19 +24,6 @@ const Home = (props) => {
         <img className={style.logo} src={white} alt="logo" />
         <NavBar toggleMenu={props.toggleMenu} />
         <div className={style.linkContainer}>
-          <div className={style.nugs}>
-            <a
-              target="_blank"
-              rel="noreferrer"
-              href="https://www.nugs.net/eminence-ensemble-concerts-live-downloads-in-mp3-flac-or-online-music-streaming/"
-            >
-              <img
-                className={style.nugs}
-                src={process.env.PUBLIC_URL + "images/nugs.png"}
-                alt="press-shot"
-              />
-            </a>
-          </div>
           <div className={style.instagram}>
             <a
               target="_blank"
