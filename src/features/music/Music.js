@@ -7,8 +7,6 @@ const Music = (props) => {
       <h1>Music</h1>
 
       <div className={style.linkContainer}>
-        {/* <h2 className={style.linkTitle}>"Dont Hold Your Breath" EP Out Now!</h2> */}
-
         <div className={style.links}>
           <div className={style.spotify}>
             <a
@@ -30,7 +28,7 @@ const Music = (props) => {
               <img
                 className={style.nugs}
                 src={process.env.PUBLIC_URL + "images/nugs.png"}
-                alt="press-shot"
+                alt="nugs logo"
               />
               <div>Nugs</div>
             </a>
@@ -97,8 +95,8 @@ const Music = (props) => {
           href="https://open.spotify.com/track/75gCRm1oaUm8MoeNReGY8O?si=ad75326723b94fa0"
           className={style.featureContainer}
         >
-          <h2>New Release!</h2>
-          <div>Flipside</div>
+          <h2>New Release:</h2>
+          <h2>Flipside</h2>
           <img
             className={style.image}
             src={process.env.PUBLIC_URL + "images/Flipside.png"}

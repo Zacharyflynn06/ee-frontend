@@ -15,10 +15,8 @@
   text-align: center;
   flex-direction: column;
   width: 80%;
-  border-radius: 0.5em;
   /* background-color: rgba(255, 255, 255, 0.4); */
   padding: 5%;
-  /* box-shadow: 5px 5px 5px #222222; */
 }
 
 .featureContainer {
@@ -50,6 +48,7 @@
 .links div {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   font-weight: bold;
   font-size: 100%;
@@ -59,8 +58,8 @@
   transform: scale(102.5%);
 }
 
-.nugs {
-  height: 66px;
+.nugs img {
+  height: 64px;
 }
 .nugs a {
   color: #ff0000;
@@ -97,8 +96,13 @@
 
 @media only screen and (max-width: 750px) {
   .linkContainer {
-    width: 95%;
+    width: 100%;
     flex-direction: column-reverse;
+    justify-content: left;
+  }
+
+  .image {
+    width: 100%;
   }
 
   .featureContainer {
@@ -107,21 +111,26 @@
   }
   .links {
     flex-direction: column;
+    justify-content: space-between;
   }
 
   .links div {
     display: flex;
     margin-top: auto;
     margin-bottom: auto;
+    align-items: start;
+    border: white solid 1px;
+    padding: 0.5rem;
+    border-radius: 0.5em;
+    margin-bottom: 1rem;
   }
 
   .links div a {
     display: flex;
-    margin-bottom: 2rem;
   }
   .links div a div {
     margin-left: 2rem;
-    font-size: larger;
+    font-size: 1.5rem;
   }
 
   .linkTitle {
