@@ -21,8 +21,10 @@ const Contact = () => {
         </div>
 
         <div className={style.contactDetails}>
-          <div className={style.contactName}>Jason Morris</div>
-          <a href="jason@eminenceensemble.com">jason@eminenceensemble.com</a>
+          <div className={style.contactName}>Kayleigh Greer</div>
+          <a href="mailto:kayleigh@eminenceensemble.com">
+            kayleigh@eminenceensemble.com
+          </a>
         </div>
       </div>
     </div>
